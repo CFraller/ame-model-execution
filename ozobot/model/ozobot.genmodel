@@ -9,23 +9,41 @@
   <foreignModel>ozobot.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Ozobot" disposableProviderFactory="true" ecorePackage="ozobot.ecore#/">
+    <genDataTypes ecoreDataType="ozobot.ecore#//EColor"/>
+    <genDataTypes ecoreDataType="ozobot.ecore#//ESpeed"/>
     <genClasses ecoreClass="ozobot.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//NamedElement/Name"/>
     </genClasses>
     <genClasses ecoreClass="ozobot.ecore#//Area">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Area/x_size"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Area/y_size"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozobot.ecore#//Area/ozobot"/>
     </genClasses>
     <genClasses ecoreClass="ozobot.ecore#//Ozobot">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Ozobot/x_pos"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Ozobot/y_pos"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Ozobot/z_pos"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozobot.ecore#//Ozobot/transitions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozobot.ecore#//Ozobot/commands"/>
     </genClasses>
-    <genClasses ecoreClass="ozobot.ecore#//Command"/>
-    <genClasses ecoreClass="ozobot.ecore#//Move"/>
-    <genClasses ecoreClass="ozobot.ecore#//Rotate"/>
-    <genClasses ecoreClass="ozobot.ecore#//Light"/>
-    <genClasses ecoreClass="ozobot.ecore#//Wait"/>
+    <genClasses ecoreClass="ozobot.ecore#//Command">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozobot.ecore#//Command/beforeTransition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozobot.ecore#//Command/afterTransition"/>
+    </genClasses>
+    <genClasses ecoreClass="ozobot.ecore#//Move">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Move/x_pos"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Move/y_pos"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Move/speed"/>
+    </genClasses>
+    <genClasses ecoreClass="ozobot.ecore#//Rotate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Rotate/degreeOfRotation"/>
+    </genClasses>
+    <genClasses ecoreClass="ozobot.ecore#//Light">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Light/color"/>
+    </genClasses>
+    <genClasses ecoreClass="ozobot.ecore#//Wait">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Wait/time"/>
+    </genClasses>
     <genClasses ecoreClass="ozobot.ecore#//Start"/>
     <genClasses ecoreClass="ozobot.ecore#//End"/>
     <genClasses ecoreClass="ozobot.ecore#//Transition"/>

@@ -28,13 +28,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="Move" eSuperTypes="#//Command">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="x_pos" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="y_pos" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="speed" eType="#//ESpeed"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="speed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Rotate" eSuperTypes="#//Command">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="degreeOfRotation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Light" eSuperTypes="#//Command">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//EColor"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rgb_red" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rgb_green" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rgb_blue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Wait" eSuperTypes="#//Command">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -42,6 +44,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="Start" eSuperTypes="#//Command"/>
   <eClassifiers xsi:type="ecore:EClass" name="End" eSuperTypes="#//Command"/>
   <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="#//NamedElement"/>
-  <eClassifiers xsi:type="ecore:EDataType" name="EColor" instanceClassName="java.lang.Color"/>
-  <eClassifiers xsi:type="ecore:EDataType" name="ESpeed" instanceTypeName="Speed"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Repeat" eSuperTypes="#//Command">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="count" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="firstCommand" upperBound="-1"
+        eType="#//Command" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lastCommand" upperBound="-1"
+        eType="#//Command" containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

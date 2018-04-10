@@ -9,8 +9,6 @@
   <foreignModel>ozobot.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Ozobot" disposableProviderFactory="true" ecorePackage="ozobot.ecore#/">
-    <genDataTypes ecoreDataType="ozobot.ecore#//EColor"/>
-    <genDataTypes ecoreDataType="ozobot.ecore#//ESpeed"/>
     <genClasses ecoreClass="ozobot.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//NamedElement/Name"/>
     </genClasses>
@@ -39,7 +37,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Rotate/degreeOfRotation"/>
     </genClasses>
     <genClasses ecoreClass="ozobot.ecore#//Light">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Light/color"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Light/rgb_red"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Light/rgb_green"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Light/rgb_blue"/>
     </genClasses>
     <genClasses ecoreClass="ozobot.ecore#//Wait">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Wait/time"/>
@@ -47,5 +47,10 @@
     <genClasses ecoreClass="ozobot.ecore#//Start"/>
     <genClasses ecoreClass="ozobot.ecore#//End"/>
     <genClasses ecoreClass="ozobot.ecore#//Transition"/>
+    <genClasses ecoreClass="ozobot.ecore#//Repeat">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Repeat/count"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozobot.ecore#//Repeat/firstCommand"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozobot.ecore#//Repeat/lastCommand"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

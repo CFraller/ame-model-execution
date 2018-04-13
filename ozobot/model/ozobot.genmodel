@@ -20,18 +20,14 @@
     <genClasses ecoreClass="ozobot.ecore#//Ozobot">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Ozobot/x_pos"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Ozobot/y_pos"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Ozobot/z_pos"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozobot.ecore#//Ozobot/transitions"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozobot.ecore#//Ozobot/commands"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Ozobot/degreeOfRotation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozobot.ecore#//Ozobot/program"/>
     </genClasses>
-    <genClasses ecoreClass="ozobot.ecore#//Command">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozobot.ecore#//Command/beforeTransition"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozobot.ecore#//Command/afterTransition"/>
-    </genClasses>
-    <genClasses ecoreClass="ozobot.ecore#//Move">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Move/x_pos"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Move/y_pos"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Move/speed"/>
+    <genClasses ecoreClass="ozobot.ecore#//Command"/>
+    <genClasses ecoreClass="ozobot.ecore#//MoveTo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//MoveTo/x_pos"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//MoveTo/y_pos"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//MoveTo/velocity"/>
     </genClasses>
     <genClasses ecoreClass="ozobot.ecore#//Rotate">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Rotate/degreeOfRotation"/>
@@ -46,11 +42,16 @@
     </genClasses>
     <genClasses ecoreClass="ozobot.ecore#//Start"/>
     <genClasses ecoreClass="ozobot.ecore#//End"/>
-    <genClasses ecoreClass="ozobot.ecore#//Transition"/>
     <genClasses ecoreClass="ozobot.ecore#//Repeat">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Repeat/count"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozobot.ecore#//Repeat/firstCommand"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozobot.ecore#//Repeat/lastCommand"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozobot.ecore#//Repeat/commands"/>
+    </genClasses>
+    <genClasses ecoreClass="ozobot.ecore#//OzobotProgram">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozobot.ecore#//OzobotProgram/commandSet"/>
+    </genClasses>
+    <genClasses ecoreClass="ozobot.ecore#//Move">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Move/distance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozobot.ecore#//Move/velocity"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

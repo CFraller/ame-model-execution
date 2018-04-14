@@ -6,24 +6,47 @@
     xmlns:model="http://www.example.org/model"
     xsi:schemaLocation="http://www.example.org/model ../ozobot.model/model/model.ecore">
   <commandSet
-      xsi:type="model:Move"/>
+      xsi:type="model:Move"
+      name="Move1"
+      distance="10"
+      velocity="5.0"/>
   <commandSet
-      xsi:type="model:Light"/>
+      xsi:type="model:Light"
+      name="Light1"
+      color="red"/>
   <commandSet
-      xsi:type="model:Rotate"/>
+      xsi:type="model:Rotate"
+      name="Rotate1"
+      degreeOfRotation="90.0"/>
   <commandSet
-      xsi:type="model:Repeat">
+      xsi:type="model:Repeat"
+      name="Repeat1"
+      count="2">
     <repeatCommands
-        xsi:type="model:Move"/>
+        xsi:type="model:Move"
+        name="Move1_Repeat1"
+        distance="10"
+        velocity="2.0"/>
     <repeatCommands
-        xsi:type="model:Light"/>
+        xsi:type="model:Light"
+        name="Light1_Repeat1"
+        color="green"/>
     <repeatCommands
-        xsi:type="model:Rotate"/>
+        xsi:type="model:Rotate"
+        name="Rotate1_Repeat1"
+        degreeOfRotation="45.0"/>
     <repeatCommands
-        xsi:type="model:Wait"/>
+        xsi:type="model:Wait"
+        name="Wait_Repeat1"
+        time="50"/>
   </commandSet>
   <commandSet
-      xsi:type="model:Move"/>
+      xsi:type="model:Move"
+      name="Move2"
+      distance="15"
+      velocity="3.0"/>
   <commandSet
-      xsi:type="model:Wait"/>
+      xsi:type="model:Wait"
+      name="Wait2"
+      time="40"/>
 </model:OzobotProgram>

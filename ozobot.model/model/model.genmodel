@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/ozobot.model/src-gen" creationIcons="false" editDirectory="/ozobot.model.edit/src-gen"
+    editorDirectory="/ozobot.model.editor/src-gen" modelPluginID="ozobot.model" modelName="Model"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>model.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Model" basePackage="ozobot" disposableProviderFactory="true"
+      ecorePackage="model.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="model.ecore#//Color">
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//Color/none"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//Color/red"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//Color/green"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//Color/blue"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//Color/yellow"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="model.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//OzobotProgram">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//OzobotProgram/commandSet"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//Command"/>
+    <genClasses ecoreClass="model.ecore#//MoveTo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//MoveTo/x_position"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//MoveTo/y_position"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//MoveTo/velocity"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Move">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Move/distance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Move/velocity"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Light">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Light/color"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Rotate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Rotate/degreeOfRotation"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Wait">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Wait/time"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Repeat">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Repeat/count"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Repeat/repeatCommands"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

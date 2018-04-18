@@ -8,19 +8,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="commandSet" upperBound="-1"
         eType="#//Command" containment="true"/>
   </eClassifiers>
-<<<<<<< HEAD
-  <eClassifiers xsi:type="ecore:EClass" name="Command" abstract="true" eSuperTypes="#//NamedElement"/>
-=======
   <eClassifiers xsi:type="ecore:EClass" name="Command" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="MoveTo" eSuperTypes="#//Command">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x_position" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloatObject"
-        defaultValueLiteral="0"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y_position" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloatObject"
-        defaultValueLiteral="0"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="velocity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloatObject"
-        defaultValueLiteral="0"/>
-  </eClassifiers>
->>>>>>> 7798f6256824f83e712feb68ebec0dbcaa876897
   <eClassifiers xsi:type="ecore:EClass" name="Move" eSuperTypes="#//Command">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="distance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="0"/>

@@ -12,8 +12,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Move" eSuperTypes="#//Command">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="distance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="0"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="velocity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloatObject"
-        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="velocity" eType="#//Velocity"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Light" eSuperTypes="#//Command">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//Color"/>
@@ -22,8 +21,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="angle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloatObject"
         defaultValueLiteral="0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" eType="#//Direction"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="speed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloatObject"
-        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="speed" eType="#//Velocity"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Wait" eSuperTypes="#//Command">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
@@ -45,5 +43,12 @@
   <eClassifiers xsi:type="ecore:EEnum" name="Direction">
     <eLiterals name="left" literal="Left"/>
     <eLiterals name="right" value="1" literal="Right"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Velocity">
+    <eLiterals name="very slow"/>
+    <eLiterals name="slow" value="1"/>
+    <eLiterals name="medium" value="2"/>
+    <eLiterals name="fast" value="3"/>
+    <eLiterals name="very fast" value="4"/>
   </eClassifiers>
 </ecore:EPackage>

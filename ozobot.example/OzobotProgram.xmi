@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:OzobotProgram
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:model="http://www.example.org/model"
+    xsi:schemaLocation="http://www.example.org/model ../ozobot.model/model/model.ecore"
+    name="FirstProgram">
+  <commandSet
+      xsi:type="model:Move"
+      distance="100"
+      velocity="2.0"/>
+  <commandSet
+      xsi:type="model:Rotate"
+      degreeOfRotation="45.0"/>
+  <commandSet
+      xsi:type="model:Wait"
+      time="15"/>
+  <commandSet
+      xsi:type="model:Move"
+      distance="30"
+      velocity="2.0"/>
+  <commandSet
+      xsi:type="model:Repeat"
+      count="2">
+    <repeatCommands
+        xsi:type="model:Move"
+        distance="15"
+        velocity="1.0"/>
+    <repeatCommands
+        xsi:type="model:Light"
+        color="red"/>
+    <repeatCommands
+        xsi:type="model:Wait"
+        time="15"/>
+    <repeatCommands
+        xsi:type="model:Move"
+        distance="45"
+        velocity="2.0"/>
+  </commandSet>
+  <commandSet
+      xsi:type="model:Move"
+      distance="30"
+      velocity="1.0"/>
+  <commandSet
+      xsi:type="model:Light"/>
+  <commandSet
+      xsi:type="model:Wait"
+      time="10"/>
+  <commandSet
+      xsi:type="model:Move"
+      distance="10"
+      velocity="2.0"/>
+</model:OzobotProgram>

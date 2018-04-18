@@ -65,10 +65,10 @@ def move(distance,velocity):
     print(xCurrentPos)
     print(yCurrentPos)
     print(angle)
-    
+  
 ozobot = bge.logic.getCurrentScene().objects["Ozobot"]
+        
 #rotate("Left",3,270)
 #rotate("Right",1,90)
 #rotate("Right",5,360)
-
 move(20,5)

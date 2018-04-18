@@ -43,9 +43,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Light/color"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//Rotate">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Rotate/angle"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Rotate/direction"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Rotate/speed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Rotate/velocity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Rotate/angle"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//Wait">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Wait/time"/>

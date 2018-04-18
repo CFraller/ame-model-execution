@@ -17,6 +17,10 @@
       <genEnumLiterals ecoreEnumLiteral="model.ecore#//Color/blue"/>
       <genEnumLiterals ecoreEnumLiteral="model.ecore#//Color/yellow"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="model.ecore#//Direction">
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//Direction/left"/>
+      <genEnumLiterals ecoreEnumLiteral="model.ecore#//Direction/right"/>
+    </genEnums>
     <genClasses image="false" ecoreClass="model.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//NamedElement/name"/>
     </genClasses>
@@ -24,11 +28,6 @@
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//OzobotProgram/commandSet"/>
     </genClasses>
     <genClasses image="false" ecoreClass="model.ecore#//Command"/>
-    <genClasses ecoreClass="model.ecore#//MoveTo">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//MoveTo/x_position"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//MoveTo/y_position"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//MoveTo/velocity"/>
-    </genClasses>
     <genClasses ecoreClass="model.ecore#//Move">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Move/distance"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Move/velocity"/>
@@ -37,7 +36,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Light/color"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//Rotate">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Rotate/degreeOfRotation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Rotate/angle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Rotate/direction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Rotate/speed"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//Wait">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Wait/time"/>

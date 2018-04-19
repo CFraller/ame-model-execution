@@ -1,48 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" name="ozobot" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="ozobot" version="12.0.0.2017041100">
   <ownedViewpoints name="ozobotmodel">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Ozobot" initialisation="true" domainClass="model::Ozobot" enablePopupBars="true">
       <metamodel href="../../ozobot.model/model/model.ecore#/"/>
       <defaultLayer name="Default">
         <containerMappings name="OzobotProgram" semanticCandidatesExpression="feature:programs" domainClass="model::OzobotProgram">
-          <subNodeMappings name="Move" semanticCandidatesExpression="feature:eAllContents" domainClass="model:Move"/>
-          <subNodeMappings name="Rotate" semanticCandidatesExpression="feature:eAllContents" domainClass="model::Rotate"/>
-          <subNodeMappings name="Wait" semanticCandidatesExpression="feature:eAllContents" domainClass="model::Wait"/>
-          <subNodeMappings name="Light" semanticCandidatesExpression="feature:eAllContents" domainClass="model::Light"/>
-          <subContainerMappings name="Repeat" semanticCandidatesExpression="feature:eAllContents" domainClass="model::Repeat"/>
+          <subContainerMappings name="Block" semanticCandidatesExpression="feature:block" domainClass="model::Block">
+            <subNodeMappings name="Move" semanticCandidatesExpression="feature:commands" domainClass="model::Move">
+              <style xsi:type="style:BundledImageDescription" labelPosition="node" resizeKind="NSEW" shape="stroke">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="Rotate" semanticCandidatesExpression="feature:commands" domainClass="model::Rotate"/>
+            <subNodeMappings name="Wait" semanticCandidatesExpression="feature:commands" domainClass="model::Wait"/>
+            <subNodeMappings name="Light" semanticCandidatesExpression="feature:commands" domainClass="model::Light"/>
+            <subContainerMappings name="Repeat" semanticCandidatesExpression="feature:commands" domainClass="model::Repeat"/>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
         </containerMappings>
         <toolSections name="Ozobot">
           <ownedTools xsi:type="tool:ContainerCreationDescription" name="OzobotProgram" containerMappings="//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
-            <initialOperation/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="model::OzobotProgram" referenceName="programs">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['OzobotProgram'/]"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
           </ownedTools>
         </toolSections>
         <toolSections name="Command">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Move" nodeMappings="//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subNodeMappings[name='Move']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Move" nodeMappings="//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Move']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="model::Move" referenceName="commands">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Move'/]"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Wait" nodeMappings="//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Wait']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation/>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Wait" nodeMappings="//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subNodeMappings[name='Wait']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Light" nodeMappings="//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Light']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation/>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Light" nodeMappings="//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subNodeMappings[name='Light']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Rotate" nodeMappings="//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Rotate']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation/>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Rotate" nodeMappings="//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subNodeMappings[name='Rotate']">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Repeat" containerMappings="//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subContainerMappings[name='Repeat']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation/>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Repeat" containerMappings="//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Repeat']">
+        </toolSections>
+        <toolSections name="Block">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Block" containerMappings="//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
-            <initialOperation/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="model::Block" referenceName="block">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Block'/]"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
           </ownedTools>
         </toolSections>
       </defaultLayer>

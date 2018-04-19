@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Ozobot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://www.example.org/model" xsi:schemaLocation="http://www.example.org/model ../ozobot.model/model/model.ecore" name="Ozobot">
+  <programs name="OzobotProgram">
+    <block>
+      <commands xsi:type="model:Move"/>
+    </block>
+  </programs>
+  <programs name="OzobotProgram"/>
+</model:Ozobot>

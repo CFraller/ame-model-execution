@@ -54,11 +54,11 @@
     <eLiterals name="right" value="1" literal="Right"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Velocity">
-    <eLiterals name="very slow"/>
+    <eLiterals name="very_slow"/>
     <eLiterals name="slow" value="1"/>
     <eLiterals name="medium" value="2"/>
     <eLiterals name="fast" value="3"/>
-    <eLiterals name="very fast" value="4"/>
+    <eLiterals name="very_fast" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Ozobot" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="programs" upperBound="-1"

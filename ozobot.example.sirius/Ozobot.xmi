@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model:Ozobot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://www.example.org/model" xsi:schemaLocation="http://www.example.org/model ../ozobot.model/model/model.ecore" name="Ozobot">
+<model:Ozobot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://www.example.org/model" xsi:schemaLocation="http://www.example.org/model ../ozobot.model/model/model.ecore">
   <programs name="OzobotProgram">
     <block>
-      <commands xsi:type="model:Move"/>
+      <commands xsi:type="model:Move" outgoing="//@programs.0/@block/@transitions.0"/>
+      <commands xsi:type="model:Wait" outgoing="//@programs.0/@block/@transitions.1" incoming="//@programs.0/@block/@transitions.0"/>
+      <commands xsi:type="model:Rotate" outgoing="//@programs.0/@block/@transitions.2" incoming="//@programs.0/@block/@transitions.1"/>
+      <commands xsi:type="model:Repeat">
+        <block>
+          <commands xsi:type="model:Move" outgoing="//@programs.0/@block/@commands.3/@block/@transitions.0" incoming="//@programs.0/@block/@transitions.2"/>
+          <commands xsi:type="model:Wait" outgoing="//@programs.0/@block/@commands.3/@block/@transitions.1" incoming="//@programs.0/@block/@commands.3/@block/@transitions.0"/>
+          <commands xsi:type="model:Light" incoming="//@programs.0/@block/@commands.3/@block/@transitions.1"/>
+          <transitions source="//@programs.0/@block/@commands.3/@block/@commands.0" target="//@programs.0/@block/@commands.3/@block/@commands.1"/>
+          <transitions source="//@programs.0/@block/@commands.3/@block/@commands.1" target="//@programs.0/@block/@commands.3/@block/@commands.2"/>
+        </block>
+      </commands>
+      <transitions source="//@programs.0/@block/@commands.0" target="//@programs.0/@block/@commands.1"/>
+      <transitions source="//@programs.0/@block/@commands.1" target="//@programs.0/@block/@commands.2"/>
+      <transitions source="//@programs.0/@block/@commands.2" target="//@programs.0/@block/@commands.3/@block/@commands.0"/>
     </block>
   </programs>
-  <programs name="OzobotProgram"/>
 </model:Ozobot>

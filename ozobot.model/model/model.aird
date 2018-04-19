@@ -592,7 +592,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_LIMpAEMJEeiTfeBOMQLYww" name="velocity : Velocity = very slow" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_LIMpAEMJEeiTfeBOMQLYww" name="velocity : Velocity = very_slow" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="model.ecore#//Move/velocity"/>
         <semanticElements xmi:type="ecore:EAttribute" href="model.ecore#//Move/velocity"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_MoL1EEMJEeiTfeBOMQLYww" labelAlignment="LEFT">
@@ -638,7 +638,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_WuiaAEMJEeiTfeBOMQLYww" name="velocity : Velocity = very slow" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_WuiaAEMJEeiTfeBOMQLYww" name="velocity : Velocity = very_slow" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="model.ecore#//Rotate/velocity"/>
         <semanticElements xmi:type="ecore:EAttribute" href="model.ecore#//Rotate/velocity"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_YRCukEMJEeiTfeBOMQLYww" labelAlignment="LEFT">
@@ -861,9 +861,9 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_COT3MEMJEeiTfeBOMQLYww" name="very slow" tooltipText="">
-        <target xmi:type="ecore:EEnumLiteral" href="model.ecore#//Velocity/very%20slow"/>
-        <semanticElements xmi:type="ecore:EEnumLiteral" href="model.ecore#//Velocity/very%20slow"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_COT3MEMJEeiTfeBOMQLYww" name="very_slow" tooltipText="">
+        <target xmi:type="ecore:EEnumLiteral" href="model.ecore#//Velocity/very_slow"/>
+        <semanticElements xmi:type="ecore:EEnumLiteral" href="model.ecore#//Velocity/very_slow"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_COUeQEMJEeiTfeBOMQLYww" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
         </ownedStyle>
@@ -893,9 +893,9 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_FvgGAEMJEeiTfeBOMQLYww" name="very fast" tooltipText="">
-        <target xmi:type="ecore:EEnumLiteral" href="model.ecore#//Velocity/very%20fast"/>
-        <semanticElements xmi:type="ecore:EEnumLiteral" href="model.ecore#//Velocity/very%20fast"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_FvgGAEMJEeiTfeBOMQLYww" name="very_fast" tooltipText="">
+        <target xmi:type="ecore:EEnumLiteral" href="model.ecore#//Velocity/very_fast"/>
+        <semanticElements xmi:type="ecore:EEnumLiteral" href="model.ecore#//Velocity/very_fast"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_FvgtEEMJEeiTfeBOMQLYww" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
         </ownedStyle>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Ozobot
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:model="http://www.example.org/model"
+    xsi:schemaLocation="http://www.example.org/model ../ozobot.model/model/model.ecore">
+  <programs>
+    <block>
+      <commands
+          xsi:type="model:Move"/>
+      <commands
+          xsi:type="model:Light"/>
+      <commands
+          xsi:type="model:Wait"/>
+      <commands
+          xsi:type="model:Repeat">
+        <block>
+          <commands
+              xsi:type="model:Light"/>
+          <commands
+              xsi:type="model:Move"/>
+        </block>
+      </commands>
+    </block>
+  </programs>
+</model:Ozobot>

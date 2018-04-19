@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" name="ozobot" version="12.0.0.2017041100">
+  <ownedViewpoints name="ozobotmodel">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Ozobot" initialisation="true" domainClass="model::Ozobot" enablePopupBars="true">
+      <metamodel href="../../ozobot.model/model/model.ecore#/"/>
+      <defaultLayer name="Default">
+        <containerMappings name="OzobotProgram" semanticCandidatesExpression="feature:programs" domainClass="model::OzobotProgram">
+          <subNodeMappings name="Move" semanticCandidatesExpression="feature:eAllContents" domainClass="model:Move"/>
+          <subNodeMappings name="Rotate" semanticCandidatesExpression="feature:eAllContents" domainClass="model::Rotate"/>
+          <subNodeMappings name="Wait" semanticCandidatesExpression="feature:eAllContents" domainClass="model::Wait"/>
+          <subNodeMappings name="Light" semanticCandidatesExpression="feature:eAllContents" domainClass="model::Light"/>
+          <subContainerMappings name="Repeat" semanticCandidatesExpression="feature:eAllContents" domainClass="model::Repeat"/>
+        </containerMappings>
+        <toolSections name="Ozobot">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="OzobotProgram" containerMappings="//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Command">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Move" nodeMappings="//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subNodeMappings[name='Move']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Wait" nodeMappings="//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subNodeMappings[name='Wait']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Light" nodeMappings="//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subNodeMappings[name='Light']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Rotate" nodeMappings="//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subNodeMappings[name='Rotate']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Repeat" containerMappings="//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Repeat']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="ozobot.design.Services"/>
+  </ownedViewpoints>
+</description:Group>

@@ -93,8 +93,9 @@ public class WaitItemProvider extends CommandItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Wait wait = (Wait) object;
-		return getString("_UI_Wait_type") + " " + wait.getTime();
+		String label = ((Wait) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_Wait_type")
+				: getString("_UI_Wait_type") + " " + label;
 	}
 
 	/**

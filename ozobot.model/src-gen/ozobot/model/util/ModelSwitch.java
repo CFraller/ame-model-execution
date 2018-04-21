@@ -86,6 +86,8 @@ public class ModelSwitch<T> extends Switch<T> {
 			Command command = (Command) theEObject;
 			T result = caseCommand(command);
 			if (result == null)
+				result = caseNamedElement(command);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -94,6 +96,8 @@ public class ModelSwitch<T> extends Switch<T> {
 			T result = caseMove(move);
 			if (result == null)
 				result = caseCommand(move);
+			if (result == null)
+				result = caseNamedElement(move);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -104,6 +108,8 @@ public class ModelSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseCommand(light);
 			if (result == null)
+				result = caseNamedElement(light);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -112,6 +118,8 @@ public class ModelSwitch<T> extends Switch<T> {
 			T result = caseRotate(rotate);
 			if (result == null)
 				result = caseCommand(rotate);
+			if (result == null)
+				result = caseNamedElement(rotate);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -122,6 +130,8 @@ public class ModelSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseCommand(wait);
 			if (result == null)
+				result = caseNamedElement(wait);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -130,6 +140,8 @@ public class ModelSwitch<T> extends Switch<T> {
 			T result = caseRepeat(repeat);
 			if (result == null)
 				result = caseCommand(repeat);
+			if (result == null)
+				result = caseNamedElement(repeat);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -147,12 +159,16 @@ public class ModelSwitch<T> extends Switch<T> {
 			Block block = (Block) theEObject;
 			T result = caseBlock(block);
 			if (result == null)
+				result = caseNamedElement(block);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
 		case ModelPackage.TRANSITION: {
 			Transition transition = (Transition) theEObject;
 			T result = caseTransition(transition);
+			if (result == null)
+				result = caseNamedElement(transition);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;

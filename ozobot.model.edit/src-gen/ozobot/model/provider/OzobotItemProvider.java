@@ -10,9 +10,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import ozobot.model.ModelFactory;
@@ -47,59 +45,8 @@ public class OzobotItemProvider extends NamedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addXpositionPropertyDescriptor(object);
-			addYpositionPropertyDescriptor(object);
-			addOrientationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Xposition feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addXpositionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Ozobot_xposition_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Ozobot_xposition_feature",
-								"_UI_Ozobot_type"),
-						ModelPackage.Literals.OZOBOT__XPOSITION, true, false, false,
-						ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Yposition feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addYpositionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Ozobot_yposition_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Ozobot_yposition_feature",
-								"_UI_Ozobot_type"),
-						ModelPackage.Literals.OZOBOT__YPOSITION, true, false, false,
-						ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Orientation feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOrientationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Ozobot_orientation_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Ozobot_orientation_feature",
-								"_UI_Ozobot_type"),
-						ModelPackage.Literals.OZOBOT__ORIENTATION, true, false, false,
-						ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -178,11 +125,6 @@ public class OzobotItemProvider extends NamedElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Ozobot.class)) {
-		case ModelPackage.OZOBOT__XPOSITION:
-		case ModelPackage.OZOBOT__YPOSITION:
-		case ModelPackage.OZOBOT__ORIENTATION:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
 		case ModelPackage.OZOBOT__PROGRAMS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;

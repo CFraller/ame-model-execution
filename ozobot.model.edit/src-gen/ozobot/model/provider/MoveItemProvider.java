@@ -109,8 +109,9 @@ public class MoveItemProvider extends CommandItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Move move = (Move) object;
-		return getString("_UI_Move_type") + " " + move.getDistance();
+		String label = ((Move) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_Move_type")
+				: getString("_UI_Move_type") + " " + label;
 	}
 
 	/**

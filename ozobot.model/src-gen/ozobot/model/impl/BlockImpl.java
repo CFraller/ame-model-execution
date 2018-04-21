@@ -10,9 +10,6 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -35,7 +32,7 @@ import ozobot.model.Transition;
  *
  * @generated
  */
-public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
+public class BlockImpl extends NamedElementImpl implements Block {
 	/**
 	 * The cached value of the '{@link #getCommands() <em>Commands</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

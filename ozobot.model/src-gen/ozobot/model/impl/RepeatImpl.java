@@ -24,7 +24,6 @@ import ozobot.model.Repeat;
  * <ul>
  *   <li>{@link ozobot.model.impl.RepeatImpl#getCount <em>Count</em>}</li>
  *   <li>{@link ozobot.model.impl.RepeatImpl#getBlock <em>Block</em>}</li>
- *   <li>{@link ozobot.model.impl.RepeatImpl#getLoopCounter <em>Loop Counter</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,26 +58,6 @@ public class RepeatImpl extends CommandImpl implements Repeat {
 	 * @ordered
 	 */
 	protected Block block;
-
-	/**
-	 * The default value of the '{@link #getLoopCounter() <em>Loop Counter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLoopCounter()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int LOOP_COUNTER_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getLoopCounter() <em>Loop Counter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLoopCounter()
-	 * @generated
-	 * @ordered
-	 */
-	protected int loopCounter = LOOP_COUNTER_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -174,28 +153,6 @@ public class RepeatImpl extends CommandImpl implements Repeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getLoopCounter() {
-		return loopCounter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLoopCounter(int newLoopCounter) {
-		int oldLoopCounter = loopCounter;
-		loopCounter = newLoopCounter;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.REPEAT__LOOP_COUNTER, oldLoopCounter,
-					loopCounter));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -217,8 +174,6 @@ public class RepeatImpl extends CommandImpl implements Repeat {
 			return getCount();
 		case ModelPackage.REPEAT__BLOCK:
 			return getBlock();
-		case ModelPackage.REPEAT__LOOP_COUNTER:
-			return getLoopCounter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -236,9 +191,6 @@ public class RepeatImpl extends CommandImpl implements Repeat {
 			return;
 		case ModelPackage.REPEAT__BLOCK:
 			setBlock((Block) newValue);
-			return;
-		case ModelPackage.REPEAT__LOOP_COUNTER:
-			setLoopCounter((Integer) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -258,9 +210,6 @@ public class RepeatImpl extends CommandImpl implements Repeat {
 		case ModelPackage.REPEAT__BLOCK:
 			setBlock((Block) null);
 			return;
-		case ModelPackage.REPEAT__LOOP_COUNTER:
-			setLoopCounter(LOOP_COUNTER_EDEFAULT);
-			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -277,8 +226,6 @@ public class RepeatImpl extends CommandImpl implements Repeat {
 			return count != COUNT_EDEFAULT;
 		case ModelPackage.REPEAT__BLOCK:
 			return block != null;
-		case ModelPackage.REPEAT__LOOP_COUNTER:
-			return loopCounter != LOOP_COUNTER_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -296,8 +243,6 @@ public class RepeatImpl extends CommandImpl implements Repeat {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (count: ");
 		result.append(count);
-		result.append(", loopCounter: ");
-		result.append(loopCounter);
 		result.append(')');
 		return result.toString();
 	}

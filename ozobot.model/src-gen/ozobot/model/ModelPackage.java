@@ -160,13 +160,22 @@ public interface ModelPackage extends EPackage {
 	int COMMAND = 2;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND__NAME = NAMED_ELEMENT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Outgoing</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND__OUTGOING = 0;
+	int COMMAND__OUTGOING = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Incoming</b></em>' reference.
@@ -175,7 +184,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND__INCOMING = 1;
+	int COMMAND__INCOMING = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Command</em>' class.
@@ -184,7 +193,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND_FEATURE_COUNT = 2;
+	int COMMAND_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Command</em>' class.
@@ -193,7 +202,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND_OPERATION_COUNT = 0;
+	int COMMAND_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ozobot.model.impl.MoveImpl <em>Move</em>}' class.
@@ -204,6 +213,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int MOVE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE__NAME = COMMAND__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing</b></em>' reference.
@@ -270,6 +288,15 @@ public interface ModelPackage extends EPackage {
 	int LIGHT = 4;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIGHT__NAME = COMMAND__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Outgoing</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -323,6 +350,15 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	int ROTATE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROTATE__NAME = COMMAND__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing</b></em>' reference.
@@ -398,6 +434,15 @@ public interface ModelPackage extends EPackage {
 	int WAIT = 6;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WAIT__NAME = COMMAND__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Outgoing</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -453,6 +498,15 @@ public interface ModelPackage extends EPackage {
 	int REPEAT = 7;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPEAT__NAME = COMMAND__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Outgoing</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -489,22 +543,13 @@ public interface ModelPackage extends EPackage {
 	int REPEAT__BLOCK = COMMAND_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Loop Counter</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REPEAT__LOOP_COUNTER = COMMAND_FEATURE_COUNT + 2;
-
-	/**
 	 * The number of structural features of the '<em>Repeat</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REPEAT_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 3;
+	int REPEAT_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Repeat</em>' class.
@@ -544,40 +589,13 @@ public interface ModelPackage extends EPackage {
 	int OZOBOT__PROGRAMS = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Xposition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OZOBOT__XPOSITION = NAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Yposition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OZOBOT__YPOSITION = NAMED_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Orientation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OZOBOT__ORIENTATION = NAMED_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
 	 * The number of structural features of the '<em>Ozobot</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OZOBOT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int OZOBOT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Ozobot</em>' class.
@@ -599,13 +617,22 @@ public interface ModelPackage extends EPackage {
 	int BLOCK = 9;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK__NAME = NAMED_ELEMENT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Commands</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BLOCK__COMMANDS = 0;
+	int BLOCK__COMMANDS = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Transitions</b></em>' containment reference list.
@@ -614,7 +641,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BLOCK__TRANSITIONS = 1;
+	int BLOCK__TRANSITIONS = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Block</em>' class.
@@ -623,7 +650,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BLOCK_FEATURE_COUNT = 2;
+	int BLOCK_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Block</em>' class.
@@ -632,7 +659,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BLOCK_OPERATION_COUNT = 0;
+	int BLOCK_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ozobot.model.impl.TransitionImpl <em>Transition</em>}' class.
@@ -645,13 +672,22 @@ public interface ModelPackage extends EPackage {
 	int TRANSITION = 10;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION__NAME = NAMED_ELEMENT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__SOURCE = 0;
+	int TRANSITION__SOURCE = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -660,7 +696,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__TARGET = 1;
+	int TRANSITION__TARGET = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Transition</em>' class.
@@ -669,7 +705,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION_FEATURE_COUNT = 2;
+	int TRANSITION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Transition</em>' class.
@@ -678,7 +714,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION_OPERATION_COUNT = 0;
+	int TRANSITION_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ozobot.model.Color <em>Color</em>}' enum.
@@ -945,17 +981,6 @@ public interface ModelPackage extends EPackage {
 	EReference getRepeat_Block();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ozobot.model.Repeat#getLoopCounter <em>Loop Counter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Loop Counter</em>'.
-	 * @see ozobot.model.Repeat#getLoopCounter()
-	 * @see #getRepeat()
-	 * @generated
-	 */
-	EAttribute getRepeat_LoopCounter();
-
-	/**
 	 * Returns the meta object for class '{@link ozobot.model.Ozobot <em>Ozobot</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -975,39 +1000,6 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getOzobot_Programs();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ozobot.model.Ozobot#getXposition <em>Xposition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Xposition</em>'.
-	 * @see ozobot.model.Ozobot#getXposition()
-	 * @see #getOzobot()
-	 * @generated
-	 */
-	EAttribute getOzobot_Xposition();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ozobot.model.Ozobot#getYposition <em>Yposition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Yposition</em>'.
-	 * @see ozobot.model.Ozobot#getYposition()
-	 * @see #getOzobot()
-	 * @generated
-	 */
-	EAttribute getOzobot_Yposition();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ozobot.model.Ozobot#getOrientation <em>Orientation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Orientation</em>'.
-	 * @see ozobot.model.Ozobot#getOrientation()
-	 * @see #getOzobot()
-	 * @generated
-	 */
-	EAttribute getOzobot_Orientation();
 
 	/**
 	 * Returns the meta object for class '{@link ozobot.model.Block <em>Block</em>}'.
@@ -1319,14 +1311,6 @@ public interface ModelPackage extends EPackage {
 		EReference REPEAT__BLOCK = eINSTANCE.getRepeat_Block();
 
 		/**
-		 * The meta object literal for the '<em><b>Loop Counter</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REPEAT__LOOP_COUNTER = eINSTANCE.getRepeat_LoopCounter();
-
-		/**
 		 * The meta object literal for the '{@link ozobot.model.impl.OzobotImpl <em>Ozobot</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1343,30 +1327,6 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OZOBOT__PROGRAMS = eINSTANCE.getOzobot_Programs();
-
-		/**
-		 * The meta object literal for the '<em><b>Xposition</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute OZOBOT__XPOSITION = eINSTANCE.getOzobot_Xposition();
-
-		/**
-		 * The meta object literal for the '<em><b>Yposition</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute OZOBOT__YPOSITION = eINSTANCE.getOzobot_Yposition();
-
-		/**
-		 * The meta object literal for the '<em><b>Orientation</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute OZOBOT__ORIENTATION = eINSTANCE.getOzobot_Orientation();
 
 		/**
 		 * The meta object literal for the '{@link ozobot.model.impl.BlockImpl <em>Block</em>}' class.

@@ -2,8 +2,6 @@
  */
 package ozobot.model;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Command</b></em>'.
@@ -21,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface Command extends EObject {
+public interface Command extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Outgoing</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link ozobot.model.Transition#getSource <em>Source</em>}'.

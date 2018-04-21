@@ -48,7 +48,6 @@ public class RepeatItemProvider extends CommandItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addCountPropertyDescriptor(object);
-			addLoopCounterPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -65,22 +64,6 @@ public class RepeatItemProvider extends CommandItemProvider {
 						getResourceLocator(), getString("_UI_Repeat_count_feature"),
 						getString("_UI_PropertyDescriptor_description", "_UI_Repeat_count_feature", "_UI_Repeat_type"),
 						ModelPackage.Literals.REPEAT__COUNT, true, false, false,
-						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Loop Counter feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLoopCounterPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Repeat_loopCounter_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Repeat_loopCounter_feature",
-								"_UI_Repeat_type"),
-						ModelPackage.Literals.REPEAT__LOOP_COUNTER, true, false, false,
 						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
@@ -143,8 +126,9 @@ public class RepeatItemProvider extends CommandItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Repeat repeat = (Repeat) object;
-		return getString("_UI_Repeat_type") + " " + repeat.getCount();
+		String label = ((Repeat) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_Repeat_type")
+				: getString("_UI_Repeat_type") + " " + label;
 	}
 
 	/**
@@ -160,7 +144,6 @@ public class RepeatItemProvider extends CommandItemProvider {
 
 		switch (notification.getFeatureID(Repeat.class)) {
 		case ModelPackage.REPEAT__COUNT:
-		case ModelPackage.REPEAT__LOOP_COUNTER:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case ModelPackage.REPEAT__BLOCK:

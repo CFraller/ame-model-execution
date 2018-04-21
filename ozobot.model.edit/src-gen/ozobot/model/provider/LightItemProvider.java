@@ -13,7 +13,6 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import ozobot.model.Color;
 import ozobot.model.Light;
 import ozobot.model.ModelPackage;
 
@@ -94,8 +93,7 @@ public class LightItemProvider extends CommandItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Color labelValue = ((Light) object).getColor();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((Light) object).getName();
 		return label == null || label.length() == 0 ? getString("_UI_Light_type")
 				: getString("_UI_Light_type") + " " + label;
 	}

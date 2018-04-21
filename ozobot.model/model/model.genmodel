@@ -57,13 +57,9 @@
     <genClasses ecoreClass="model.ecore#//Repeat">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Repeat/count"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Repeat/block"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Repeat/loopCounter"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//Ozobot">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Ozobot/programs"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Ozobot/xposition"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Ozobot/yposition"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Ozobot/orientation"/>
     </genClasses>
     <genClasses ecoreClass="model.ecore#//Block">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Block/commands"/>

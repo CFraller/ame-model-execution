@@ -10,7 +10,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="current" lowerBound="1"
         eType="#//Command"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Command" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Command" abstract="true" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" eType="#//Transition"
         eOpposite="#//Transition/source"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="incoming" eType="#//Transition"
@@ -39,8 +39,6 @@
         defaultValueLiteral="0"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="block" lowerBound="1" eType="#//Block"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="loopCounter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Color">
     <eLiterals name="none"/>
@@ -63,20 +61,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="Ozobot" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="programs" upperBound="-1"
         eType="#//OzobotProgram" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="xposition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
-        defaultValueLiteral="0"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="yposition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
-        defaultValueLiteral="0"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="orientation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
-        defaultValueLiteral="0"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Block">
+  <eClassifiers xsi:type="ecore:EClass" name="Block" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="commands" upperBound="-1"
         eType="#//Command" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" upperBound="-1"
         eType="#//Transition" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Transition">
+  <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
         eType="#//Command" eOpposite="#//Command/outgoing"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"

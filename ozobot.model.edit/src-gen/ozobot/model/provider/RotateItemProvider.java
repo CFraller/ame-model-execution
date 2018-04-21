@@ -13,7 +13,6 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import ozobot.model.Direction;
 import ozobot.model.ModelPackage;
 import ozobot.model.Rotate;
 
@@ -128,8 +127,7 @@ public class RotateItemProvider extends CommandItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Direction labelValue = ((Rotate) object).getDirection();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((Rotate) object).getName();
 		return label == null || label.length() == 0 ? getString("_UI_Rotate_type")
 				: getString("_UI_Rotate_type") + " " + label;
 	}

@@ -5,16 +5,20 @@
       <commands xsi:type="model:Move" name="Move" outgoing="//@programs.0/@block/@transitions.1" incoming="//@programs.0/@block/@transitions.0"/>
       <commands xsi:type="model:Move" name="Move" outgoing="//@programs.0/@block/@transitions.0"/>
       <commands xsi:type="model:Wait" name="Wait" outgoing="//@programs.0/@block/@transitions.2" incoming="//@programs.0/@block/@transitions.1"/>
-      <commands xsi:type="model:Repeat" name="Repeat">
+      <commands xsi:type="model:Repeat" name="Repeat" outgoing="//@programs.0/@block/@transitions.3" incoming="//@programs.0/@block/@transitions.2">
         <block name="Block">
-          <commands xsi:type="model:Move" name="Move" outgoing="//@programs.0/@block/@commands.3/@block/@transitions.0" incoming="//@programs.0/@block/@transitions.2"/>
+          <commands xsi:type="model:Move" name="Move" outgoing="//@programs.0/@block/@commands.3/@block/@transitions.0"/>
           <commands xsi:type="model:Light" name="Light" incoming="//@programs.0/@block/@commands.3/@block/@transitions.0"/>
           <transitions source="//@programs.0/@block/@commands.3/@block/@commands.0" target="//@programs.0/@block/@commands.3/@block/@commands.1"/>
         </block>
       </commands>
+      <commands xsi:type="model:Light" name="Light" outgoing="//@programs.0/@block/@transitions.4" incoming="//@programs.0/@block/@transitions.3"/>
+      <commands xsi:type="model:Rotate" name="Rotate" incoming="//@programs.0/@block/@transitions.4"/>
       <transitions source="//@programs.0/@block/@commands.1" target="//@programs.0/@block/@commands.0"/>
       <transitions source="//@programs.0/@block/@commands.0" target="//@programs.0/@block/@commands.2"/>
-      <transitions source="//@programs.0/@block/@commands.2" target="//@programs.0/@block/@commands.3/@block/@commands.0"/>
+      <transitions source="//@programs.0/@block/@commands.2" target="//@programs.0/@block/@commands.3"/>
+      <transitions source="//@programs.0/@block/@commands.3" target="//@programs.0/@block/@commands.4"/>
+      <transitions source="//@programs.0/@block/@commands.4" target="//@programs.0/@block/@commands.5"/>
     </block>
   </programs>
 </model:Ozobot>

@@ -1,13 +1,22 @@
 package ozobot.k3dsa;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
+import java.util.function.Consumer;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 import ozobot.k3dsa.NamedElementAspect;
 import ozobot.k3dsa.OzobotAspectOzobotAspectProperties;
+import ozobot.k3dsa.OzobotProgramAspect;
 import ozobot.model.Ozobot;
+import ozobot.model.OzobotProgram;
 
 @Aspect(className = Ozobot.class)
 @SuppressWarnings("all")
 public class OzobotAspect extends NamedElementAspect {
+  public static void initialize(final Ozobot _self) {
+    final ozobot.k3dsa.OzobotAspectOzobotAspectProperties _self_ = ozobot.k3dsa.OzobotAspectOzobotAspectContext.getSelf(_self);
+    _privk3_initialize(_self_, _self);;
+  }
+  
   public static float xposition(final Ozobot _self) {
     final ozobot.k3dsa.OzobotAspectOzobotAspectProperties _self_ = ozobot.k3dsa.OzobotAspectOzobotAspectContext.getSelf(_self);
     Object result = null;
@@ -42,6 +51,17 @@ public class OzobotAspect extends NamedElementAspect {
   public static void orientation(final Ozobot _self, final float orientation) {
     final ozobot.k3dsa.OzobotAspectOzobotAspectProperties _self_ = ozobot.k3dsa.OzobotAspectOzobotAspectContext.getSelf(_self);
     _privk3_orientation(_self_, _self,orientation);;
+  }
+  
+  protected static void _privk3_initialize(final OzobotAspectOzobotAspectProperties _self_, final Ozobot _self) {
+    String _name = _self.getName();
+    String _plus = ("Ozobot " + _name);
+    String _plus_1 = (_plus + " initialized.");
+    InputOutput.<String>println(_plus_1);
+    final Consumer<OzobotProgram> _function = (OzobotProgram p) -> {
+      OzobotProgramAspect.initialize(p);
+    };
+    _self.getPrograms().forEach(_function);
   }
   
   protected static float _privk3_xposition(final OzobotAspectOzobotAspectProperties _self_, final Ozobot _self) {

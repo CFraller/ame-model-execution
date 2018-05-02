@@ -1,4 +1,4 @@
-#import paho.mqtt.client as mqtt
+import paho.mqtt.client as mqtt
 import re
 import bge
 
@@ -45,7 +45,7 @@ class Server:
         self.client = mqtt.Client()
         self.client.on_connect = on_connect
         self.client.on_message = on_message
-        self.client.connect("localhost", 1883, 60)
+        self.client.connect("192.168.99.100", 1883, 60)
         print("Connected")
         self.client.loop_start()
     def __del__(self):
@@ -53,10 +53,9 @@ class Server:
         self.client.loop_stop(force=False)
     
 def main():
-
-    bge.logic.ozobot_target_position = 1
-    bge.logic.ozobot_target_speed = 0.0
-    bge.logic.ozobot_target = True
-    bge.logic.ozobot_rotation_speed = 0.1
-
-    #bge.logic.server = Server()
+    
+    bge.logic.move_ozobot = False
+    bge.logic.move_distance = 20
+    bge.logic.move_velocity = 5
+  
+    bge.logic.server = Server()

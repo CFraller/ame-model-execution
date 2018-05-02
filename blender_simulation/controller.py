@@ -1,5 +1,5 @@
 import bge
-import math
+import math 
 from math import pi
 
 def rad(degree):
@@ -65,10 +65,18 @@ def move(distance,velocity):
     print(xCurrentPos)
     print(yCurrentPos)
     print(angle)
-  
+
 ozobot = bge.logic.getCurrentScene().objects["Ozobot"]
-        
+
+def main():  
+    distance = bge.logic.move_distance
+    velocity = bge.logic.move_velocity
+    print(bge.logic.move_ozobot)
+    if bge.logic.move_ozobot:
+    	move(distance,velocity)
+        bge.logic.move_ozobot = False
+
+
 #rotate("Left",3,270)
 #rotate("Right",1,90)
 #rotate("Right",5,360)
-move(20,5)

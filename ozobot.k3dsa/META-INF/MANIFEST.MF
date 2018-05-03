@@ -1,7 +1,6 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: ozobot.k3dsa; singleton:=true
-Export-Package: model.aspects,
- ozobot.k3dsa
+Export-Package: ozobot.k3dsa
 Bundle-Name: ozobot.k3dsa
 Bundle-Version: 1.0.0
 Bundle-ClassPath: .

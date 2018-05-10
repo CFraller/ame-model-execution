@@ -78,7 +78,6 @@ def move(distance,velocity):
     angle = degree(round(ozobot.localOrientation.to_euler().z,2))
     if(angle < 0):
         angle = 180 + (180+angle)
-    
     xCurrentPos = round(ozobot.worldPosition.x,2)
     yCurrentPos = round(ozobot.worldPosition.y,2)
     xTargetPos = bge.logic.current_xPos + round(distance * math.cos(math.radians(angle)),2)
@@ -95,6 +94,19 @@ def move(distance,velocity):
     print(yCurrentPos)
     print(angle)
 
+def reset(resetDirection):
+    currentOrientation = round(ozobot.localOrientation.to_euler().z,2)
+    if(resetDirection == "left"):
+        speed = -1*currentOrientation/100
+        if(currentOrientation <= 0.00):
+            ozobot.applyRotation((0, 0, speed), True)
+    else:
+        if(resetDirection == "right"):
+            speed = currentOrientation/100
+        if(currentOrientation >= 0.00):
+            ozobot.applyRotation((0, 0, -speed), True)      
+    print(currentOrientation)
+        
 ozobot = bge.logic.getCurrentScene().objects["Ozobot"]
 
 def main():  
@@ -104,16 +116,17 @@ def main():
     velocityR = bge.logic.rotate_velocity
     angle = bge.logic.rotate_angle
     targetAngle = bge.logic.rotate_targetAngle
+    resetDirection = bge.logic.reset_direction
     
-    if bge.logic.move_ozobot:
+    if (bge.logic.move_ozobot):
         move(distance,velocity)
-    if bge.logic.rotate_ozobot:
+    if (bge.logic.rotate_ozobot):
         print(direction)
         print(velocityR)
         print(angle)
         print(targetAngle)
-        rotate(direction,velocityR,angle, targetAngle)    
-        
-    
+        rotate(direction,velocityR,angle, targetAngle)
+    if (bge.logic.reset_ozobot):
+        reset(resetDirection)  
     
 main()

@@ -6,10 +6,10 @@ def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
     client.subscribe("home/garden/fountain")
 
-# for no parameter messages
 def on_message(client, userdata, msg):
     bge.logic.move_ozobot = False
     bge.logic.rotate_ozobot = False
+    bge.logic.reset_ozobot = False
     print(msg.topic + " " + str(msg.payload))
     payload = str(msg.payload)
     print(payload)
@@ -24,25 +24,14 @@ def on_message(client, userdata, msg):
        bge.logic.sendMessage("blueLight")
     if payload == "b'noLight'":  
        bge.logic.sendMessage("noLight")
-
-    if len(payload.split(' ')) == 2:
-        parameter_1_message(payload)
+    if payload == "b'ozobot-reset'":
+        bge.logic.reset_ozobot = True
+        bge.logic.rotate_targetAngle = 0
     if len(payload.split(' ')) == 3:
         parameter_2_message(payload)
     if len(payload.split(' ')) == 4:
         parameter_3_message(payload)
-    
-# for one parameter messages    
-def paramter_1_message(message):
-    print(message)
-    msg_type, position = message.split(' ')
-    position = float(position[:len(position) - 1])
-    if msg_type == "b'ozobot-rotate":
-        bge.logic.ozobot_target_position = position
-        bge.logic.ozobot_target = True
-        print("New ozobot target position: " + str(bge.logic.base_target_position))
-    
-#for two parameter messages
+        
 def parameter_2_message(message):
     print(message)
     msg_type, distance, velocity = message.split(' ')
@@ -56,7 +45,6 @@ def parameter_2_message(message):
         bge.logic.move_velocity = velocity
         bge.logic.move_ozobot = True
 
-#for three parameter messages
 def parameter_3_message(message):
     print(message)
     msg_type, direction, velocity, angle = message.split(' ')
@@ -71,9 +59,7 @@ def parameter_3_message(message):
         bge.logic.rotate_angle = angle
         bge.logic.rotate_ozobot = True
         bge.logic.rotate_targetAngle += angle
-        
-
-
+        bge.logic.reset_direction = direction
 
 class Server:
     def __init__(self):
@@ -88,9 +74,10 @@ class Server:
         self.client.loop_stop(force=False)
     
 def main():
-    
     bge.logic.move_ozobot = False
     bge.logic.rotate_ozobot = False
+    bge.logic.reset_ozobot = False
+    bge.logic.reset_direction = "left"
     bge.logic.rotate_currentOrientation = 0
     bge.logic.rotate_direction = "left"
     bge.logic.rotate_velocity = 0
@@ -100,7 +87,6 @@ def main():
     bge.logic.move_velocity = 0
     bge.logic.current_xPos = 0
     bge.logic.current_yPos = 0
-  
     bge.logic.server = Server()
     
 main()

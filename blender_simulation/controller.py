@@ -14,33 +14,61 @@ def roundedPi():
     roundedPi = round(pi,2)
     return roundedPi    
 
-def rotate(direction,velocity,angle):
+def rotate(direction,velocity,angle,targetAngle):
     velocity = velocity/100
-    if(direction == "Left"):
-        rotateToLeft(angle, velocity)
-    if(direction == "Right"):
-        rotateToRight(angle,velocity)    
+    if(direction == "left" and angle >= 180):
+        rotateToLeft1(angle,velocity)  
+    if(direction == "left" and angle < 180):
+        rotateToLeft2(angle,velocity,targetAngle) 
+    if(direction == "right" and angle >= 180):
+        rotateToRight1(angle,velocity)
+    if(direction == "right" and angle < 180):
+        rotateToRight2(angle,velocity,targetAngle)    
 
-def rotateToLeft(rotationDegree,rotationSpeed):
+def rotateToLeft1(rotationDegree,rotationSpeed):
     currentOrientation = round(ozobot.localOrientation.to_euler().z,2)
-    targetOrientation = rad(rotationDegree)
+    targetOrientation = bge.logic.currentOrientation + rad(rotationDegree)
     if(currentOrientation <= targetOrientation and currentOrientation >= 0):
         ozobot.applyRotation((0, 0, rotationSpeed), True)
     else:
         if(rotationDegree > 180):
-            targetOrientation = rad(rotationDegree-180) - roundedPi()  
+            targetOrientation = (-1*bge.logic.currentOrientation) + rad(rotationDegree-180) - roundedPi() 
             if(currentOrientation <= targetOrientation and currentOrientation < -0.03):
                 ozobot.applyRotation((0, 0, rotationSpeed), True)
     print(currentOrientation)
     
-def rotateToRight(rotationDegree,rotationSpeed):
+def rotateToLeft2(rotationDegree,rotationSpeed,targetAngle):
     currentOrientation = round(ozobot.localOrientation.to_euler().z,2)
-    targetOrientation = (-1)*rad(rotationDegree)
+    targetOrientation = bge.logic.currentOrientation + rad(rotationDegree)
+    if(currentOrientation <= targetOrientation and currentOrientation >= 0):
+        ozobot.applyRotation((0, 0, rotationSpeed), True)
+    else:
+        if(targetAngle > 180):
+            targetOrientation = bge.logic.currentOrientation + rad(rotationDegree) 
+            if(currentOrientation <= targetOrientation and currentOrientation < -0.03):
+                ozobot.applyRotation((0, 0, rotationSpeed), True)
+    print(currentOrientation)
+    
+def rotateToRight1(rotationDegree,rotationSpeed):
+    currentOrientation = round(ozobot.localOrientation.to_euler().z,2)
+    targetOrientation = bge.logic.currentOrientation + (-1)*rad(rotationDegree)
     if(currentOrientation >= targetOrientation and currentOrientation <= 0):
         ozobot.applyRotation((0, 0, -rotationSpeed), True)
     else:
         if(rotationDegree > 180):
-            targetOrientation = roundedPi() - rad(rotationDegree-180) 
+            targetOrientation = (-1*bge.logic.currentOrientation) + roundedPi() - rad(rotationDegree-180) 
+            if(currentOrientation >= targetOrientation and currentOrientation > 0.03):
+                ozobot.applyRotation((0, 0, -rotationSpeed), True)
+    print(currentOrientation)
+    
+def rotateToRight2(rotationDegree,rotationSpeed,targetAngle):
+    currentOrientation = round(ozobot.localOrientation.to_euler().z,2)
+    targetOrientation = bge.logic.currentOrientation + (-1)*rad(rotationDegree)
+    if(currentOrientation >= targetOrientation and currentOrientation <= 0):
+        ozobot.applyRotation((0, 0, -rotationSpeed), True)
+    else:
+        if(targetAngle > 180):
+            targetOrientation = bge.logic.currentOrientation - rad(rotationDegree) 
             if(currentOrientation >= targetOrientation and currentOrientation > 0.03):
                 ozobot.applyRotation((0, 0, -rotationSpeed), True)
     print(currentOrientation)
@@ -50,10 +78,11 @@ def move(distance,velocity):
     angle = degree(round(ozobot.localOrientation.to_euler().z,2))
     if(angle < 0):
         angle = 180 + (180+angle)
-    xTargetPos = round(distance * math.cos(math.radians(angle)),2)
-    yTargetPos = round(distance * math.sin(math.radians(angle)),2)
+    
     xCurrentPos = round(ozobot.worldPosition.x,2)
     yCurrentPos = round(ozobot.worldPosition.y,2)
+    xTargetPos = bge.logic.current_xPos + round(distance * math.cos(math.radians(angle)),2)
+    yTargetPos = bge.logic.current_yPos + round(distance * math.sin(math.radians(angle)),2)
     if(xCurrentPos < xTargetPos and xTargetPos > 0):
         ozobot.applyMovement((velocity,0,0),False)
     if(xCurrentPos > xTargetPos and xTargetPos < 0):
@@ -71,12 +100,20 @@ ozobot = bge.logic.getCurrentScene().objects["Ozobot"]
 def main():  
     distance = bge.logic.move_distance
     velocity = bge.logic.move_velocity
-    print(bge.logic.move_ozobot)
+    direction = bge.logic.rotate_direction
+    velocityR = bge.logic.rotate_velocity
+    angle = bge.logic.rotate_angle
+    targetAngle = bge.logic.rotate_targetAngle
+    
     if bge.logic.move_ozobot:
-    	move(distance,velocity)
-        bge.logic.move_ozobot = False
-
-
-#rotate("Left",3,270)
-#rotate("Right",1,90)
-#rotate("Right",5,360)
+        move(distance,velocity)
+    if bge.logic.rotate_ozobot:
+        print(direction)
+        print(velocityR)
+        print(angle)
+        print(targetAngle)
+        rotate(direction,velocityR,angle, targetAngle)    
+        
+    
+    
+main()

@@ -6,7 +6,7 @@ language OzobotL {
 	// in the SingleLanguage approach, the editor and animator must be written using this generated ecore and not the original one.
  syntax "platform:/resource/ozobot.model/model/model.ecore"
 
-
+ with ozobot.k3dsa.*
 
 
 	

@@ -12,24 +12,28 @@ import ozobot.model.Command;
 @SuppressWarnings("all")
 public abstract class CommandAspect extends NamedElementAspect {
   @Step
-  public static void sendCommand(final Command _self, final MqttClient client) {
+  public static void executeCommand(final Command _self, final MqttClient client) {
     final ozobot.k3dsa.CommandAspectCommandAspectProperties _self_ = ozobot.k3dsa.CommandAspectCommandAspectContext.getSelf(_self);
-     if (_self instanceof ozobot.model.Move){
-    					ozobot.k3dsa.MoveAspect.sendCommand((ozobot.model.Move)_self,client);
+     if (_self instanceof ozobot.model.Wait){
+    					ozobot.k3dsa.WaitAspect.executeCommand((ozobot.model.Wait)_self,client);
     } else  if (_self instanceof ozobot.model.Light){
-    					ozobot.k3dsa.LightAspect.sendCommand((ozobot.model.Light)_self,client);
+    					ozobot.k3dsa.LightAspect.executeCommand((ozobot.model.Light)_self,client);
+    } else  if (_self instanceof ozobot.model.Move){
+    					ozobot.k3dsa.MoveAspect.executeCommand((ozobot.model.Move)_self,client);
     } else  if (_self instanceof ozobot.model.Rotate){
-    					ozobot.k3dsa.RotateAspect.sendCommand((ozobot.model.Rotate)_self,client);
+    					ozobot.k3dsa.RotateAspect.executeCommand((ozobot.model.Rotate)_self,client);
+    } else  if (_self instanceof ozobot.model.Repeat){
+    					ozobot.k3dsa.RepeatAspect.executeCommand((ozobot.model.Repeat)_self,client);
     } else  if (_self instanceof ozobot.model.Command){
     					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
     						@Override
     						public void execute() {
-    							ozobot.k3dsa.CommandAspect._privk3_sendCommand(_self_, (ozobot.model.Command)_self,client);
+    							ozobot.k3dsa.CommandAspect._privk3_executeCommand(_self_, (ozobot.model.Command)_self,client);
     						}
     					};
     					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
     					if (stepManager != null) {
-    						stepManager.executeStep(_self,command,"Command","sendCommand");
+    						stepManager.executeStep(_self,command,"Command","executeCommand");
     					} else {
     						command.execute();
     					}
@@ -83,7 +87,7 @@ public abstract class CommandAspect extends NamedElementAspect {
     _privk3_client(_self_, _self,client);;
   }
   
-  protected static void _privk3_sendCommand(final CommandAspectCommandAspectProperties _self_, final Command _self, final MqttClient client) {
+  protected static void _privk3_executeCommand(final CommandAspectCommandAspectProperties _self_, final Command _self, final MqttClient client) {
   }
   
   protected static void _privk3_initialize(final CommandAspectCommandAspectProperties _self_, final Command _self) {

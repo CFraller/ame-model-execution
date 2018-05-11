@@ -55,7 +55,7 @@ public class OzobotProgramAspect extends NamedElementAspect {
     try {
       while ((_self.getCurrent() != null)) {
         {
-          CommandAspect.sendCommand(_self.getCurrent(), OzobotProgramAspect.client(_self));
+          CommandAspect.executeCommand(_self.getCurrent(), OzobotProgramAspect.client(_self));
           _self.setCurrent(_self.getCurrent().getOutgoing().getTarget());
         }
       }

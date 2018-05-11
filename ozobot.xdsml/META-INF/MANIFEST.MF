@@ -18,7 +18,15 @@ Require-Bundle: org.eclipse.xtend.lib;bundle-version="2.7.0";visibility:="privat
  org.eclipse.gemoc.execution.sequential.javaxdsml.api;bundle-version="0.0.0";visibility:="reexport",
  org.eclipse.gemoc.executionframework.engine;bundle-version="0.0.0";visibility:="reexport",
  ozobot.model;bundle-version="0.0.0";visibility:="private",
- org.eclipse.gemoc.executionframework.extensions.sirius;bundle-version="0.0.0";visibility:=reexport
+ org.eclipse.gemoc.executionframework.extensions.sirius;bundle-version="0.0.0";visibility:=reexport,
+ ozobot.xdsml.ozobotl
 Bundle-ManifestVersion: 2
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
+Export-Package: ozobot.xdsml.ozobotlmt.model.util,
+ ozobot.xdsml.ozobotlmt.model.impl,
+ ozobot.xdsml.ozobotlmt.model,
+ ozobot.xdsml.ozobotl.adapters.ozobotlmt,
+ ozobot.xdsml.ozobotl.adapters.ozobotlmt.model,
+ ozobot.xdsml
+

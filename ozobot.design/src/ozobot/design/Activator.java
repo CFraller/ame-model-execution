@@ -6,6 +6,7 @@ import java.util.Set;
 import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import ozobot.design.services.OzobotAnimationServices;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -35,8 +36,9 @@ public class Activator extends AbstractUIPlugin {
       super.start(context);
 	  plugin = this;
 	  viewpoints = new HashSet<Viewpoint>();
-	  viewpoints.addAll(ViewpointRegistry.getInstance().registerFromPlugin(PLUGIN_ID + "/description/ozobot.odesign")); 
-    }
+	  viewpoints.addAll(ViewpointRegistry.getInstance().registerFromPlugin(PLUGIN_ID + "/description/ozobot.odesign"));
+new OzobotAnimationServices();
+}
 
     /*
      * (non-Javadoc)

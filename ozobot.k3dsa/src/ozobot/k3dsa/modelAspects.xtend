@@ -39,11 +39,12 @@ abstract class NamedElementAspect {
 @Aspect(className=OzobotProgram)
 class OzobotProgramAspect extends NamedElementAspect {
 	public MqttClient client
+	
 	@Main
     def public void main() {
     	try{
     		while (_self.current !== null) {
-    			_self.current.sendCommand(_self.client)
+    			_self.current.executeCommand(_self.client)
     			_self.current = _self.current.outgoing.target
     		}
     	}catch (Exception nt){
@@ -58,7 +59,6 @@ class OzobotProgramAspect extends NamedElementAspect {
 		_self.block.initialize()
 		_self.current = _self.block.commands.get(0)
 	}
-
 }
 
 @Aspect(className=Command)
@@ -67,7 +67,7 @@ abstract class CommandAspect extends NamedElementAspect {
 	public MqttClient client
 	
 	@Step
-	def public void sendCommand(MqttClient client) {
+	def public void executeCommand(MqttClient client) {
 		
 	}
 	
@@ -82,12 +82,12 @@ class MoveAspect extends CommandAspect {
 
 	@Step
 	@OverrideAspectMethod
-	def public void sendCommand(MqttClient client) {
+	def public void executeCommand(MqttClient client) {
 		val message = "ozobot-move"+" "+_self.distance+" "+_self.velocity
 		val tmp = new MqttMessage(message.bytes)
 		client.publish(_self.topic, tmp)	
+		println("Executed command "+_self.name)
 	}
-
 }
 
 @Aspect(className=Light)
@@ -95,10 +95,11 @@ class LightAspect extends CommandAspect {
 	
 	@Step
 	@OverrideAspectMethod
-	def public void sendCommand(MqttClient client) {
+	def public void executeCommand(MqttClient client) {
 		val message = _self.color+"Light"
 		val tmp = new MqttMessage(message.bytes)
-		client.publish(_self.topic, tmp)	
+		client.publish(_self.topic, tmp)
+		println("Executed command "+_self.name)	
 	}
 }
 
@@ -107,16 +108,22 @@ class RotateAspect extends CommandAspect {
 
 	@Step
 	@OverrideAspectMethod
-	def public void sendCommand(MqttClient client) {
+	def public void executeCommand(MqttClient client) {
 		val message = "ozobot-rotate"+" "+_self.direction+" "+_self.velocity+" "+_self.angle
 		val tmp = new MqttMessage(message.bytes)
 		client.publish(_self.topic,tmp)	
+		println("Executed command "+_self.name)
 	}
 }
 
 @Aspect(className=Wait)
 class WaitAspect extends CommandAspect {
-
+	
+	@Step
+	@OverrideAspectMethod
+	def public void executeCommand(MqttClient client) {
+		println("Executed command "+_self.name)
+	}
 }
 
 @Aspect(className=Repeat)
@@ -124,8 +131,13 @@ class RepeatAspect extends CommandAspect {
 	public int runtimeCounter
 	
 	@Step
-	def public void repeat() {
-		_self.runtimeCounter = _self.runtimeCounter - 1
+	@OverrideAspectMethod
+	def public void executeCommand(MqttClient client) {
+		while(_self.runtimeCounter != 0) {
+			_self.block.commands.forEach[c | c.executeCommand(client)]
+			_self.runtimeCounter = _self.runtimeCounter - 1
+			println("Executed command "+_self.name)
+		}
 	}
 	
 	@Step
@@ -135,7 +147,6 @@ class RepeatAspect extends CommandAspect {
 		_self.runtimeCounter = _self.count
 		_self.block.initialize()
 	}
-
 }
 
 @Aspect(className=Ozobot)

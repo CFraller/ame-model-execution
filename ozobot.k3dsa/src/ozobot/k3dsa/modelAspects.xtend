@@ -38,12 +38,12 @@ abstract class NamedElementAspect {
 
 @Aspect(className=OzobotProgram)
 class OzobotProgramAspect extends NamedElementAspect {
-	
+	public MqttClient client
 	@Main
     def public void main() {
     	try{
     		while (_self.current !== null) {
-    			_self.current.sendCommand()
+    			_self.current.sendCommand(_self.client)
     			_self.current = _self.current.outgoing.target
     		}
     	}catch (Exception nt){
@@ -52,8 +52,9 @@ class OzobotProgramAspect extends NamedElementAspect {
 	}
 	
 	@Step
-	def public void initialize() {
+	def public void initialize(MqttClient client) {
 		println("Program " + _self.name + " initialized.")
+		_self.client = client
 		_self.block.initialize()
 		_self.current = _self.block.commands.get(0)
 	}
@@ -63,9 +64,10 @@ class OzobotProgramAspect extends NamedElementAspect {
 @Aspect(className=Command)
 abstract class CommandAspect extends NamedElementAspect {
 	public String topic = "Actuator"
+	public MqttClient client
 	
 	@Step
-	def public void sendCommand() {
+	def public void sendCommand(MqttClient client) {
 		
 	}
 	
@@ -80,8 +82,10 @@ class MoveAspect extends CommandAspect {
 
 	@Step
 	@OverrideAspectMethod
-	def public void sendCommand() {
-		client.publish(_self.topic,"ozobot-move"+" "+_self.distance+" "+_self.velocity)	
+	def public void sendCommand(MqttClient client) {
+		val message = "ozobot-move"+" "+_self.distance+" "+_self.velocity
+		val tmp = new MqttMessage(message.bytes)
+		client.publish(_self.topic, tmp)	
 	}
 
 }
@@ -91,8 +95,10 @@ class LightAspect extends CommandAspect {
 	
 	@Step
 	@OverrideAspectMethod
-	def public void sendCommand() {
-		client.publish(_self.topic,_self.color+"Light")	
+	def public void sendCommand(MqttClient client) {
+		val message = _self.color+"Light"
+		val tmp = new MqttMessage(message.bytes)
+		client.publish(_self.topic, tmp)	
 	}
 }
 
@@ -101,8 +107,10 @@ class RotateAspect extends CommandAspect {
 
 	@Step
 	@OverrideAspectMethod
-	def public void sendCommand() {
-		client.publish(_self.topic,"ozobot-rotate"+" "+_self.direction+" "+_self.velocity+" "+_self.angle)	
+	def public void sendCommand(MqttClient client) {
+		val message = "ozobot-rotate"+" "+_self.direction+" "+_self.velocity+" "+_self.angle
+		val tmp = new MqttMessage(message.bytes)
+		client.publish(_self.topic,tmp)	
 	}
 }
 
@@ -135,17 +143,18 @@ class OzobotAspect extends NamedElementAspect {
 	public float xposition
 	public float yposition
 	public float orientation 
+	public MqttClient client
 	
 	@Step
 	@InitializeModel
 	def public void initialize(){
-		val client = new MqttClient("tcp://192.168.99.100:1883","GemocClient")
+		_self.client = new MqttClient("tcp://192.168.99.100:1883","GemocClient")
 		val connOpts = new MqttConnectOptions()
 		connOpts.setCleanSession(true)
-		client.connect(connOpts)
+		_self.client.connect(connOpts)
 		println("Connected")
 		println("Ozobot " + _self.name + " initialized.")
-		_self.programs.forEach [p | p.initialize]
+		_self.programs.forEach [p | p.initialize(_self.client)]
 	}
 
 }

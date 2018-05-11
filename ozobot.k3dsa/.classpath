@@ -4,5 +4,6 @@
 	<classpathentry kind="src" path="xtend-gen"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="lib" path="C:/Users/Public/AME/ame-model-execution/org.eclipse.paho.client.mqttv3-1.2.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

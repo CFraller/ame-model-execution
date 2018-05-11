@@ -3,9 +3,16 @@ package ozobot.k3dsa;
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
+import java.util.function.Consumer;
+import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
+import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 import ozobot.k3dsa.NamedElementAspect;
 import ozobot.k3dsa.OzobotAspectOzobotAspectProperties;
+import ozobot.k3dsa.OzobotProgramAspect;
 import ozobot.model.Ozobot;
+import ozobot.model.OzobotProgram;
 
 @Aspect(className = Ozobot.class)
 @SuppressWarnings("all")
@@ -65,12 +72,37 @@ public class OzobotAspect extends NamedElementAspect {
     _privk3_orientation(_self_, _self,orientation);;
   }
   
+  public static MqttClient client(final Ozobot _self) {
+    final ozobot.k3dsa.OzobotAspectOzobotAspectProperties _self_ = ozobot.k3dsa.OzobotAspectOzobotAspectContext.getSelf(_self);
+    Object result = null;
+    result = _privk3_client(_self_, _self);;
+    return (org.eclipse.paho.client.mqttv3.MqttClient)result;
+  }
+  
+  public static void client(final Ozobot _self, final MqttClient client) {
+    final ozobot.k3dsa.OzobotAspectOzobotAspectProperties _self_ = ozobot.k3dsa.OzobotAspectOzobotAspectContext.getSelf(_self);
+    _privk3_client(_self_, _self,client);;
+  }
+  
   protected static void _privk3_initialize(final OzobotAspectOzobotAspectProperties _self_, final Ozobot _self) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nMqttClient cannot be resolved."
-      + "\nMqttConnectOptions cannot be resolved."
-      + "\nsetCleanSession cannot be resolved"
-      + "\nconnect cannot be resolved");
+    try {
+      MqttClient _mqttClient = new MqttClient("tcp://192.168.99.100:1883", "GemocClient");
+      OzobotAspect.client(_self, _mqttClient);
+      final MqttConnectOptions connOpts = new MqttConnectOptions();
+      connOpts.setCleanSession(true);
+      OzobotAspect.client(_self).connect(connOpts);
+      InputOutput.<String>println("Connected");
+      String _name = _self.getName();
+      String _plus = ("Ozobot " + _name);
+      String _plus_1 = (_plus + " initialized.");
+      InputOutput.<String>println(_plus_1);
+      final Consumer<OzobotProgram> _function = (OzobotProgram p) -> {
+        OzobotProgramAspect.initialize(p, OzobotAspect.client(_self));
+      };
+      _self.getPrograms().forEach(_function);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
   
   protected static float _privk3_xposition(final OzobotAspectOzobotAspectProperties _self_, final Ozobot _self) {
@@ -172,6 +204,43 @@ public class OzobotAspect extends NamedElementAspect {
     }
     if (!setterCalled) {
     	_self_.orientation = orientation;
+    }
+  }
+  
+  protected static MqttClient _privk3_client(final OzobotAspectOzobotAspectProperties _self_, final Ozobot _self) {
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("getClient") &&
+    			m.getParameterTypes().length == 0) {
+    				Object ret = m.invoke(_self);
+    				if (ret != null) {
+    					return (org.eclipse.paho.client.mqttv3.MqttClient) ret;
+    				} else {
+    					return null;
+    				}
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    return _self_.client;
+  }
+  
+  protected static void _privk3_client(final OzobotAspectOzobotAspectProperties _self_, final Ozobot _self, final MqttClient client) {
+    boolean setterCalled = false;
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("setClient")
+    				&& m.getParameterTypes().length == 1) {
+    			m.invoke(_self, client);
+    			setterCalled = true;
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    if (!setterCalled) {
+    	_self_.client = client;
     }
   }
 }

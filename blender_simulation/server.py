@@ -44,6 +44,7 @@ def parameter_2_message(message):
         bge.logic.move_distance = distance
         bge.logic.move_velocity = velocity
         bge.logic.move_ozobot = True
+        bge.logic.reset_ozobot = False
 
 def parameter_3_message(message):
     print(message)

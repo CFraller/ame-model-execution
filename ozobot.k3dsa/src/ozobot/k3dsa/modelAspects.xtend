@@ -12,6 +12,8 @@ import ozobot.model.Repeat
 import ozobot.model.Ozobot
 import ozobot.model.Block
 import ozobot.model.Transition
+import org.eclipse.paho.client.mqttv3.*
+
 
 import static extension ozobot.k3dsa.NamedElementAspect.*
 import static extension ozobot.k3dsa.OzobotProgramAspect.*
@@ -27,6 +29,7 @@ import static extension ozobot.k3dsa.TransitionAspect.*
 import fr.inria.diverse.k3.al.annotationprocessor.Step
 import fr.inria.diverse.k3.al.annotationprocessor.Main
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
+import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
 
 @Aspect(className=NamedElement)
 abstract class NamedElementAspect {
@@ -36,6 +39,19 @@ abstract class NamedElementAspect {
 @Aspect(className=OzobotProgram)
 class OzobotProgramAspect extends NamedElementAspect {
 	
+	@Main
+    def public void main() {
+    	try{
+    		while (_self.current !== null) {
+    			_self.current.sendCommand()
+    			_self.current = _self.current.outgoing.target
+    		}
+    	}catch (Exception nt){
+			println("Stopped due to "+nt.message)
+		}
+	}
+	
+	@Step
 	def public void initialize() {
 		println("Program " + _self.name + " initialized.")
 		_self.block.initialize()
@@ -46,7 +62,14 @@ class OzobotProgramAspect extends NamedElementAspect {
 
 @Aspect(className=Command)
 abstract class CommandAspect extends NamedElementAspect {
+	public String topic = "Actuator"
+	
+	@Step
+	def public void sendCommand() {
 		
+	}
+	
+	@Step	
 	def public void initialize() {
 		println("Command " + _self.name + " initialized.")
 	}
@@ -55,16 +78,32 @@ abstract class CommandAspect extends NamedElementAspect {
 @Aspect(className=Move)
 class MoveAspect extends CommandAspect {
 
+	@Step
+	@OverrideAspectMethod
+	def public void sendCommand() {
+		client.publish(_self.topic,"ozobot-move"+" "+_self.distance+" "+_self.velocity)	
+	}
+
 }
 
 @Aspect(className=Light)
 class LightAspect extends CommandAspect {
-
+	
+	@Step
+	@OverrideAspectMethod
+	def public void sendCommand() {
+		client.publish(_self.topic,_self.color+"Light")	
+	}
 }
 
 @Aspect(className=Rotate)
 class RotateAspect extends CommandAspect {
 
+	@Step
+	@OverrideAspectMethod
+	def public void sendCommand() {
+		client.publish(_self.topic,"ozobot-rotate"+" "+_self.direction+" "+_self.velocity+" "+_self.angle)	
+	}
 }
 
 @Aspect(className=Wait)
@@ -76,10 +115,12 @@ class WaitAspect extends CommandAspect {
 class RepeatAspect extends CommandAspect {
 	public int runtimeCounter
 	
+	@Step
 	def public void repeat() {
 		_self.runtimeCounter = _self.runtimeCounter - 1
 	}
 	
+	@Step
 	@OverrideAspectMethod
 	def public void initialize() {
 		println("Command " + _self.name + " initialized.")
@@ -95,7 +136,14 @@ class OzobotAspect extends NamedElementAspect {
 	public float yposition
 	public float orientation 
 	
+	@Step
+	@InitializeModel
 	def public void initialize(){
+		val client = new MqttClient("tcp://192.168.99.100:1883","GemocClient")
+		val connOpts = new MqttConnectOptions()
+		connOpts.setCleanSession(true)
+		client.connect(connOpts)
+		println("Connected")
 		println("Ozobot " + _self.name + " initialized.")
 		_self.programs.forEach [p | p.initialize]
 	}
@@ -105,6 +153,7 @@ class OzobotAspect extends NamedElementAspect {
 @Aspect(className=Block)
 class BlockAspect extends NamedElementAspect {
 
+	@Step
 	def public void initialize() {
 		println("Block " + _self.name + " initialized.")
 		_self.commands.forEach [c | c.initialize]
@@ -114,9 +163,6 @@ class BlockAspect extends NamedElementAspect {
 @Aspect(className=Transition)
 class TransitionAspect extends NamedElementAspect {
 
-	def public void next() {
-		println("Next " + _self.name + " and entering " + _self.target.name)	
-	}
 }
 
 

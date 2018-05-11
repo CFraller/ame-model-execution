@@ -1,6 +1,7 @@
 package ozobot.k3dsa;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
+import fr.inria.diverse.k3.al.annotationprocessor.Step;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import ozobot.k3dsa.CommandAspectCommandAspectProperties;
 import ozobot.k3dsa.NamedElementAspect;
@@ -9,13 +10,67 @@ import ozobot.model.Command;
 @Aspect(className = Command.class)
 @SuppressWarnings("all")
 public abstract class CommandAspect extends NamedElementAspect {
+  @Step
+  public static void sendCommand(final Command _self) {
+    final ozobot.k3dsa.CommandAspectCommandAspectProperties _self_ = ozobot.k3dsa.CommandAspectCommandAspectContext.getSelf(_self);
+     if (_self instanceof ozobot.model.Move){
+    					ozobot.k3dsa.MoveAspect.sendCommand((ozobot.model.Move)_self);
+    } else  if (_self instanceof ozobot.model.Rotate){
+    					ozobot.k3dsa.RotateAspect.sendCommand((ozobot.model.Rotate)_self);
+    } else  if (_self instanceof ozobot.model.Light){
+    					ozobot.k3dsa.LightAspect.sendCommand((ozobot.model.Light)_self);
+    } else  if (_self instanceof ozobot.model.Command){
+    					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    						@Override
+    						public void execute() {
+    							ozobot.k3dsa.CommandAspect._privk3_sendCommand(_self_, (ozobot.model.Command)_self);
+    						}
+    					};
+    					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    					if (stepManager != null) {
+    						stepManager.executeStep(_self,command,"Command","sendCommand");
+    					} else {
+    						command.execute();
+    					}
+    					;
+    } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
+  }
+  
+  @Step
   public static void initialize(final Command _self) {
     final ozobot.k3dsa.CommandAspectCommandAspectProperties _self_ = ozobot.k3dsa.CommandAspectCommandAspectContext.getSelf(_self);
      if (_self instanceof ozobot.model.Repeat){
     					ozobot.k3dsa.RepeatAspect.initialize((ozobot.model.Repeat)_self);
     } else  if (_self instanceof ozobot.model.Command){
-    					ozobot.k3dsa.CommandAspect._privk3_initialize(_self_, (ozobot.model.Command)_self);
+    					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    						@Override
+    						public void execute() {
+    							ozobot.k3dsa.CommandAspect._privk3_initialize(_self_, (ozobot.model.Command)_self);
+    						}
+    					};
+    					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    					if (stepManager != null) {
+    						stepManager.executeStep(_self,command,"Command","initialize");
+    					} else {
+    						command.execute();
+    					}
+    					;
     } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
+  }
+  
+  public static String topic(final Command _self) {
+    final ozobot.k3dsa.CommandAspectCommandAspectProperties _self_ = ozobot.k3dsa.CommandAspectCommandAspectContext.getSelf(_self);
+    Object result = null;
+    result = _privk3_topic(_self_, _self);;
+    return (java.lang.String)result;
+  }
+  
+  public static void topic(final Command _self, final String topic) {
+    final ozobot.k3dsa.CommandAspectCommandAspectProperties _self_ = ozobot.k3dsa.CommandAspectCommandAspectContext.getSelf(_self);
+    _privk3_topic(_self_, _self,topic);;
+  }
+  
+  protected static void _privk3_sendCommand(final CommandAspectCommandAspectProperties _self_, final Command _self) {
   }
   
   protected static void _privk3_initialize(final CommandAspectCommandAspectProperties _self_, final Command _self) {
@@ -23,5 +78,42 @@ public abstract class CommandAspect extends NamedElementAspect {
     String _plus = ("Command " + _name);
     String _plus_1 = (_plus + " initialized.");
     InputOutput.<String>println(_plus_1);
+  }
+  
+  protected static String _privk3_topic(final CommandAspectCommandAspectProperties _self_, final Command _self) {
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("getTopic") &&
+    			m.getParameterTypes().length == 0) {
+    				Object ret = m.invoke(_self);
+    				if (ret != null) {
+    					return (java.lang.String) ret;
+    				} else {
+    					return null;
+    				}
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    return _self_.topic;
+  }
+  
+  protected static void _privk3_topic(final CommandAspectCommandAspectProperties _self_, final Command _self, final String topic) {
+    boolean setterCalled = false;
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("setTopic")
+    				&& m.getParameterTypes().length == 1) {
+    			m.invoke(_self, topic);
+    			setterCalled = true;
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    if (!setterCalled) {
+    	_self_.topic = topic;
+    }
   }
 }

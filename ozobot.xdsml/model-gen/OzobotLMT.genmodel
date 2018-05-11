@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="ASCII"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ozobot.xdsml/src-gen" modelPluginID="ozobot.xdsml" modelName="OzobotLMT" complianceLevel="7.0" copyrightFields="false">
+  <foreignModel>platform:/resource/ozobot.xdsml/model-gen/OzobotLMT.ecore</foreignModel>
+  <genPackages prefix="Model" basePackage="ozobot.xdsml.ozobotlmt" disposableProviderFactory="true">
+    <ecorePackage href="OzobotLMT.ecore#/"/>
+    <genEnums typeSafeEnumCompatible="false">
+      <ecoreEnum href="OzobotLMT.ecore#//Color"/>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="OzobotLMT.ecore#//Color/none"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="OzobotLMT.ecore#//Color/red"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="OzobotLMT.ecore#//Color/green"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="OzobotLMT.ecore#//Color/blue"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="OzobotLMT.ecore#//Color/yellow"/>
+      </genEnumLiterals>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false">
+      <ecoreEnum href="OzobotLMT.ecore#//Direction"/>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="OzobotLMT.ecore#//Direction/left"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="OzobotLMT.ecore#//Direction/right"/>
+      </genEnumLiterals>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false">
+      <ecoreEnum href="OzobotLMT.ecore#//Velocity"/>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="OzobotLMT.ecore#//Velocity/very_slow"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="OzobotLMT.ecore#//Velocity/slow"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="OzobotLMT.ecore#//Velocity/medium"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="OzobotLMT.ecore#//Velocity/fast"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="OzobotLMT.ecore#//Velocity/very_fast"/>
+      </genEnumLiterals>
+    </genEnums>
+    <genClasses image="false">
+      <ecoreClass href="OzobotLMT.ecore#//NamedElement"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="OzobotLMT.ecore#//NamedElement/name"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="OzobotLMT.ecore#//OzobotProgram"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="OzobotLMT.ecore#//OzobotProgram/block"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="OzobotLMT.ecore#//OzobotProgram/current"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses image="false">
+      <ecoreClass href="OzobotLMT.ecore#//Command"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="OzobotLMT.ecore#//Command/outgoing"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="OzobotLMT.ecore#//Command/incoming"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="OzobotLMT.ecore#//Move"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="OzobotLMT.ecore#//Move/distance"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="OzobotLMT.ecore#//Move/velocity"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="OzobotLMT.ecore#//Light"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="OzobotLMT.ecore#//Light/color"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="OzobotLMT.ecore#//Rotate"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="OzobotLMT.ecore#//Rotate/direction"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="OzobotLMT.ecore#//Rotate/velocity"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="OzobotLMT.ecore#//Rotate/angle"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="OzobotLMT.ecore#//Wait"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="OzobotLMT.ecore#//Wait/time"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="OzobotLMT.ecore#//Repeat"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="OzobotLMT.ecore#//Repeat/count"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="OzobotLMT.ecore#//Repeat/block"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="OzobotLMT.ecore#//Ozobot"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="OzobotLMT.ecore#//Ozobot/programs"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="OzobotLMT.ecore#//Block"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="OzobotLMT.ecore#//Block/commands"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="OzobotLMT.ecore#//Block/transitions"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="OzobotLMT.ecore#//Transition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="OzobotLMT.ecore#//Transition/source"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="OzobotLMT.ecore#//Transition/target"/>
+      </genFeatures>
+    </genClasses>
+  </genPackages>
+  <usedGenPackages href="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"/>
+</genmodel:GenModel>

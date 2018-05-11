@@ -1,20 +1,32 @@
 package ozobot.k3dsa;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
-import java.util.function.Consumer;
-import org.eclipse.xtext.xbase.lib.InputOutput;
+import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel;
+import fr.inria.diverse.k3.al.annotationprocessor.Step;
 import ozobot.k3dsa.NamedElementAspect;
 import ozobot.k3dsa.OzobotAspectOzobotAspectProperties;
-import ozobot.k3dsa.OzobotProgramAspect;
 import ozobot.model.Ozobot;
-import ozobot.model.OzobotProgram;
 
 @Aspect(className = Ozobot.class)
 @SuppressWarnings("all")
 public class OzobotAspect extends NamedElementAspect {
+  @Step
+  @InitializeModel
   public static void initialize(final Ozobot _self) {
     final ozobot.k3dsa.OzobotAspectOzobotAspectProperties _self_ = ozobot.k3dsa.OzobotAspectOzobotAspectContext.getSelf(_self);
-    _privk3_initialize(_self_, _self);;
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    	@Override
+    	public void execute() {
+    		_privk3_initialize(_self_, _self);
+    	}
+    };
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    if (stepManager != null) {
+    	stepManager.executeStep(_self,command,"Ozobot","initialize");
+    } else {
+    	command.execute();
+    }
+    ;;
   }
   
   public static float xposition(final Ozobot _self) {
@@ -54,14 +66,11 @@ public class OzobotAspect extends NamedElementAspect {
   }
   
   protected static void _privk3_initialize(final OzobotAspectOzobotAspectProperties _self_, final Ozobot _self) {
-    String _name = _self.getName();
-    String _plus = ("Ozobot " + _name);
-    String _plus_1 = (_plus + " initialized.");
-    InputOutput.<String>println(_plus_1);
-    final Consumer<OzobotProgram> _function = (OzobotProgram p) -> {
-      OzobotProgramAspect.initialize(p);
-    };
-    _self.getPrograms().forEach(_function);
+    throw new Error("Unresolved compilation problems:"
+      + "\nMqttClient cannot be resolved."
+      + "\nMqttConnectOptions cannot be resolved."
+      + "\nsetCleanSession cannot be resolved"
+      + "\nconnect cannot be resolved");
   }
   
   protected static float _privk3_xposition(final OzobotAspectOzobotAspectProperties _self_, final Ozobot _self) {

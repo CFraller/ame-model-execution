@@ -1,11 +1,11 @@
-﻿package ozobot.xdsml.debug.design.services;
+﻿package ozobot.design.services;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.gemoc.executionframework.extensions.sirius.services.AbstractGemocDebuggerServices;
 
-public class OzobotlDebugServices extends AbstractGemocDebuggerServices {
+public class OzobotDebugServices extends AbstractGemocDebuggerServices {
 
 	@Override
 	protected List<StringCouple> getRepresentationRefreshList() {
@@ -19,7 +19,7 @@ public class OzobotlDebugServices extends AbstractGemocDebuggerServices {
 		//		- the second String is the id of the Layer
 		final List<StringCouple> res = new ArrayList<StringCouple>();
 	
-		res.add(new StringCouple("OzobotL", "Debug"));
+		res.add(new StringCouple("Ozobot", "Debug"));
 
 		return res;
 	}

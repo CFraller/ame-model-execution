@@ -53,21 +53,27 @@ public class OzobotProgramAspect extends NamedElementAspect {
   
   protected static void _privk3_main(final OzobotProgramAspectOzobotProgramAspectProperties _self_, final OzobotProgram _self) {
     try {
-      while ((_self.getCurrent() != null)) {
-        {
-          CommandAspect.executeCommand(_self.getCurrent(), OzobotProgramAspect.client(_self));
-          _self.setCurrent(_self.getCurrent().getOutgoing().getTarget());
+      try {
+        while ((_self.getCurrent() != null)) {
+          {
+            CommandAspect.executeCommand(_self.getCurrent(), OzobotProgramAspect.client(_self));
+            _self.setCurrent(_self.getCurrent().getOutgoing().getTarget());
+          }
+        }
+      } catch (final Throwable _t) {
+        if (_t instanceof Exception) {
+          final Exception nt = (Exception)_t;
+          String _message = nt.getMessage();
+          String _plus = ("Stopped due to " + _message);
+          InputOutput.<String>println(_plus);
+        } else {
+          throw Exceptions.sneakyThrow(_t);
         }
       }
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception nt = (Exception)_t;
-        String _message = nt.getMessage();
-        String _plus = ("Stopped due to " + _message);
-        InputOutput.<String>println(_plus);
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
+      OzobotProgramAspect.client(_self).disconnect();
+      OzobotProgramAspect.client(_self).close();
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
     }
   }
   

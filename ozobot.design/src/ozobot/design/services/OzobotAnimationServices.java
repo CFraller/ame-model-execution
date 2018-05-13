@@ -3,7 +3,12 @@ package ozobot.design.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gemoc.executionframework.extensions.sirius.services.AbstractGemocAnimatorServices;
+
+import ozobot.model.Block;
+import ozobot.model.Command;
+import ozobot.model.OzobotProgram;
 
 public class OzobotAnimationServices extends AbstractGemocAnimatorServices {
 
@@ -14,6 +19,14 @@ public class OzobotAnimationServices extends AbstractGemocAnimatorServices {
 		res.add(new StringCouple("Ozobot", "Animation"));
 
 		return res;
+	}
+	
+	public boolean isCurrentCommand(EObject o){
+		if(o instanceof Command){
+			return ((OzobotProgram)((Block)((Command)o).eContainer()).eContainer()).getCurrent() == o;
+		} else {
+			return false;
+		}
 	}
 	
 	

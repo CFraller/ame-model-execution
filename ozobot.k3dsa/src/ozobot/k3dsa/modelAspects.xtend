@@ -50,6 +50,9 @@ class OzobotProgramAspect extends NamedElementAspect {
     	}catch (Exception nt){
 			println("Stopped due to "+nt.message)
 		}
+		
+		_self.client.disconnect
+		_self.client.close
 	}
 	
 	@Step

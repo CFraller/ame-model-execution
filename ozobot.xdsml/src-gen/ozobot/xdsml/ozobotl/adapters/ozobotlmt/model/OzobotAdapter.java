@@ -36,7 +36,51 @@ public class OzobotAdapter extends EObjectAdapter<Ozobot> implements ozobot.xdsm
     return programs_;
   }
   
+  @Override
+  public void initialize() {
+    ozobot.xdsml.ozobotl.aspects.OzobotAspect.initialize(adaptee);
+  }
+  
+  @Override
+  public float getOrientation() {
+    return ozobot.xdsml.ozobotl.aspects.OzobotAspect.orientation(adaptee);
+  }
+  
+  @Override
+  public void setOrientation(final float orientation) {
+    ozobot.xdsml.ozobotl.aspects.OzobotAspect.orientation(adaptee, orientation
+    );
+  }
+  
+  @Override
+  public float getXposition() {
+    return ozobot.xdsml.ozobotl.aspects.OzobotAspect.xposition(adaptee);
+  }
+  
+  @Override
+  public void setXposition(final float xposition) {
+    ozobot.xdsml.ozobotl.aspects.OzobotAspect.xposition(adaptee, xposition
+    );
+  }
+  
+  @Override
+  public float getYposition() {
+    return ozobot.xdsml.ozobotl.aspects.OzobotAspect.yposition(adaptee);
+  }
+  
+  @Override
+  public void setYposition(final float yposition) {
+    ozobot.xdsml.ozobotl.aspects.OzobotAspect.yposition(adaptee, yposition
+    );
+  }
+  
   protected final static String NAME_EDEFAULT = null;
+  
+  protected final static float ORIENTATION_EDEFAULT = 0.0F;
+  
+  protected final static float XPOSITION_EDEFAULT = 0.0F;
+  
+  protected final static float YPOSITION_EDEFAULT = 0.0F;
   
   @Override
   public EClass eClass() {
@@ -50,6 +94,12 @@ public class OzobotAdapter extends EObjectAdapter<Ozobot> implements ozobot.xdsm
     		return getName();
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.OZOBOT__PROGRAMS:
     		return getPrograms();
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.OZOBOT__ORIENTATION:
+    		return new java.lang.Float(getOrientation());
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.OZOBOT__XPOSITION:
+    		return new java.lang.Float(getXposition());
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.OZOBOT__YPOSITION:
+    		return new java.lang.Float(getYposition());
     }
     
     return super.eGet(featureID, resolve, coreType);
@@ -62,6 +112,12 @@ public class OzobotAdapter extends EObjectAdapter<Ozobot> implements ozobot.xdsm
     		return getName() != NAME_EDEFAULT;
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.OZOBOT__PROGRAMS:
     		return getPrograms() != null && !getPrograms().isEmpty();
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.OZOBOT__ORIENTATION:
+    		return getOrientation() != ORIENTATION_EDEFAULT;
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.OZOBOT__XPOSITION:
+    		return getXposition() != XPOSITION_EDEFAULT;
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.OZOBOT__YPOSITION:
+    		return getYposition() != YPOSITION_EDEFAULT;
     }
     
     return super.eIsSet(featureID);
@@ -78,6 +134,15 @@ public class OzobotAdapter extends EObjectAdapter<Ozobot> implements ozobot.xdsm
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.OZOBOT__PROGRAMS:
     		getPrograms().clear();
     		getPrograms().addAll((Collection) newValue);
+    		return;
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.OZOBOT__ORIENTATION:
+    		setOrientation(((java.lang.Float) newValue).floatValue());
+    		return;
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.OZOBOT__XPOSITION:
+    		setXposition(((java.lang.Float) newValue).floatValue());
+    		return;
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.OZOBOT__YPOSITION:
+    		setYposition(((java.lang.Float) newValue).floatValue());
     		return;
     }
     

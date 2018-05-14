@@ -50,6 +50,11 @@ public class OzobotProgramAdapter extends EObjectAdapter<OzobotProgram> implemen
     else adaptee.setCurrent(null);
   }
   
+  @Override
+  public void main() {
+    ozobot.xdsml.ozobotl.aspects.OzobotProgramAspect.main(adaptee);
+  }
+  
   protected final static String NAME_EDEFAULT = null;
   
   @Override

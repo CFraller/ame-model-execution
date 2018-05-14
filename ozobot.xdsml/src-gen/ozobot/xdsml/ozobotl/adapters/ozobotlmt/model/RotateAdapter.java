@@ -81,7 +81,25 @@ public class RotateAdapter extends EObjectAdapter<Rotate> implements ozobot.xdsm
     else adaptee.setIncoming(null);
   }
   
+  @Override
+  public void initialize() {
+    ozobot.xdsml.ozobotl.aspects.CommandAspect.initialize(adaptee);
+  }
+  
+  @Override
+  public String getTopic() {
+    return ozobot.xdsml.ozobotl.aspects.CommandAspect.topic(adaptee);
+  }
+  
+  @Override
+  public void setTopic(final String topic) {
+    ozobot.xdsml.ozobotl.aspects.CommandAspect.topic(adaptee, topic
+    );
+  }
+  
   protected final static String NAME_EDEFAULT = null;
+  
+  protected final static String TOPIC_EDEFAULT = null;
   
   protected final static Direction DIRECTION_EDEFAULT = ozobot.xdsml.ozobotlmt.model.Direction.LEFT;
   
@@ -103,6 +121,8 @@ public class RotateAdapter extends EObjectAdapter<Rotate> implements ozobot.xdsm
     		return getOutgoing();
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.ROTATE__INCOMING:
     		return getIncoming();
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.ROTATE__TOPIC:
+    		return getTopic();
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.ROTATE__DIRECTION:
     		return getDirection();
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.ROTATE__VELOCITY:
@@ -123,6 +143,8 @@ public class RotateAdapter extends EObjectAdapter<Rotate> implements ozobot.xdsm
     		return getOutgoing() != null;
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.ROTATE__INCOMING:
     		return getIncoming() != null;
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.ROTATE__TOPIC:
+    		return getTopic() != TOPIC_EDEFAULT;
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.ROTATE__DIRECTION:
     		return getDirection() != DIRECTION_EDEFAULT;
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.ROTATE__VELOCITY:
@@ -150,6 +172,11 @@ public class RotateAdapter extends EObjectAdapter<Rotate> implements ozobot.xdsm
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.ROTATE__INCOMING:
     		setIncoming(
     		(ozobot.xdsml.ozobotlmt.model.Transition)
+    		 newValue);
+    		return;
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.ROTATE__TOPIC:
+    		setTopic(
+    		(java.lang.String)
     		 newValue);
     		return;
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.ROTATE__DIRECTION:

@@ -49,7 +49,25 @@ public class CommandAdapter extends EObjectAdapter<Command> implements ozobot.xd
     else adaptee.setIncoming(null);
   }
   
+  @Override
+  public void initialize() {
+    ozobot.xdsml.ozobotl.aspects.CommandAspect.initialize(adaptee);
+  }
+  
+  @Override
+  public String getTopic() {
+    return ozobot.xdsml.ozobotl.aspects.CommandAspect.topic(adaptee);
+  }
+  
+  @Override
+  public void setTopic(final String topic) {
+    ozobot.xdsml.ozobotl.aspects.CommandAspect.topic(adaptee, topic
+    );
+  }
+  
   protected final static String NAME_EDEFAULT = null;
+  
+  protected final static String TOPIC_EDEFAULT = null;
   
   @Override
   public EClass eClass() {
@@ -65,6 +83,8 @@ public class CommandAdapter extends EObjectAdapter<Command> implements ozobot.xd
     		return getOutgoing();
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.COMMAND__INCOMING:
     		return getIncoming();
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.COMMAND__TOPIC:
+    		return getTopic();
     }
     
     return super.eGet(featureID, resolve, coreType);
@@ -79,6 +99,8 @@ public class CommandAdapter extends EObjectAdapter<Command> implements ozobot.xd
     		return getOutgoing() != null;
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.COMMAND__INCOMING:
     		return getIncoming() != null;
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.COMMAND__TOPIC:
+    		return getTopic() != TOPIC_EDEFAULT;
     }
     
     return super.eIsSet(featureID);
@@ -100,6 +122,11 @@ public class CommandAdapter extends EObjectAdapter<Command> implements ozobot.xd
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.COMMAND__INCOMING:
     		setIncoming(
     		(ozobot.xdsml.ozobotlmt.model.Transition)
+    		 newValue);
+    		return;
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.COMMAND__TOPIC:
+    		setTopic(
+    		(java.lang.String)
     		 newValue);
     		return;
     }

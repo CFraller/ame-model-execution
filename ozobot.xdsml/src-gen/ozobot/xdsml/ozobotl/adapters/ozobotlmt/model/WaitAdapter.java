@@ -59,7 +59,25 @@ public class WaitAdapter extends EObjectAdapter<Wait> implements ozobot.xdsml.oz
     else adaptee.setIncoming(null);
   }
   
+  @Override
+  public void initialize() {
+    ozobot.xdsml.ozobotl.aspects.CommandAspect.initialize(adaptee);
+  }
+  
+  @Override
+  public String getTopic() {
+    return ozobot.xdsml.ozobotl.aspects.CommandAspect.topic(adaptee);
+  }
+  
+  @Override
+  public void setTopic(final String topic) {
+    ozobot.xdsml.ozobotl.aspects.CommandAspect.topic(adaptee, topic
+    );
+  }
+  
   protected final static String NAME_EDEFAULT = null;
+  
+  protected final static String TOPIC_EDEFAULT = null;
   
   protected final static int TIME_EDEFAULT = 0;
   
@@ -77,6 +95,8 @@ public class WaitAdapter extends EObjectAdapter<Wait> implements ozobot.xdsml.oz
     		return getOutgoing();
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.WAIT__INCOMING:
     		return getIncoming();
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.WAIT__TOPIC:
+    		return getTopic();
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.WAIT__TIME:
     		return new java.lang.Integer(getTime());
     }
@@ -93,6 +113,8 @@ public class WaitAdapter extends EObjectAdapter<Wait> implements ozobot.xdsml.oz
     		return getOutgoing() != null;
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.WAIT__INCOMING:
     		return getIncoming() != null;
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.WAIT__TOPIC:
+    		return getTopic() != TOPIC_EDEFAULT;
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.WAIT__TIME:
     		return getTime() != TIME_EDEFAULT;
     }
@@ -116,6 +138,11 @@ public class WaitAdapter extends EObjectAdapter<Wait> implements ozobot.xdsml.oz
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.WAIT__INCOMING:
     		setIncoming(
     		(ozobot.xdsml.ozobotlmt.model.Transition)
+    		 newValue);
+    		return;
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.WAIT__TOPIC:
+    		setTopic(
+    		(java.lang.String)
     		 newValue);
     		return;
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.WAIT__TIME:

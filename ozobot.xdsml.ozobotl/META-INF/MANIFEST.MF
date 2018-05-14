@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: ozobot.xdsml.ozobotl;singleton:=true
-Export-Package: ozobot.xdsml.ozobotl.model,
+Export-Package: ozobot.xdsml.ozobotl.aspects,
+ ozobot.xdsml.ozobotl.model,
  ozobot.xdsml.ozobotl.model.impl,
  ozobot.xdsml.ozobotl.model.util
 Bundle-Name: %pluginName
@@ -12,11 +13,12 @@ Require-Bundle: org.eclipse.core.runtime,
  fr.inria.diverse.k3.al.annotationprocessor.plugin,
  fr.inria.diverse.melange,
  org.eclipse.xtext.xbase.lib,
+ ozobot.mqtt.plugin,
  com.google.guava,
  org.eclipse.xtend.lib,
  org.eclipse.emf.common,
  org.eclipse.emf.ecore.xmi,
- org.eclipse.gemoc.executionframework.extensions.sirius;bundle-version="0.0.0";visibility:=reexport
+ org.eclipse.gemoc.executionframework.extensions.sirius;bundle-version=0.0.0;visibility:=reexport
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

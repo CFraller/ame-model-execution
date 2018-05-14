@@ -72,9 +72,40 @@ public class RepeatAdapter extends EObjectAdapter<Repeat> implements ozobot.xdsm
     else adaptee.setBlock(null);
   }
   
+  @Override
+  public void initialize() {
+    ozobot.xdsml.ozobotl.aspects.RepeatAspect.initialize(adaptee);
+  }
+  
+  @Override
+  public int getRuntimeCounter() {
+    return ozobot.xdsml.ozobotl.aspects.RepeatAspect.runtimeCounter(adaptee);
+  }
+  
+  @Override
+  public void setRuntimeCounter(final int runtimeCounter) {
+    ozobot.xdsml.ozobotl.aspects.RepeatAspect.runtimeCounter(adaptee, runtimeCounter
+    );
+  }
+  
+  @Override
+  public String getTopic() {
+    return ozobot.xdsml.ozobotl.aspects.CommandAspect.topic(adaptee);
+  }
+  
+  @Override
+  public void setTopic(final String topic) {
+    ozobot.xdsml.ozobotl.aspects.CommandAspect.topic(adaptee, topic
+    );
+  }
+  
   protected final static String NAME_EDEFAULT = null;
   
+  protected final static String TOPIC_EDEFAULT = null;
+  
   protected final static int COUNT_EDEFAULT = 0;
+  
+  protected final static int RUNTIME_COUNTER_EDEFAULT = 0;
   
   @Override
   public EClass eClass() {
@@ -90,10 +121,14 @@ public class RepeatAdapter extends EObjectAdapter<Repeat> implements ozobot.xdsm
     		return getOutgoing();
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.REPEAT__INCOMING:
     		return getIncoming();
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.REPEAT__TOPIC:
+    		return getTopic();
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.REPEAT__COUNT:
     		return new java.lang.Integer(getCount());
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.REPEAT__BLOCK:
     		return getBlock();
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.REPEAT__RUNTIME_COUNTER:
+    		return new java.lang.Integer(getRuntimeCounter());
     }
     
     return super.eGet(featureID, resolve, coreType);
@@ -108,10 +143,14 @@ public class RepeatAdapter extends EObjectAdapter<Repeat> implements ozobot.xdsm
     		return getOutgoing() != null;
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.REPEAT__INCOMING:
     		return getIncoming() != null;
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.REPEAT__TOPIC:
+    		return getTopic() != TOPIC_EDEFAULT;
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.REPEAT__COUNT:
     		return getCount() != COUNT_EDEFAULT;
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.REPEAT__BLOCK:
     		return getBlock() != null;
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.REPEAT__RUNTIME_COUNTER:
+    		return getRuntimeCounter() != RUNTIME_COUNTER_EDEFAULT;
     }
     
     return super.eIsSet(featureID);
@@ -135,6 +174,11 @@ public class RepeatAdapter extends EObjectAdapter<Repeat> implements ozobot.xdsm
     		(ozobot.xdsml.ozobotlmt.model.Transition)
     		 newValue);
     		return;
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.REPEAT__TOPIC:
+    		setTopic(
+    		(java.lang.String)
+    		 newValue);
+    		return;
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.REPEAT__COUNT:
     		setCount(((java.lang.Integer) newValue).intValue());
     		return;
@@ -142,6 +186,9 @@ public class RepeatAdapter extends EObjectAdapter<Repeat> implements ozobot.xdsm
     		setBlock(
     		(ozobot.xdsml.ozobotlmt.model.Block)
     		 newValue);
+    		return;
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.REPEAT__RUNTIME_COUNTER:
+    		setRuntimeCounter(((java.lang.Integer) newValue).intValue());
     		return;
     }
     

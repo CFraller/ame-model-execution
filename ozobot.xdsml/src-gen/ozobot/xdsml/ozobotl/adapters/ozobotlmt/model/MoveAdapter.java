@@ -70,7 +70,25 @@ public class MoveAdapter extends EObjectAdapter<Move> implements ozobot.xdsml.oz
     else adaptee.setIncoming(null);
   }
   
+  @Override
+  public void initialize() {
+    ozobot.xdsml.ozobotl.aspects.CommandAspect.initialize(adaptee);
+  }
+  
+  @Override
+  public String getTopic() {
+    return ozobot.xdsml.ozobotl.aspects.CommandAspect.topic(adaptee);
+  }
+  
+  @Override
+  public void setTopic(final String topic) {
+    ozobot.xdsml.ozobotl.aspects.CommandAspect.topic(adaptee, topic
+    );
+  }
+  
   protected final static String NAME_EDEFAULT = null;
+  
+  protected final static String TOPIC_EDEFAULT = null;
   
   protected final static int DISTANCE_EDEFAULT = 0;
   
@@ -90,6 +108,8 @@ public class MoveAdapter extends EObjectAdapter<Move> implements ozobot.xdsml.oz
     		return getOutgoing();
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.MOVE__INCOMING:
     		return getIncoming();
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.MOVE__TOPIC:
+    		return getTopic();
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.MOVE__DISTANCE:
     		return new java.lang.Integer(getDistance());
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.MOVE__VELOCITY:
@@ -108,6 +128,8 @@ public class MoveAdapter extends EObjectAdapter<Move> implements ozobot.xdsml.oz
     		return getOutgoing() != null;
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.MOVE__INCOMING:
     		return getIncoming() != null;
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.MOVE__TOPIC:
+    		return getTopic() != TOPIC_EDEFAULT;
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.MOVE__DISTANCE:
     		return getDistance() != DISTANCE_EDEFAULT;
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.MOVE__VELOCITY:
@@ -133,6 +155,11 @@ public class MoveAdapter extends EObjectAdapter<Move> implements ozobot.xdsml.oz
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.MOVE__INCOMING:
     		setIncoming(
     		(ozobot.xdsml.ozobotlmt.model.Transition)
+    		 newValue);
+    		return;
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.MOVE__TOPIC:
+    		setTopic(
+    		(java.lang.String)
     		 newValue);
     		return;
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.MOVE__DISTANCE:

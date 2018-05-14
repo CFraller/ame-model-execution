@@ -46,6 +46,11 @@ public class BlockAdapter extends EObjectAdapter<Block> implements ozobot.xdsml.
     return transitions_;
   }
   
+  @Override
+  public void initialize() {
+    ozobot.xdsml.ozobotl.aspects.BlockAspect.initialize(adaptee);
+  }
+  
   protected final static String NAME_EDEFAULT = null;
   
   @Override

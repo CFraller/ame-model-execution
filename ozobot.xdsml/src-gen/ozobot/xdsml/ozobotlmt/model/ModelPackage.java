@@ -168,13 +168,22 @@ public interface ModelPackage extends EPackage {
 	int COMMAND__INCOMING = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Topic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND__TOPIC = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Command</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int COMMAND_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link ozobot.xdsml.ozobotlmt.model.impl.MoveImpl <em>Move</em>}' class.
@@ -212,6 +221,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int MOVE__INCOMING = COMMAND__INCOMING;
+
+	/**
+	 * The feature id for the '<em><b>Topic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE__TOPIC = COMMAND__TOPIC;
 
 	/**
 	 * The feature id for the '<em><b>Distance</b></em>' attribute.
@@ -278,6 +296,15 @@ public interface ModelPackage extends EPackage {
 	int LIGHT__INCOMING = COMMAND__INCOMING;
 
 	/**
+	 * The feature id for the '<em><b>Topic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIGHT__TOPIC = COMMAND__TOPIC;
+
+	/**
 	 * The feature id for the '<em><b>Color</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -331,6 +358,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int ROTATE__INCOMING = COMMAND__INCOMING;
+
+	/**
+	 * The feature id for the '<em><b>Topic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROTATE__TOPIC = COMMAND__TOPIC;
 
 	/**
 	 * The feature id for the '<em><b>Direction</b></em>' attribute.
@@ -406,6 +442,15 @@ public interface ModelPackage extends EPackage {
 	int WAIT__INCOMING = COMMAND__INCOMING;
 
 	/**
+	 * The feature id for the '<em><b>Topic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WAIT__TOPIC = COMMAND__TOPIC;
+
+	/**
 	 * The feature id for the '<em><b>Time</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -461,6 +506,15 @@ public interface ModelPackage extends EPackage {
 	int REPEAT__INCOMING = COMMAND__INCOMING;
 
 	/**
+	 * The feature id for the '<em><b>Topic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPEAT__TOPIC = COMMAND__TOPIC;
+
+	/**
 	 * The feature id for the '<em><b>Count</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -479,13 +533,22 @@ public interface ModelPackage extends EPackage {
 	int REPEAT__BLOCK = COMMAND_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Runtime Counter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPEAT__RUNTIME_COUNTER = COMMAND_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Repeat</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REPEAT_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
+	int REPEAT_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link ozobot.xdsml.ozobotlmt.model.impl.OzobotImpl <em>Ozobot</em>}' class.
@@ -516,13 +579,40 @@ public interface ModelPackage extends EPackage {
 	int OZOBOT__PROGRAMS = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Orientation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OZOBOT__ORIENTATION = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Xposition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OZOBOT__XPOSITION = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Yposition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OZOBOT__YPOSITION = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Ozobot</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OZOBOT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int OZOBOT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link ozobot.xdsml.ozobotlmt.model.impl.BlockImpl <em>Block</em>}' class.
@@ -733,6 +823,17 @@ public interface ModelPackage extends EPackage {
 	EReference getCommand_Incoming();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ozobot.xdsml.ozobotlmt.model.Command#getTopic <em>Topic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Topic</em>'.
+	 * @see ozobot.xdsml.ozobotlmt.model.Command#getTopic()
+	 * @see #getCommand()
+	 * @generated
+	 */
+	EAttribute getCommand_Topic();
+
+	/**
 	 * Returns the meta object for class '{@link ozobot.xdsml.ozobotlmt.model.Move <em>Move</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -882,6 +983,17 @@ public interface ModelPackage extends EPackage {
 	EReference getRepeat_Block();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ozobot.xdsml.ozobotlmt.model.Repeat#getRuntimeCounter <em>Runtime Counter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Runtime Counter</em>'.
+	 * @see ozobot.xdsml.ozobotlmt.model.Repeat#getRuntimeCounter()
+	 * @see #getRepeat()
+	 * @generated
+	 */
+	EAttribute getRepeat_RuntimeCounter();
+
+	/**
 	 * Returns the meta object for class '{@link ozobot.xdsml.ozobotlmt.model.Ozobot <em>Ozobot</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -901,6 +1013,39 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getOzobot_Programs();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozobot.xdsml.ozobotlmt.model.Ozobot#getOrientation <em>Orientation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Orientation</em>'.
+	 * @see ozobot.xdsml.ozobotlmt.model.Ozobot#getOrientation()
+	 * @see #getOzobot()
+	 * @generated
+	 */
+	EAttribute getOzobot_Orientation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozobot.xdsml.ozobotlmt.model.Ozobot#getXposition <em>Xposition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Xposition</em>'.
+	 * @see ozobot.xdsml.ozobotlmt.model.Ozobot#getXposition()
+	 * @see #getOzobot()
+	 * @generated
+	 */
+	EAttribute getOzobot_Xposition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozobot.xdsml.ozobotlmt.model.Ozobot#getYposition <em>Yposition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Yposition</em>'.
+	 * @see ozobot.xdsml.ozobotlmt.model.Ozobot#getYposition()
+	 * @see #getOzobot()
+	 * @generated
+	 */
+	EAttribute getOzobot_Yposition();
 
 	/**
 	 * Returns the meta object for class '{@link ozobot.xdsml.ozobotlmt.model.Block <em>Block</em>}'.
@@ -1089,6 +1234,14 @@ public interface ModelPackage extends EPackage {
 		EReference COMMAND__INCOMING = eINSTANCE.getCommand_Incoming();
 
 		/**
+		 * The meta object literal for the '<em><b>Topic</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMAND__TOPIC = eINSTANCE.getCommand_Topic();
+
+		/**
 		 * The meta object literal for the '{@link ozobot.xdsml.ozobotlmt.model.impl.MoveImpl <em>Move</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1211,6 +1364,14 @@ public interface ModelPackage extends EPackage {
 		EReference REPEAT__BLOCK = eINSTANCE.getRepeat_Block();
 
 		/**
+		 * The meta object literal for the '<em><b>Runtime Counter</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REPEAT__RUNTIME_COUNTER = eINSTANCE.getRepeat_RuntimeCounter();
+
+		/**
 		 * The meta object literal for the '{@link ozobot.xdsml.ozobotlmt.model.impl.OzobotImpl <em>Ozobot</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1227,6 +1388,30 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OZOBOT__PROGRAMS = eINSTANCE.getOzobot_Programs();
+
+		/**
+		 * The meta object literal for the '<em><b>Orientation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OZOBOT__ORIENTATION = eINSTANCE.getOzobot_Orientation();
+
+		/**
+		 * The meta object literal for the '<em><b>Xposition</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OZOBOT__XPOSITION = eINSTANCE.getOzobot_Xposition();
+
+		/**
+		 * The meta object literal for the '<em><b>Yposition</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OZOBOT__YPOSITION = eINSTANCE.getOzobot_Yposition();
 
 		/**
 		 * The meta object literal for the '{@link ozobot.xdsml.ozobotlmt.model.impl.BlockImpl <em>Block</em>}' class.

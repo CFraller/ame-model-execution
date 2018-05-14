@@ -60,7 +60,25 @@ public class LightAdapter extends EObjectAdapter<Light> implements ozobot.xdsml.
     else adaptee.setIncoming(null);
   }
   
+  @Override
+  public void initialize() {
+    ozobot.xdsml.ozobotl.aspects.CommandAspect.initialize(adaptee);
+  }
+  
+  @Override
+  public String getTopic() {
+    return ozobot.xdsml.ozobotl.aspects.CommandAspect.topic(adaptee);
+  }
+  
+  @Override
+  public void setTopic(final String topic) {
+    ozobot.xdsml.ozobotl.aspects.CommandAspect.topic(adaptee, topic
+    );
+  }
+  
   protected final static String NAME_EDEFAULT = null;
+  
+  protected final static String TOPIC_EDEFAULT = null;
   
   protected final static Color COLOR_EDEFAULT = ozobot.xdsml.ozobotlmt.model.Color.NONE;
   
@@ -78,6 +96,8 @@ public class LightAdapter extends EObjectAdapter<Light> implements ozobot.xdsml.
     		return getOutgoing();
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.LIGHT__INCOMING:
     		return getIncoming();
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.LIGHT__TOPIC:
+    		return getTopic();
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.LIGHT__COLOR:
     		return getColor();
     }
@@ -94,6 +114,8 @@ public class LightAdapter extends EObjectAdapter<Light> implements ozobot.xdsml.
     		return getOutgoing() != null;
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.LIGHT__INCOMING:
     		return getIncoming() != null;
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.LIGHT__TOPIC:
+    		return getTopic() != TOPIC_EDEFAULT;
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.LIGHT__COLOR:
     		return getColor() != COLOR_EDEFAULT;
     }
@@ -117,6 +139,11 @@ public class LightAdapter extends EObjectAdapter<Light> implements ozobot.xdsml.
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.LIGHT__INCOMING:
     		setIncoming(
     		(ozobot.xdsml.ozobotlmt.model.Transition)
+    		 newValue);
+    		return;
+    	case ozobot.xdsml.ozobotlmt.model.ModelPackage.LIGHT__TOPIC:
+    		setTopic(
+    		(java.lang.String)
     		 newValue);
     		return;
     	case ozobot.xdsml.ozobotlmt.model.ModelPackage.LIGHT__COLOR:

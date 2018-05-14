@@ -73,4 +73,12 @@ public interface OzobotProgram extends NamedElement {
 	 */
 	void setCurrent(Command value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void main();
+
 } // OzobotProgram

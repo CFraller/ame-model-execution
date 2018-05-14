@@ -51,8 +51,9 @@ public class OzobotProgramAdapter extends EObjectAdapter<OzobotProgram> implemen
   }
   
   @Override
-  public void main() {
-    ozobot.xdsml.ozobotl.aspects.OzobotProgramAspect.main(adaptee);
+  public void main(final org.eclipse.emf.common.util.EList<java.lang.String> args) {
+    ozobot.xdsml.ozobotl.aspects.OzobotProgramAspect.main(adaptee, args
+    );
   }
   
   protected final static String NAME_EDEFAULT = null;

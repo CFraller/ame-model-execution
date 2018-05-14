@@ -24,6 +24,7 @@ import ozobot.xdsml.ozobotl.model.Repeat;
  * <ul>
  *   <li>{@link ozobot.xdsml.ozobotl.model.impl.RepeatImpl#getCount <em>Count</em>}</li>
  *   <li>{@link ozobot.xdsml.ozobotl.model.impl.RepeatImpl#getBlock <em>Block</em>}</li>
+ *   <li>{@link ozobot.xdsml.ozobotl.model.impl.RepeatImpl#getRuntimeCounter <em>Runtime Counter</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,6 +59,26 @@ public class RepeatImpl extends CommandImpl implements Repeat {
 	 * @ordered
 	 */
 	protected Block block;
+
+	/**
+	 * The default value of the '{@link #getRuntimeCounter() <em>Runtime Counter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRuntimeCounter()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int RUNTIME_COUNTER_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getRuntimeCounter() <em>Runtime Counter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRuntimeCounter()
+	 * @generated
+	 * @ordered
+	 */
+	protected int runtimeCounter = RUNTIME_COUNTER_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -147,6 +168,27 @@ public class RepeatImpl extends CommandImpl implements Repeat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getRuntimeCounter() {
+		return runtimeCounter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRuntimeCounter(int newRuntimeCounter) {
+		int oldRuntimeCounter = runtimeCounter;
+		runtimeCounter = newRuntimeCounter;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.REPEAT__RUNTIME_COUNTER, oldRuntimeCounter, runtimeCounter));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -168,6 +210,8 @@ public class RepeatImpl extends CommandImpl implements Repeat {
 				return getCount();
 			case ModelPackage.REPEAT__BLOCK:
 				return getBlock();
+			case ModelPackage.REPEAT__RUNTIME_COUNTER:
+				return getRuntimeCounter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -185,6 +229,9 @@ public class RepeatImpl extends CommandImpl implements Repeat {
 				return;
 			case ModelPackage.REPEAT__BLOCK:
 				setBlock((Block)newValue);
+				return;
+			case ModelPackage.REPEAT__RUNTIME_COUNTER:
+				setRuntimeCounter((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -204,6 +251,9 @@ public class RepeatImpl extends CommandImpl implements Repeat {
 			case ModelPackage.REPEAT__BLOCK:
 				setBlock((Block)null);
 				return;
+			case ModelPackage.REPEAT__RUNTIME_COUNTER:
+				setRuntimeCounter(RUNTIME_COUNTER_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -220,6 +270,8 @@ public class RepeatImpl extends CommandImpl implements Repeat {
 				return count != COUNT_EDEFAULT;
 			case ModelPackage.REPEAT__BLOCK:
 				return block != null;
+			case ModelPackage.REPEAT__RUNTIME_COUNTER:
+				return runtimeCounter != RUNTIME_COUNTER_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -236,6 +288,8 @@ public class RepeatImpl extends CommandImpl implements Repeat {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (count: ");
 		result.append(count);
+		result.append(", runtimeCounter: ");
+		result.append(runtimeCounter);
 		result.append(')');
 		return result.toString();
 	}

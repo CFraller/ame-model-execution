@@ -21,10 +21,10 @@ public abstract class CommandAspect extends NamedElementAspect {
 		ozobot.xdsml.ozobotl.aspects.WaitAspect.executeCommand((ozobot.xdsml.ozobotl.model.Wait) _self, client);
 	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Light) {
 		ozobot.xdsml.ozobotl.aspects.LightAspect.executeCommand((ozobot.xdsml.ozobotl.model.Light) _self, client);
-	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Rotate) {
-		ozobot.xdsml.ozobotl.aspects.RotateAspect.executeCommand((ozobot.xdsml.ozobotl.model.Rotate) _self, client);
 	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Repeat) {
 		ozobot.xdsml.ozobotl.aspects.RepeatAspect.executeCommand((ozobot.xdsml.ozobotl.model.Repeat) _self, client);
+	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Rotate) {
+		ozobot.xdsml.ozobotl.aspects.RotateAspect.executeCommand((ozobot.xdsml.ozobotl.model.Rotate) _self, client);
 	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Command) {
 		fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
 			@Override
@@ -100,6 +100,8 @@ public abstract class CommandAspect extends NamedElementAspect {
 			command.execute();
 		}
 		;
+	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Repeat) {
+		ozobot.xdsml.ozobotl.aspects.RepeatAspect.initialize((ozobot.xdsml.ozobotl.model.Repeat) _self);
 	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Rotate) {
 		fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
 			@Override
@@ -116,8 +118,6 @@ public abstract class CommandAspect extends NamedElementAspect {
 			command.execute();
 		}
 		;
-	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Repeat) {
-		ozobot.xdsml.ozobotl.aspects.RepeatAspect.initialize((ozobot.xdsml.ozobotl.model.Repeat) _self);
 	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Command) {
 		fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
 			@Override

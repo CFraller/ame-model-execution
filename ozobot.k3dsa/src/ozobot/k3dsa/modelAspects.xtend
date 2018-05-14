@@ -5,6 +5,7 @@ import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
 import fr.inria.diverse.k3.al.annotationprocessor.Main
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import fr.inria.diverse.k3.al.annotationprocessor.Step
+import org.eclipse.emf.common.util.EList
 import org.eclipse.paho.client.mqttv3.MqttClient
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions
 import org.eclipse.paho.client.mqttv3.MqttMessage
@@ -34,7 +35,7 @@ class OzobotProgramAspect extends NamedElementAspect {
 	public MqttClient client
 	
 	@Main
-    def public void main() {
+    def public void main(EList<String> args) {
     	try{
     		while (_self.current !== null) {
     			_self.current.executeCommand(_self.client)

@@ -64,6 +64,9 @@
       </genFeatures>
       <genOperations>
         <ecoreOperation href="OzobotLMT.ecore#//OzobotProgram/main"/>
+        <genParameters>
+          <ecoreParameter href="OzobotLMT.ecore#//OzobotProgram/main/args"/>
+        </genParameters>
       </genOperations>
     </genClasses>
     <genClasses image="false">

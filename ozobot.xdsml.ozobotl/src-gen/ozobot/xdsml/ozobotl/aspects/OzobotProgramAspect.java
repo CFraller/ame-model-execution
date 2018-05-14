@@ -3,6 +3,7 @@ package ozobot.xdsml.ozobotl.aspects;
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.Main;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.InputOutput;
@@ -16,12 +17,10 @@ import ozobot.xdsml.ozobotl.model.OzobotProgram;
 @SuppressWarnings("all")
 public class OzobotProgramAspect extends NamedElementAspect {
   @Main
-  public static void main(final OzobotProgram _self) {
-	final ozobot.xdsml.ozobotl.aspects.OzobotProgramAspectOzobotProgramAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.OzobotProgramAspectOzobotProgramAspectContext
-			.getSelf(_self);
-	_privk3_main(_self_, _self);
-	;
-}
+  public static void main(final OzobotProgram _self, final EList<String> args) {
+    final ozobot.xdsml.ozobotl.aspects.OzobotProgramAspectOzobotProgramAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.OzobotProgramAspectOzobotProgramAspectContext.getSelf(_self);
+    _privk3_main(_self_, _self,args);;
+  }
   
   @Step
   public static void initialize(final OzobotProgram _self, final MqttClient client) {
@@ -60,7 +59,7 @@ public class OzobotProgramAspect extends NamedElementAspect {
 	;
 }
   
-  protected static void _privk3_main(final OzobotProgramAspectOzobotProgramAspectProperties _self_, final OzobotProgram _self) {
+  protected static void _privk3_main(final OzobotProgramAspectOzobotProgramAspectProperties _self_, final OzobotProgram _self, final EList<String> args) {
     try {
       try {
         while ((_self.getCurrent() != null)) {

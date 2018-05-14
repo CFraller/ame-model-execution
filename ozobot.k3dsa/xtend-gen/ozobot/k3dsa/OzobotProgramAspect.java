@@ -3,6 +3,7 @@ package ozobot.k3dsa;
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.Main;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.InputOutput;
@@ -16,9 +17,9 @@ import ozobot.model.OzobotProgram;
 @SuppressWarnings("all")
 public class OzobotProgramAspect extends NamedElementAspect {
   @Main
-  public static void main(final OzobotProgram _self) {
+  public static void main(final OzobotProgram _self, final EList<String> args) {
     final ozobot.k3dsa.OzobotProgramAspectOzobotProgramAspectProperties _self_ = ozobot.k3dsa.OzobotProgramAspectOzobotProgramAspectContext.getSelf(_self);
-    _privk3_main(_self_, _self);;
+    _privk3_main(_self_, _self,args);;
   }
   
   @Step
@@ -51,7 +52,7 @@ public class OzobotProgramAspect extends NamedElementAspect {
     _privk3_client(_self_, _self,client);;
   }
   
-  protected static void _privk3_main(final OzobotProgramAspectOzobotProgramAspectProperties _self_, final OzobotProgram _self) {
+  protected static void _privk3_main(final OzobotProgramAspectOzobotProgramAspectProperties _self_, final OzobotProgram _self, final EList<String> args) {
     try {
       try {
         while ((_self.getCurrent() != null)) {

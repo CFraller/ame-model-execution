@@ -5,7 +5,6 @@ import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
 import fr.inria.diverse.k3.al.annotationprocessor.Main
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import fr.inria.diverse.k3.al.annotationprocessor.Step
-import org.eclipse.emf.common.util.EList
 import org.eclipse.paho.client.mqttv3.MqttClient
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions
 import org.eclipse.paho.client.mqttv3.MqttMessage
@@ -34,8 +33,8 @@ abstract class NamedElementAspect {
 class OzobotProgramAspect extends NamedElementAspect {
 	public MqttClient client
 	
-	@Main
-    def public void main(EList<String> args) {
+	@Step
+    def public void run() {
     	try{
     		while (_self.current !== null) {
     			_self.current.executeCommand(_self.client)
@@ -152,10 +151,11 @@ class OzobotAspect extends NamedElementAspect {
 	public float yposition
 	public float orientation 
 	public MqttClient client
+
+
 	
-	@Step
 	@InitializeModel
-	def public void initialize(){
+	def public void initialize(String[] args){
 		_self.client = new MqttClient("tcp://192.168.99.100:1883","GemocClient")
 		val connOpts = new MqttConnectOptions()
 		connOpts.setCleanSession(true)
@@ -164,7 +164,11 @@ class OzobotAspect extends NamedElementAspect {
 		println("Ozobot " + _self.name + " initialized.")
 		_self.programs.forEach [p | p.initialize(_self.client)]
 	}
-
+	
+	@Main
+	def public void main(){
+		_self.programs.forEach [p | p.run]
+	}
 }
 
 @Aspect(className=Block)

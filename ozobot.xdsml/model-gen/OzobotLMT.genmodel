@@ -63,10 +63,7 @@
         <ecoreFeature xsi:type="ecore:EReference" href="OzobotLMT.ecore#//OzobotProgram/current"/>
       </genFeatures>
       <genOperations>
-        <ecoreOperation href="OzobotLMT.ecore#//OzobotProgram/main"/>
-        <genParameters>
-          <ecoreParameter href="OzobotLMT.ecore#//OzobotProgram/main/args"/>
-        </genParameters>
+        <ecoreOperation href="OzobotLMT.ecore#//OzobotProgram/run"/>
       </genOperations>
     </genClasses>
     <genClasses image="false">
@@ -148,6 +145,9 @@
       </genFeatures>
       <genOperations>
         <ecoreOperation href="OzobotLMT.ecore#//Ozobot/initialize"/>
+      </genOperations>
+      <genOperations>
+        <ecoreOperation href="OzobotLMT.ecore#//Ozobot/main"/>
       </genOperations>
     </genClasses>
     <genClasses>

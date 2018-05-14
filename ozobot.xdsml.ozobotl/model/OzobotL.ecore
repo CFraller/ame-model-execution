@@ -6,11 +6,8 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OzobotProgram" eSuperTypes="//NamedElement">
-    <eOperations name="main">
+    <eOperations name="run">
       <eAnnotations source="aspect"/>
-      <eParameters name="args" upperBound="-1">
-        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      </eParameters>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="block" lowerBound="1" eType="//Block" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="current" lowerBound="1" eType="//Command"/>
@@ -80,6 +77,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Ozobot" eSuperTypes="//NamedElement">
     <eOperations name="initialize">
+      <eAnnotations source="aspect"/>
+    </eOperations>
+    <eOperations name="main">
       <eAnnotations source="aspect"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="programs" upperBound="-1" eType="//OzobotProgram" containment="true"/>

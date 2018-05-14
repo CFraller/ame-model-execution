@@ -126,4 +126,12 @@ public interface Ozobot extends NamedElement {
 	 */
 	void initialize();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void main();
+
 } // Ozobot

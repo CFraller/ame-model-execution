@@ -13,21 +13,32 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import ozobot.xdsml.ozobotlmt.model.Block;
+import ozobot.xdsml.ozobotlmt.model.BlockAspect;
 import ozobot.xdsml.ozobotlmt.model.Color;
 import ozobot.xdsml.ozobotlmt.model.Command;
+import ozobot.xdsml.ozobotlmt.model.CommandAspect;
 import ozobot.xdsml.ozobotlmt.model.Direction;
 import ozobot.xdsml.ozobotlmt.model.Light;
+import ozobot.xdsml.ozobotlmt.model.LightAspect;
 import ozobot.xdsml.ozobotlmt.model.ModelFactory;
 import ozobot.xdsml.ozobotlmt.model.ModelPackage;
 import ozobot.xdsml.ozobotlmt.model.Move;
+import ozobot.xdsml.ozobotlmt.model.MoveAspect;
 import ozobot.xdsml.ozobotlmt.model.NamedElement;
+import ozobot.xdsml.ozobotlmt.model.NamedElementAspect;
 import ozobot.xdsml.ozobotlmt.model.Ozobot;
+import ozobot.xdsml.ozobotlmt.model.OzobotAspect;
 import ozobot.xdsml.ozobotlmt.model.OzobotProgram;
+import ozobot.xdsml.ozobotlmt.model.OzobotProgramAspect;
 import ozobot.xdsml.ozobotlmt.model.Repeat;
+import ozobot.xdsml.ozobotlmt.model.RepeatAspect;
 import ozobot.xdsml.ozobotlmt.model.Rotate;
+import ozobot.xdsml.ozobotlmt.model.RotateAspect;
 import ozobot.xdsml.ozobotlmt.model.Transition;
+import ozobot.xdsml.ozobotlmt.model.TransitionAspect;
 import ozobot.xdsml.ozobotlmt.model.Velocity;
 import ozobot.xdsml.ozobotlmt.model.Wait;
+import ozobot.xdsml.ozobotlmt.model.WaitAspect;
 
 /**
  * <!-- begin-user-doc -->
@@ -667,8 +678,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getOzobotProgram_Block(), this.getBlock(), null, "block", null, 1, 1, OzobotProgram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOzobotProgram_Current(), this.getCommand(), null, "current", null, 1, 1, OzobotProgram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = addEOperation(ozobotProgramEClass, null, "main", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "args", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(ozobotProgramEClass, null, "run", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(commandEClass, Command.class, "Command", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCommand_Outgoing(), this.getTransition(), this.getTransition_Source(), "outgoing", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -706,6 +716,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getOzobot_Yposition(), ecorePackage.getEFloat(), "yposition", null, 0, 1, Ozobot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(ozobotEClass, null, "initialize", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(ozobotEClass, null, "main", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(blockEClass, Block.class, "Block", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBlock_Commands(), this.getCommand(), null, "commands", null, 0, -1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -779,6 +791,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		   });	
 		addAnnotation
 		  (ozobotEClass.getEOperations().get(0), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (ozobotEClass.getEOperations().get(1), 
 		   source, 
 		   new String[] {
 		   });	

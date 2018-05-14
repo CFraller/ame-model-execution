@@ -5,8 +5,6 @@ package ozobot.xdsml.ozobotl.model.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -157,7 +155,7 @@ public class OzobotProgramImpl extends NamedElementImpl implements OzobotProgram
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void main(EList<String> args) {
+	public void run() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

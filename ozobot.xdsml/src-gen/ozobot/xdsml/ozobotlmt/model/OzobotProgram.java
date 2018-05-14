@@ -77,9 +77,9 @@ public interface OzobotProgram extends NamedElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model argsMany="true"
+	 * @model
 	 * @generated
 	 */
-	void main(EList<String> args);
+	void run();
 
 } // OzobotProgram

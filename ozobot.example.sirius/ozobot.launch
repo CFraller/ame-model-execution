@@ -4,12 +4,12 @@
 <stringAttribute key="GEMOC_DEBUG_MODEL_ID" value="org.eclipse.gemoc.execution.sequential.javaengine.ui.debugModel"/>
 <booleanAttribute key="GEMOC_LAUNCH_BREAK_START" value="false"/>
 <stringAttribute key="GEMOC_LAUNCH_INITIALIZATION_ARGUMENTS" value=""/>
-<stringAttribute key="GEMOC_LAUNCH_INITIALIZATION_METHOD" value=""/>
+<stringAttribute key="GEMOC_LAUNCH_INITIALIZATION_METHOD" value="ozobot.xdsml.ozobotl.aspects.OzobotAspect.initialize"/>
 <stringAttribute key="GEMOC_LAUNCH_MELANGE_QUERY" value=""/>
 <stringAttribute key="GEMOC_LAUNCH_SELECTED_LANGUAGE" value="ozobot.xdsml.OzobotL"/>
 <booleanAttribute key="Generic MultiDimensional Trace" value="false"/>
-<stringAttribute key="LAUNCH_METHOD_ENTRY_POINT" value="public static void ozobot.xdsml.ozobotl.aspects.OzobotProgramAspect.main(ozobot.xdsml.ozobotl.model.OzobotProgram)"/>
-<stringAttribute key="LAUNCH_MODEL_ENTRY_POINT" value="//@programs.0"/>
+<stringAttribute key="LAUNCH_METHOD_ENTRY_POINT" value="public static void ozobot.xdsml.ozobotl.aspects.OzobotAspect.main(ozobot.xdsml.ozobotl.model.Ozobot)"/>
+<stringAttribute key="LAUNCH_MODEL_ENTRY_POINT" value="/"/>
 <stringAttribute key="Resource" value="/ozobot.example.sirius/Ozobot.xmi"/>
 <stringAttribute key="airdResource" value="/ozobot.example.sirius/representations.aird"/>
 </launchConfiguration>

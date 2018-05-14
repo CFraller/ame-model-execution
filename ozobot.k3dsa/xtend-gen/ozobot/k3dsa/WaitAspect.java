@@ -25,7 +25,7 @@ public class WaitAspect extends CommandAspect {
     					};
     					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
     					if (stepManager != null) {
-    						stepManager.executeStep(_self, new Object[] {client}, command, "Wait", "executeCommand");
+    						stepManager.executeStep(_self,command,"Wait","executeCommand");
     					} else {
     						command.execute();
     					}

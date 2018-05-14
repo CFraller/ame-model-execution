@@ -1,9 +1,7 @@
 package ozobot.k3dsa;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
-import fr.inria.diverse.k3.al.annotationprocessor.Main;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.InputOutput;
@@ -16,10 +14,22 @@ import ozobot.model.OzobotProgram;
 @Aspect(className = OzobotProgram.class)
 @SuppressWarnings("all")
 public class OzobotProgramAspect extends NamedElementAspect {
-  @Main
-  public static void main(final OzobotProgram _self, final EList<String> args) {
+  @Step
+  public static void run(final OzobotProgram _self) {
     final ozobot.k3dsa.OzobotProgramAspectOzobotProgramAspectProperties _self_ = ozobot.k3dsa.OzobotProgramAspectOzobotProgramAspectContext.getSelf(_self);
-    _privk3_main(_self_, _self,args);;
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    	@Override
+    	public void execute() {
+    		_privk3_run(_self_, _self);
+    	}
+    };
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    if (stepManager != null) {
+    	stepManager.executeStep(_self,command,"OzobotProgram","run");
+    } else {
+    	command.execute();
+    }
+    ;;
   }
   
   @Step
@@ -33,7 +43,7 @@ public class OzobotProgramAspect extends NamedElementAspect {
     };
     fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
     if (stepManager != null) {
-    	stepManager.executeStep(_self, new Object[] {client}, command, "OzobotProgram", "initialize");
+    	stepManager.executeStep(_self,command,"OzobotProgram","initialize");
     } else {
     	command.execute();
     }
@@ -52,7 +62,7 @@ public class OzobotProgramAspect extends NamedElementAspect {
     _privk3_client(_self_, _self,client);;
   }
   
-  protected static void _privk3_main(final OzobotProgramAspectOzobotProgramAspectProperties _self_, final OzobotProgram _self, final EList<String> args) {
+  protected static void _privk3_run(final OzobotProgramAspectOzobotProgramAspectProperties _self_, final OzobotProgram _self) {
     try {
       try {
         while ((_self.getCurrent() != null)) {

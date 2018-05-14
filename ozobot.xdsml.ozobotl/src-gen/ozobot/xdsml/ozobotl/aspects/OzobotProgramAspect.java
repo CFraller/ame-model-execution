@@ -1,9 +1,7 @@
 package ozobot.xdsml.ozobotl.aspects;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
-import fr.inria.diverse.k3.al.annotationprocessor.Main;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.InputOutput;
@@ -16,11 +14,26 @@ import ozobot.xdsml.ozobotl.model.OzobotProgram;
 @Aspect(className = OzobotProgram.class)
 @SuppressWarnings("all")
 public class OzobotProgramAspect extends NamedElementAspect {
-  @Main
-  public static void main(final OzobotProgram _self, final EList<String> args) {
-    final ozobot.xdsml.ozobotl.aspects.OzobotProgramAspectOzobotProgramAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.OzobotProgramAspectOzobotProgramAspectContext.getSelf(_self);
-    _privk3_main(_self_, _self,args);;
-  }
+  @Step
+  public static void run(final OzobotProgram _self) {
+	final ozobot.xdsml.ozobotl.aspects.OzobotProgramAspectOzobotProgramAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.OzobotProgramAspectOzobotProgramAspectContext
+			.getSelf(_self);
+	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+		@Override
+		public void execute() {
+			_privk3_run(_self_, _self);
+		}
+	};
+	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry
+			.getInstance().findStepManager(_self);
+	if (manager != null) {
+		manager.executeStep(_self, command, "OzobotProgram", "run");
+	} else {
+		command.execute();
+	}
+	;
+	;
+}
   
   @Step
   public static void initialize(final OzobotProgram _self, final MqttClient client) {
@@ -59,7 +72,7 @@ public class OzobotProgramAspect extends NamedElementAspect {
 	;
 }
   
-  protected static void _privk3_main(final OzobotProgramAspectOzobotProgramAspectProperties _self_, final OzobotProgram _self, final EList<String> args) {
+  protected static void _privk3_run(final OzobotProgramAspectOzobotProgramAspectProperties _self_, final OzobotProgram _self) {
     try {
       try {
         while ((_self.getCurrent() != null)) {

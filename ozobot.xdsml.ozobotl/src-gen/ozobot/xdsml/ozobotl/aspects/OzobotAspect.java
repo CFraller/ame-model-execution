@@ -2,7 +2,9 @@ package ozobot.xdsml.ozobotl.aspects;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel;
+import fr.inria.diverse.k3.al.annotationprocessor.Main;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
+
 import java.util.function.Consumer;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
@@ -19,23 +21,18 @@ import ozobot.xdsml.ozobotl.model.OzobotProgram;
 public class OzobotAspect extends NamedElementAspect {
   @Step
   @InitializeModel
-  public static void initialize(final Ozobot _self) {
+  public static void initialize(final Ozobot _self, final String[] args) {
 	final ozobot.xdsml.ozobotl.aspects.OzobotAspectOzobotAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.OzobotAspectOzobotAspectContext
 			.getSelf(_self);
-	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
-		@Override
-		public void execute() {
-			_privk3_initialize(_self_, _self);
-		}
-	};
-	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry
-			.getInstance().findStepManager(_self);
-	if (manager != null) {
-		manager.executeStep(_self, command, "Ozobot", "initialize");
-	} else {
-		command.execute();
-	}
+	_privk3_initialize(_self_, _self, args);
 	;
+}
+  
+  @Main
+  public static void main(final Ozobot _self) {
+	final ozobot.xdsml.ozobotl.aspects.OzobotAspectOzobotAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.OzobotAspectOzobotAspectContext
+			.getSelf(_self);
+	_privk3_main(_self_, _self);
 	;
 }
   
@@ -103,7 +100,7 @@ public class OzobotAspect extends NamedElementAspect {
 	;
 }
   
-  protected static void _privk3_initialize(final OzobotAspectOzobotAspectProperties _self_, final Ozobot _self) {
+  protected static void _privk3_initialize(final OzobotAspectOzobotAspectProperties _self_, final Ozobot _self, final String[] args) {
     try {
       MqttClient _mqttClient = new MqttClient("tcp://192.168.99.100:1883", "GemocClient");
       OzobotAspect.client(_self, _mqttClient);
@@ -122,6 +119,13 @@ public class OzobotAspect extends NamedElementAspect {
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
+  }
+  
+  protected static void _privk3_main(final OzobotAspectOzobotAspectProperties _self_, final Ozobot _self) {
+    final Consumer<OzobotProgram> _function = (OzobotProgram p) -> {
+      OzobotProgramAspect.run(p);
+    };
+    _self.getPrograms().forEach(_function);
   }
   
   protected static float _privk3_xposition(final OzobotAspectOzobotAspectProperties _self_, final Ozobot _self) {

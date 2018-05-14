@@ -16,14 +16,14 @@ public abstract class CommandAspect extends NamedElementAspect {
     final ozobot.k3dsa.CommandAspectCommandAspectProperties _self_ = ozobot.k3dsa.CommandAspectCommandAspectContext.getSelf(_self);
      if (_self instanceof ozobot.model.Wait){
     					ozobot.k3dsa.WaitAspect.executeCommand((ozobot.model.Wait)_self,client);
-    } else  if (_self instanceof ozobot.model.Light){
-    					ozobot.k3dsa.LightAspect.executeCommand((ozobot.model.Light)_self,client);
     } else  if (_self instanceof ozobot.model.Repeat){
     					ozobot.k3dsa.RepeatAspect.executeCommand((ozobot.model.Repeat)_self,client);
     } else  if (_self instanceof ozobot.model.Move){
     					ozobot.k3dsa.MoveAspect.executeCommand((ozobot.model.Move)_self,client);
     } else  if (_self instanceof ozobot.model.Rotate){
     					ozobot.k3dsa.RotateAspect.executeCommand((ozobot.model.Rotate)_self,client);
+    } else  if (_self instanceof ozobot.model.Light){
+    					ozobot.k3dsa.LightAspect.executeCommand((ozobot.model.Light)_self,client);
     } else  if (_self instanceof ozobot.model.Command){
     					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
     						@Override

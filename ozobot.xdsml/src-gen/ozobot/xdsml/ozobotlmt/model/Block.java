@@ -54,4 +54,12 @@ public interface Block extends NamedElement {
 	 */
 	EList<Transition> getTransitions();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void initialize();
+
 } // Block

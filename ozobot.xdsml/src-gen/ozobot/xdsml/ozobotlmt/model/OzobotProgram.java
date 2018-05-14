@@ -2,6 +2,7 @@
  */
 package ozobot.xdsml.ozobotlmt.model;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -72,5 +73,13 @@ public interface OzobotProgram extends NamedElement {
 	 * @generated
 	 */
 	void setCurrent(Command value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void run();
 
 } // OzobotProgram

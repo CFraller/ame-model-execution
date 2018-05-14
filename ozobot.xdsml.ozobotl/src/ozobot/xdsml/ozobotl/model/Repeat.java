@@ -14,6 +14,7 @@ package ozobot.xdsml.ozobotl.model;
  * <ul>
  *   <li>{@link ozobot.xdsml.ozobotl.model.Repeat#getCount <em>Count</em>}</li>
  *   <li>{@link ozobot.xdsml.ozobotl.model.Repeat#getBlock <em>Block</em>}</li>
+ *   <li>{@link ozobot.xdsml.ozobotl.model.Repeat#getRuntimeCounter <em>Runtime Counter</em>}</li>
  * </ul>
  *
  * @see ozobot.xdsml.ozobotl.model.ModelPackage#getRepeat()
@@ -73,5 +74,39 @@ public interface Repeat extends Command {
 	 * @generated
 	 */
 	void setBlock(Block value);
+
+	/**
+	 * Returns the value of the '<em><b>Runtime Counter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Runtime Counter</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Runtime Counter</em>' attribute.
+	 * @see #setRuntimeCounter(int)
+	 * @see ozobot.xdsml.ozobotl.model.ModelPackage#getRepeat_RuntimeCounter()
+	 * @model unique="false"
+	 * @generated
+	 */
+	int getRuntimeCounter();
+
+	/**
+	 * Sets the value of the '{@link ozobot.xdsml.ozobotl.model.Repeat#getRuntimeCounter <em>Runtime Counter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Runtime Counter</em>' attribute.
+	 * @see #getRuntimeCounter()
+	 * @generated
+	 */
+	void setRuntimeCounter(int value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void initialize();
 
 } // Repeat

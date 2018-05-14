@@ -62,6 +62,9 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true">
         <ecoreFeature xsi:type="ecore:EReference" href="OzobotLMT.ecore#//OzobotProgram/current"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="OzobotLMT.ecore#//OzobotProgram/run"/>
+      </genOperations>
     </genClasses>
     <genClasses image="false">
       <ecoreClass href="OzobotLMT.ecore#//Command"/>
@@ -71,6 +74,12 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true">
         <ecoreFeature xsi:type="ecore:EReference" href="OzobotLMT.ecore#//Command/incoming"/>
       </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="OzobotLMT.ecore#//Command/topic"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="OzobotLMT.ecore#//Command/initialize"/>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="OzobotLMT.ecore#//Move"/>
@@ -113,12 +122,33 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="OzobotLMT.ecore#//Repeat/block"/>
       </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="OzobotLMT.ecore#//Repeat/runtimeCounter"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="OzobotLMT.ecore#//Repeat/initialize"/>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="OzobotLMT.ecore#//Ozobot"/>
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="OzobotLMT.ecore#//Ozobot/programs"/>
       </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="OzobotLMT.ecore#//Ozobot/orientation"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="OzobotLMT.ecore#//Ozobot/xposition"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="OzobotLMT.ecore#//Ozobot/yposition"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="OzobotLMT.ecore#//Ozobot/initialize"/>
+      </genOperations>
+      <genOperations>
+        <ecoreOperation href="OzobotLMT.ecore#//Ozobot/main"/>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="OzobotLMT.ecore#//Block"/>
@@ -128,6 +158,9 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="OzobotLMT.ecore#//Block/transitions"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="OzobotLMT.ecore#//Block/initialize"/>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="OzobotLMT.ecore#//Transition"/>

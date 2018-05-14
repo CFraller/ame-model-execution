@@ -24,6 +24,7 @@ import ozobot.xdsml.ozobotl.model.Transition;
  * <ul>
  *   <li>{@link ozobot.xdsml.ozobotl.model.impl.CommandImpl#getOutgoing <em>Outgoing</em>}</li>
  *   <li>{@link ozobot.xdsml.ozobotl.model.impl.CommandImpl#getIncoming <em>Incoming</em>}</li>
+ *   <li>{@link ozobot.xdsml.ozobotl.model.impl.CommandImpl#getTopic <em>Topic</em>}</li>
  * </ul>
  *
  * @generated
@@ -48,6 +49,26 @@ public abstract class CommandImpl extends NamedElementImpl implements Command {
 	 * @ordered
 	 */
 	protected Transition incoming;
+
+	/**
+	 * The default value of the '{@link #getTopic() <em>Topic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTopic()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TOPIC_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTopic() <em>Topic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTopic()
+	 * @generated
+	 * @ordered
+	 */
+	protected String topic = TOPIC_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -193,6 +214,38 @@ public abstract class CommandImpl extends NamedElementImpl implements Command {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getTopic() {
+		return topic;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTopic(String newTopic) {
+		String oldTopic = topic;
+		topic = newTopic;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.COMMAND__TOPIC, oldTopic, topic));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void initialize() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -238,6 +291,8 @@ public abstract class CommandImpl extends NamedElementImpl implements Command {
 			case ModelPackage.COMMAND__INCOMING:
 				if (resolve) return getIncoming();
 				return basicGetIncoming();
+			case ModelPackage.COMMAND__TOPIC:
+				return getTopic();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -255,6 +310,9 @@ public abstract class CommandImpl extends NamedElementImpl implements Command {
 				return;
 			case ModelPackage.COMMAND__INCOMING:
 				setIncoming((Transition)newValue);
+				return;
+			case ModelPackage.COMMAND__TOPIC:
+				setTopic((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -274,6 +332,9 @@ public abstract class CommandImpl extends NamedElementImpl implements Command {
 			case ModelPackage.COMMAND__INCOMING:
 				setIncoming((Transition)null);
 				return;
+			case ModelPackage.COMMAND__TOPIC:
+				setTopic(TOPIC_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -290,8 +351,26 @@ public abstract class CommandImpl extends NamedElementImpl implements Command {
 				return outgoing != null;
 			case ModelPackage.COMMAND__INCOMING:
 				return incoming != null;
+			case ModelPackage.COMMAND__TOPIC:
+				return TOPIC_EDEFAULT == null ? topic != null : !TOPIC_EDEFAULT.equals(topic);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (topic: ");
+		result.append(topic);
+		result.append(')');
+		return result.toString();
 	}
 
 } //CommandImpl

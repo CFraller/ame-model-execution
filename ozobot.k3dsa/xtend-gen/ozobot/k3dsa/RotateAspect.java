@@ -29,7 +29,7 @@ public class RotateAspect extends CommandAspect {
     					};
     					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
     					if (stepManager != null) {
-    						stepManager.executeStep(_self,command,"Rotate","executeCommand");
+    						stepManager.executeStep(_self, new Object[] {client}, command, "Rotate", "executeCommand");
     					} else {
     						command.execute();
     					}

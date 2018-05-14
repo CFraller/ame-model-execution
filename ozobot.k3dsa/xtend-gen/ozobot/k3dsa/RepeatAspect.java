@@ -28,7 +28,7 @@ public class RepeatAspect extends CommandAspect {
     					};
     					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
     					if (stepManager != null) {
-    						stepManager.executeStep(_self,command,"Repeat","executeCommand");
+    						stepManager.executeStep(_self, new Object[] {client}, command, "Repeat", "executeCommand");
     					} else {
     						command.execute();
     					}
@@ -51,7 +51,7 @@ public class RepeatAspect extends CommandAspect {
     					};
     					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
     					if (stepManager != null) {
-    						stepManager.executeStep(_self,command,"Repeat","initialize");
+    						stepManager.executeStep(_self, new Object[] {_self}, command, "Repeat", "initialize");
     					} else {
     						command.execute();
     					}

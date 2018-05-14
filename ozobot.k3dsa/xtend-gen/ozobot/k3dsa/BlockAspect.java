@@ -24,7 +24,7 @@ public class BlockAspect extends NamedElementAspect {
     };
     fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
     if (stepManager != null) {
-    	stepManager.executeStep(_self,command,"Block","initialize");
+    	stepManager.executeStep(_self, new Object[] {_self}, command, "Block", "initialize");
     } else {
     	command.execute();
     }

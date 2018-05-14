@@ -32,7 +32,7 @@ public class OzobotProgramAspect extends NamedElementAspect {
     };
     fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
     if (stepManager != null) {
-    	stepManager.executeStep(_self,command,"OzobotProgram","initialize");
+    	stepManager.executeStep(_self, new Object[] {client}, command, "OzobotProgram", "initialize");
     } else {
     	command.execute();
     }

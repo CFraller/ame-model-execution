@@ -28,7 +28,7 @@ public class LightAspect extends CommandAspect {
     					};
     					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
     					if (stepManager != null) {
-    						stepManager.executeStep(_self,command,"Light","executeCommand");
+    						stepManager.executeStep(_self, new Object[] {client}, command, "Light", "executeCommand");
     					} else {
     						command.execute();
     					}

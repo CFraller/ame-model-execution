@@ -1,35 +1,28 @@
 package ozobot.k3dsa
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
-import ozobot.model.NamedElement
-import ozobot.model.OzobotProgram
-import ozobot.model.Command
-import ozobot.model.Move
-import ozobot.model.Light
-import ozobot.model.Rotate
-import ozobot.model.Wait
-import ozobot.model.Repeat
-import ozobot.model.Ozobot
-import ozobot.model.Block
-import ozobot.model.Transition
-import org.eclipse.paho.client.mqttv3.*
-
-
-import static extension ozobot.k3dsa.NamedElementAspect.*
-import static extension ozobot.k3dsa.OzobotProgramAspect.*
-import static extension ozobot.k3dsa.CommandAspect.*
-import static extension ozobot.k3dsa.MoveAspect.*
-import static extension ozobot.k3dsa.LightAspect.*
-import static extension ozobot.k3dsa.RotateAspect.*
-import static extension ozobot.k3dsa.WaitAspect.*
-import static extension ozobot.k3dsa.RepeatAspect.*
-import static extension ozobot.k3dsa.OzobotAspect.*
-import static extension ozobot.k3dsa.BlockAspect.*
-import static extension ozobot.k3dsa.TransitionAspect.*
-import fr.inria.diverse.k3.al.annotationprocessor.Step
+import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
 import fr.inria.diverse.k3.al.annotationprocessor.Main
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
-import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
+import fr.inria.diverse.k3.al.annotationprocessor.Step
+import org.eclipse.paho.client.mqttv3.MqttClient
+import org.eclipse.paho.client.mqttv3.MqttConnectOptions
+import org.eclipse.paho.client.mqttv3.MqttMessage
+import ozobot.model.Block
+import ozobot.model.Command
+import ozobot.model.Light
+import ozobot.model.Move
+import ozobot.model.NamedElement
+import ozobot.model.Ozobot
+import ozobot.model.OzobotProgram
+import ozobot.model.Repeat
+import ozobot.model.Rotate
+import ozobot.model.Transition
+import ozobot.model.Wait
+
+import static extension ozobot.k3dsa.BlockAspect.*
+import static extension ozobot.k3dsa.CommandAspect.*
+import static extension ozobot.k3dsa.OzobotProgramAspect.*
 
 @Aspect(className=NamedElement)
 abstract class NamedElementAspect {

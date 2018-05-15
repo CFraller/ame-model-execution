@@ -1,4 +1,3 @@
-**/*.class
 **/xtend-gen/*
 *._trace
 **/.metadata

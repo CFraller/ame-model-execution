@@ -1,18 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.4"?>
-<plugin>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse version="3.4"?><plugin>
   <extension point="org.eclipse.gemoc.gemoc_language_workbench.sequential.xdsml">
-    <XDSML_Definition modelLoader_class="org.eclipse.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" name="ozobot.xdsml.OzobotL" xdsmlFilePath="/ozobot.xdsml/src/ozobot/xdsml/ozobot.melange" />
+    <XDSML_Definition modelLoader_class="org.eclipse.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" name="ozobot.xdsml.OzobotL" xdsmlFilePath="/ozobot.xdsml/src/ozobot/xdsml/ozobot.melange"/>
   </extension>
   <extension point="org.eclipse.emf.ecore.generated_package">
     <!-- @generated OzobotLMT -->
-    <package class="ozobot.xdsml.ozobotlmt.model.ModelPackage" genModel="model-gen/OzobotLMT.genmodel" uri="http://ozobot.xdsml.ozobotlmt/model/" />
+    <package class="ozobot.xdsml.ozobotlmt.model.ModelPackage" genModel="model-gen/OzobotLMT.genmodel" uri="http://ozobot.xdsml.ozobotlmt/model/"/>
   </extension>
-  <extension point="fr.inria.diverse.melange.modeltype">
-    <modeltype id="ozobot.xdsml.OzobotLMT" uri="http://ozobot.xdsml.ozobotlmt/" />
+  
+<extension point="fr.inria.diverse.melange.modeltype">
+    <modeltype id="ozobot.xdsml.OzobotLMT" uri="http://ozobot.xdsml.ozobotlmt/"/>
   </extension>
   <extension point="fr.inria.diverse.melange.language">
     <language aspects="Rotate:ozobot.xdsml.ozobotl.aspects.RotateAspect;Move:ozobot.xdsml.ozobotl.aspects.MoveAspect;Command:ozobot.xdsml.ozobotl.aspects.CommandAspect;Light:ozobot.xdsml.ozobotl.aspects.LightAspect;Transition:ozobot.xdsml.ozobotl.aspects.TransitionAspect;Block:ozobot.xdsml.ozobotl.aspects.BlockAspect;Ozobot:ozobot.xdsml.ozobotl.aspects.OzobotAspect;Repeat:ozobot.xdsml.ozobotl.aspects.RepeatAspect;OzobotProgram:ozobot.xdsml.ozobotl.aspects.OzobotProgramAspect;Wait:ozobot.xdsml.ozobotl.aspects.WaitAspect;NamedElement:ozobot.xdsml.ozobotl.aspects.NamedElementAspect" entryPoints="ozobot.xdsml.ozobotl.aspects.OzobotAspect.main(ozobot.xdsml.ozobotl.model.Ozobot)" exactType="ozobot.xdsml.OzobotLMT" id="ozobot.xdsml.OzobotL" uri="http://ozobot.xdsml.ozobotl/model/">
+      <adapter class="ozobot.xdsml.ozobotl.adapters.ozobotlmt.OzobotLAdapter" modeltypeId="ozobot.xdsml.OzobotLMT"/>
     </language>
   </extension>
 </plugin>

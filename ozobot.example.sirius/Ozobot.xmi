@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model:Ozobot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://ozobot.xdsml.ozobotl/model/" xsi:schemaLocation="http://www.example.org/model ../ozobot.model/model/model.ecore">
+<model:Ozobot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://ozobot.xdsml.ozobotl/model/" xsi:schemaLocation="http://www.example.org/model">
   <programs name="OzobotProgram">
     <block name="Block1">
       <commands xsi:type="model:Move" name="Move" outgoing="//@programs.0/@block/@transitions.1" incoming="//@programs.0/@block/@transitions.0"/>

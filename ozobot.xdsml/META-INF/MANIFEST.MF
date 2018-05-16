@@ -1,8 +1,6 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: ozobot.xdsml; singleton:=true
-Export-Package: ozobot.xdsml.ozobotlmt.model.util,
- ozobot.xdsml.ozobotlmt.model.impl,
- ozobot.xdsml.ozobotlmt.model
+Export-Package: ozobot.xdsml
 Bundle-Name: ozobot.xdsml
 Bundle-Version: 1.0.0
 Bundle-ClassPath: .

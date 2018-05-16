@@ -23,6 +23,7 @@ import ozobot.model.Wait
 import static extension ozobot.k3dsa.BlockAspect.*
 import static extension ozobot.k3dsa.CommandAspect.*
 import static extension ozobot.k3dsa.OzobotProgramAspect.*
+import java.util.Timer
 
 @Aspect(className=NamedElement)
 abstract class NamedElementAspect {
@@ -32,6 +33,8 @@ abstract class NamedElementAspect {
 @Aspect(className=OzobotProgram)
 class OzobotProgramAspect extends NamedElementAspect {
 	public MqttClient client
+	public Timer timer
+	
 	
 	@Step
     def public void run() {
@@ -52,6 +55,7 @@ class OzobotProgramAspect extends NamedElementAspect {
 	def public void initialize(MqttClient client) {
 		println("Program " + _self.name + " initialized.")
 		_self.client = client
+		_self.timer = new Timer()
 		_self.block.initialize()
 		_self.current = _self.block.commands.get(0)
 	}
@@ -79,10 +83,24 @@ class MoveAspect extends CommandAspect {
 	@Step
 	@OverrideAspectMethod
 	def public void executeCommand(MqttClient client) {
-		val message = "ozobot-move"+" "+_self.distance+" "+_self.velocity
+		val message = "ozobot-move"+" "+_self.distance+" "+_self.velocity()
 		val tmp = new MqttMessage(message.bytes)
 		client.publish(_self.topic, tmp)	
-		println("Executed command "+_self.name)
+		println("Executed command "+_self.name +" on topic: "+_self.topic +" with Message: "+message)
+	}
+	
+	def int velocity() {
+		if(_self.velocity.toString.toString == 'very_slow') {
+			return 1;
+		}else if(_self.velocity.toString == 'slow') {
+			return 2;
+		}else if(_self.velocity.toString == 'medium') {
+			return 3;
+		}else if(_self.velocity.toString == 'fast') {
+			return 4;
+		}else if(_self.velocity.toString == 'very_fast') {
+			return 5;
+		}
 	}
 }
 
@@ -95,9 +113,10 @@ class LightAspect extends CommandAspect {
 		val message = _self.color+"Light"
 		val tmp = new MqttMessage(message.bytes)
 		client.publish(_self.topic, tmp)
-		println("Executed command "+_self.name)	
+		println("Executed command "+_self.name +" on topic: "+_self.topic +" with Message: "+message)	
 	}
 }
+
 
 @Aspect(className=Rotate)
 class RotateAspect extends CommandAspect {
@@ -105,10 +124,24 @@ class RotateAspect extends CommandAspect {
 	@Step
 	@OverrideAspectMethod
 	def public void executeCommand(MqttClient client) {
-		val message = "ozobot-rotate"+" "+_self.direction+" "+_self.velocity+" "+_self.angle
+		val message = "ozobot-rotate"+" "+_self.direction+" "+_self.velocity()+" "+_self.angle
 		val tmp = new MqttMessage(message.bytes)
 		client.publish(_self.topic,tmp)	
-		println("Executed command "+_self.name)
+		println("Executed command "+_self.name +" on topic: "+_self.topic +" with Message: "+message)
+	}
+	
+	def int velocity() {
+		if(_self.velocity.toString.toString == 'very_slow') {
+			return 1;
+		}else if(_self.velocity.toString == 'slow') {
+			return 2;
+		}else if(_self.velocity.toString == 'medium') {
+			return 3;
+		}else if(_self.velocity.toString == 'fast') {
+			return 4;
+		}else if(_self.velocity.toString == 'very_fast') {
+			return 5;
+		}
 	}
 }
 
@@ -118,7 +151,7 @@ class WaitAspect extends CommandAspect {
 	@Step
 	@OverrideAspectMethod
 	def public void executeCommand(MqttClient client) {
-		println("Executed command "+_self.name)
+		println("Executed command "+_self.name )
 	}
 }
 
@@ -132,7 +165,7 @@ class RepeatAspect extends CommandAspect {
 		while(_self.runtimeCounter != 0) {
 			_self.block.commands.forEach[c | c.executeCommand(client)]
 			_self.runtimeCounter = _self.runtimeCounter - 1
-			println("Executed command "+_self.name)
+			println("Executed command "+_self.name )
 		}
 	}
 	

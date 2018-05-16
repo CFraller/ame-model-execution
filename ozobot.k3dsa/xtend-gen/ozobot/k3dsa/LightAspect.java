@@ -52,7 +52,12 @@ public class LightAspect extends CommandAspect {
       client.publish(CommandAspect.topic(_self), tmp);
       String _name = _self.getName();
       String _plus = ("Executed command " + _name);
-      InputOutput.<String>println(_plus);
+      String _plus_1 = (_plus + " on topic: ");
+      String _pic = CommandAspect.topic(_self);
+      String _plus_2 = (_plus_1 + _pic);
+      String _plus_3 = (_plus_2 + " with Message: ");
+      String _plus_4 = (_plus_3 + message);
+      InputOutput.<String>println(_plus_4);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

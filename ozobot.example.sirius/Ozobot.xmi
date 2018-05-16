@@ -1,24 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model:Ozobot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://ozobot.xdsml.ozobotl/model/" xsi:schemaLocation="http://www.example.org/model ../ozobot.model/model/model.ecore">
-  <programs name="OzobotProgram">
+<model:Ozobot
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:model="http://ozobot.xdsml.ozobotl/model/"
+    xsi:schemaLocation="http://ozobot.xdsml.ozobotl/model/ ../ozobot.xdsml.ozobotl/model/OzobotL.ecore">
+  <programs
+      name="OzobotProgram"
+      current="//@programs.0/@block/@commands.1">
     <block name="Block1">
-      <commands xsi:type="model:Move" name="Move" outgoing="//@programs.0/@block/@transitions.1" incoming="//@programs.0/@block/@transitions.0"/>
-      <commands xsi:type="model:Move" name="Move" outgoing="//@programs.0/@block/@transitions.0"/>
-      <commands xsi:type="model:Wait" name="Wait" outgoing="//@programs.0/@block/@transitions.2" incoming="//@programs.0/@block/@transitions.1"/>
-      <commands xsi:type="model:Repeat" name="Repeat" outgoing="//@programs.0/@block/@transitions.3" incoming="//@programs.0/@block/@transitions.2">
-        <block name="Block">
-          <commands xsi:type="model:Move" name="Move" outgoing="//@programs.0/@block/@commands.3/@block/@transitions.0"/>
-          <commands xsi:type="model:Light" name="Light" incoming="//@programs.0/@block/@commands.3/@block/@transitions.0"/>
-          <transitions source="//@programs.0/@block/@commands.3/@block/@commands.0" target="//@programs.0/@block/@commands.3/@block/@commands.1"/>
+      <commands
+          xsi:type="model:Move"
+          name="Move1"
+          outgoing="//@programs.0/@block/@transitions.0"
+          distance="25"/>
+      <commands
+          xsi:type="model:Move"
+          name="Move2"
+          outgoing="//@programs.0/@block/@transitions.1"
+          incoming="//@programs.0/@block/@transitions.0"
+          distance="10"/>
+      <commands
+          xsi:type="model:Wait"
+          name="Wait1"
+          outgoing="//@programs.0/@block/@transitions.2"
+          incoming="//@programs.0/@block/@transitions.1"/>
+      <commands
+          xsi:type="model:Repeat"
+          name="Repeat1"
+          outgoing="//@programs.0/@block/@transitions.3"
+          incoming="//@programs.0/@block/@transitions.2"
+          count="3">
+        <block
+            name="Block">
+          <commands
+              xsi:type="model:Move"
+              name="MoveInRepeat"
+              outgoing="//@programs.0/@block/@commands.3/@block/@transitions.0"
+              distance="15"/>
+          <commands
+              xsi:type="model:Light"
+              name="LightGreen"
+              incoming="//@programs.0/@block/@commands.3/@block/@transitions.0"
+              color="green"/>
+          <transitions
+              source="//@programs.0/@block/@commands.3/@block/@commands.0"
+              target="//@programs.0/@block/@commands.3/@block/@commands.1"/>
         </block>
       </commands>
-      <commands xsi:type="model:Light" name="Light" outgoing="//@programs.0/@block/@transitions.4" incoming="//@programs.0/@block/@transitions.3"/>
-      <commands xsi:type="model:Rotate" name="Rotate" incoming="//@programs.0/@block/@transitions.4"/>
-      <transitions source="//@programs.0/@block/@commands.1" target="//@programs.0/@block/@commands.0"/>
-      <transitions source="//@programs.0/@block/@commands.0" target="//@programs.0/@block/@commands.2"/>
-      <transitions source="//@programs.0/@block/@commands.2" target="//@programs.0/@block/@commands.3"/>
-      <transitions source="//@programs.0/@block/@commands.3" target="//@programs.0/@block/@commands.4"/>
-      <transitions source="//@programs.0/@block/@commands.4" target="//@programs.0/@block/@commands.5"/>
+      <commands
+          xsi:type="model:Light"
+          name="LightRed"
+          outgoing="//@programs.0/@block/@transitions.4"
+          incoming="//@programs.0/@block/@transitions.3"
+          color="red"/>
+      <commands
+          xsi:type="model:Rotate"
+          name="Rotate2"
+          incoming="//@programs.0/@block/@transitions.4"
+          angle="45.0"/>
+      <transitions
+          source="//@programs.0/@block/@commands.0"
+          target="//@programs.0/@block/@commands.1"/>
+      <transitions
+          source="//@programs.0/@block/@commands.1"
+          target="//@programs.0/@block/@commands.2"/>
+      <transitions
+          source="//@programs.0/@block/@commands.2"
+          target="//@programs.0/@block/@commands.3"/>
+      <transitions
+          source="//@programs.0/@block/@commands.3"
+          target="//@programs.0/@block/@commands.4"/>
+      <transitions
+          source="//@programs.0/@block/@commands.4"
+          target="//@programs.0/@block/@commands.5"/>
     </block>
   </programs>
 </model:Ozobot>

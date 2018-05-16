@@ -21,14 +21,5 @@ public class OzobotAnimationServices extends AbstractGemocAnimatorServices {
 		return res;
 	}
 	
-	public boolean isCurrentCommand(EObject o){
-		if(o instanceof Command){
-			return ((OzobotProgram)((Block)((Command)o).eContainer()).eContainer()).getCurrent() == o;
-		} else {
-			return false;
-		}
-	}
-	
-	
 
 }

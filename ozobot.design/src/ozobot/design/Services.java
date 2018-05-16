@@ -2,6 +2,10 @@ package ozobot.design;
 
 import org.eclipse.emf.ecore.EObject;
 
+import ozobot.model.Block;
+import ozobot.model.Command;
+import ozobot.model.OzobotProgram;
+
 /**
  * The services class used by VSM.
  */
@@ -14,4 +18,12 @@ public class Services {
        // TODO Auto-generated code
       return self;
     }
+    
+	public boolean isCurrentCommand(EObject o){
+		if(o instanceof Command){
+			return ((OzobotProgram)((Block)((Command)o).eContainer()).eContainer()).getCurrent() == o;
+		} else {
+			return false;
+		}
+	}
 }

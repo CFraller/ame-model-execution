@@ -116,29 +116,35 @@ public class OzobotProgramAspect extends NamedElementAspect {
   
   protected static void _privk3_run(final OzobotProgramAspectOzobotProgramAspectProperties _self_, final OzobotProgram _self) {
     try {
-      while ((_self.getCurrent() != null)) {
-        {
-          CommandAspect.executeCommand(_self.getCurrent(), OzobotProgramAspect.client(_self));
-          _self.setCurrent(_self.getCurrent().getOutgoing().getTarget());
-          OzobotProgramAspect.startTime(_self, System.currentTimeMillis());
-          OzobotProgramAspect.elapsedTime(_self, 0L);
-          while ((OzobotProgramAspect.elapsedTime(_self) < 10000)) {
-            long _time = new Date().getTime();
-            long _startTime = OzobotProgramAspect.startTime(_self);
-            long _minus = (_time - _startTime);
-            OzobotProgramAspect.elapsedTime(_self, _minus);
+      try {
+        while ((_self.getCurrent() != null)) {
+          {
+            CommandAspect.executeCommand(_self.getCurrent(), OzobotProgramAspect.client(_self));
+            _self.setCurrent(_self.getCurrent().getOutgoing().getTarget());
+            OzobotProgramAspect.startTime(_self, System.currentTimeMillis());
+            OzobotProgramAspect.elapsedTime(_self, 0L);
+            while ((OzobotProgramAspect.elapsedTime(_self) < 10000)) {
+              long _time = new Date().getTime();
+              long _startTime = OzobotProgramAspect.startTime(_self);
+              long _minus = (_time - _startTime);
+              OzobotProgramAspect.elapsedTime(_self, _minus);
+            }
           }
         }
+      } catch (final Throwable _t) {
+        if (_t instanceof Exception) {
+          final Exception nt = (Exception)_t;
+          String _message = nt.getMessage();
+          String _plus = ("Stopped due to " + _message);
+          InputOutput.<String>println(_plus);
+        } else {
+          throw Exceptions.sneakyThrow(_t);
+        }
       }
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception nt = (Exception)_t;
-        String _message = nt.getMessage();
-        String _plus = ("Stopped due to " + _message);
-        InputOutput.<String>println(_plus);
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
+      OzobotProgramAspect.client(_self).disconnect();
+      OzobotProgramAspect.client(_self).close();
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
     }
   }
   

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:model="http://ozobot.xdsml.ozobotl/model/" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:model="http://ozobot.xdsml.ozobotl/model/" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://ozobot.xdsml.ozobotl/model/ platform:/resource/ozobot.xdsml.ozobotl/model/OzobotL.ecore http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
   <viewpoint:DAnalysis xmi:id="_v6YVUEPjEei2Q41OV39REQ" selectedViews="_cQ3wYEPpEei2Q41OV39REQ" version="12.1.0.201708031200">
     <semanticResources>Ozobot.xmi</semanticResources>
     <semanticResources>gemoc-gen/execution/execution-20180516_185138/Ozobot.xmi</semanticResources>
@@ -32,7 +32,7 @@
                     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8gzLtEWCEeiGA_mVH6pg-g"/>
                   </children>
                   <styles xmi:type="notation:ShapeStyle" xmi:id="_8gykoUWCEeiGA_mVH6pg-g" fontName="Segoe UI" fontHeight="8"/>
-                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8gykokWCEeiGA_mVH6pg-g" x="11" y="96" width="129" height="30"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8gykokWCEeiGA_mVH6pg-g" x="11" y="20" width="129" height="30"/>
                 </children>
                 <children xmi:type="notation:Node" xmi:id="_8j7YMEWCEeiGA_mVH6pg-g" type="3007" element="_8j3t0EWCEeiGA_mVH6pg-g">
                   <children xmi:type="notation:Node" xmi:id="_8j7_QEWCEeiGA_mVH6pg-g" type="5003">
@@ -43,7 +43,7 @@
                     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8j8mUkWCEeiGA_mVH6pg-g"/>
                   </children>
                   <styles xmi:type="notation:ShapeStyle" xmi:id="_8j7YMUWCEeiGA_mVH6pg-g" fontName="Segoe UI" fontHeight="8"/>
-                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8j7YMkWCEeiGA_mVH6pg-g" x="11" y="36" width="129" height="30"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8j7YMkWCEeiGA_mVH6pg-g" x="11" y="84" width="129" height="30"/>
                 </children>
                 <children xmi:type="notation:Node" xmi:id="_CGzx8EWDEeiGA_mVH6pg-g" type="3007" element="_CGu5cEWDEeiGA_mVH6pg-g">
                   <children xmi:type="notation:Node" xmi:id="_CGzx80WDEeiGA_mVH6pg-g" type="5003">
@@ -131,38 +131,6 @@
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QJDaIkWCEeiGA_mVH6pg-g" x="126" y="54" width="489" height="519"/>
         </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_O_NdMkWCEeiGA_mVH6pg-g"/>
-        <edges xmi:type="notation:Edge" xmi:id="__FkOgEWCEeiGA_mVH6pg-g" type="4001" element="__Fc5wEWCEeiGA_mVH6pg-g" source="_8j7YMEWCEeiGA_mVH6pg-g" target="_8gykoEWCEeiGA_mVH6pg-g">
-          <children xmi:type="notation:Node" xmi:id="__Fk1kEWCEeiGA_mVH6pg-g" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Fk1kUWCEeiGA_mVH6pg-g" x="-6" y="-10"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="__FlcoEWCEeiGA_mVH6pg-g" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FlcoUWCEeiGA_mVH6pg-g" x="-2" y="10"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="__FmDsEWCEeiGA_mVH6pg-g" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__FmDsUWCEeiGA_mVH6pg-g" x="-11" y="10"/>
-          </children>
-          <styles xmi:type="notation:ConnectorStyle" xmi:id="__FkOgUWCEeiGA_mVH6pg-g"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="__FkOgkWCEeiGA_mVH6pg-g" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__FkOg0WCEeiGA_mVH6pg-g" points="[0, 0, 0, -30]$[0, 30, 0, 0]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__Fof8EWCEeiGA_mVH6pg-g" id="(0.49612403100775193,1.0)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="__Fof8UWCEeiGA_mVH6pg-g" id="(0.49612403100775193,0.0)"/>
-        </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_De_F0EWDEeiGA_mVH6pg-g" type="4001" element="_De6NUEWDEeiGA_mVH6pg-g" source="_8gykoEWCEeiGA_mVH6pg-g" target="_CGzx8EWDEeiGA_mVH6pg-g">
-          <children xmi:type="notation:Node" xmi:id="_De_F1EWDEeiGA_mVH6pg-g" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_De_F1UWDEeiGA_mVH6pg-g" x="5" y="-10"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_De_F1kWDEeiGA_mVH6pg-g" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_De_F10WDEeiGA_mVH6pg-g" x="8" y="10"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_De_F2EWDEeiGA_mVH6pg-g" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_De_F2UWDEeiGA_mVH6pg-g" x="2" y="10"/>
-          </children>
-          <styles xmi:type="notation:ConnectorStyle" xmi:id="_De_F0UWDEeiGA_mVH6pg-g"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_De_F0kWDEeiGA_mVH6pg-g" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_De_F00WDEeiGA_mVH6pg-g" points="[0, 0, 0, -24]$[0, 24, 0, 0]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_De_s4EWDEeiGA_mVH6pg-g" id="(0.49612403100775193,1.0)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_De_s4UWDEeiGA_mVH6pg-g" id="(0.49612403100775193,0.0)"/>
-        </edges>
         <edges xmi:type="notation:Edge" xmi:id="_KA2QUEWDEeiGA_mVH6pg-g" type="4001" element="_KAx-4EWDEeiGA_mVH6pg-g" source="_HO3Q4EWDEeiGA_mVH6pg-g" target="_IrGlYEWDEeiGA_mVH6pg-g">
           <children xmi:type="notation:Node" xmi:id="_KA2QVEWDEeiGA_mVH6pg-g" type="6001">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KA2QVUWDEeiGA_mVH6pg-g" y="-10"/>
@@ -227,6 +195,38 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3E0eVElrEeijT9Y9cg-WDg" id="(0.5185185185185185,1.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3E0eVUlrEeijT9Y9cg-WDg" id="(0.49019607843137253,0.0)"/>
         </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_Qtd7sFk_Eei-y8TlrGvuSQ" type="4001" element="_QsymQFk_Eei-y8TlrGvuSQ" source="_8gykoEWCEeiGA_mVH6pg-g" target="_8j7YMEWCEeiGA_mVH6pg-g">
+          <children xmi:type="notation:Node" xmi:id="_QttzUFk_Eei-y8TlrGvuSQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QttzUVk_Eei-y8TlrGvuSQ" x="1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Qtyr0Fk_Eei-y8TlrGvuSQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qtyr0Vk_Eei-y8TlrGvuSQ" x="20"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_QtzS4Fk_Eei-y8TlrGvuSQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QtzS4Vk_Eei-y8TlrGvuSQ" x="7"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_Qtd7sVk_Eei-y8TlrGvuSQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_Qtd7slk_Eei-y8TlrGvuSQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Qtd7s1k_Eei-y8TlrGvuSQ" points="[0, 15, 0, -49]$[0, 49, 0, -15]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QuDKgFk_Eei-y8TlrGvuSQ" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QuDKgVk_Eei-y8TlrGvuSQ" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_QuDKglk_Eei-y8TlrGvuSQ" type="4001" element="_Qs0bcFk_Eei-y8TlrGvuSQ" source="_8j7YMEWCEeiGA_mVH6pg-g" target="_CGzx8EWDEeiGA_mVH6pg-g">
+          <children xmi:type="notation:Node" xmi:id="_QuDxkFk_Eei-y8TlrGvuSQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QuDxkVk_Eei-y8TlrGvuSQ" x="6" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_QuDxklk_Eei-y8TlrGvuSQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QuDxk1k_Eei-y8TlrGvuSQ" x="10" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_QuDxlFk_Eei-y8TlrGvuSQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QuDxlVk_Eei-y8TlrGvuSQ" x="-8" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_QuDKg1k_Eei-y8TlrGvuSQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_QuDKhFk_Eei-y8TlrGvuSQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QuDKhVk_Eei-y8TlrGvuSQ" points="[0, 15, 0, -51]$[0, 51, 0, -15]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QuEYoFk_Eei-y8TlrGvuSQ" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QuEYoVk_Eei-y8TlrGvuSQ" id="(0.5,0.5)"/>
+        </edges>
       </data>
     </ownedAnnotationEntries>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_QIv4IEWCEeiGA_mVH6pg-g" name="OzobotProgram">
@@ -246,7 +246,7 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']"/>
-        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_8gvhUEWCEeiGA_mVH6pg-g" name="Move" outgoingEdges="_De6NUEWDEeiGA_mVH6pg-g" incomingEdges="__Fc5wEWCEeiGA_mVH6pg-g" width="3" height="3" resizeKind="NSEW">
+        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_8gvhUEWCEeiGA_mVH6pg-g" name="Move1" outgoingEdges="_QsymQFk_Eei-y8TlrGvuSQ" width="3" height="3" resizeKind="NSEW">
           <target xmi:type="model:Move" href="Ozobot.xmi#//@programs.0/@block/@commands.0"/>
           <semanticElements xmi:type="model:Move" href="Ozobot.xmi#//@programs.0/@block/@commands.0"/>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -257,7 +257,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Move']"/>
         </ownedDiagramElements>
-        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_8j3t0EWCEeiGA_mVH6pg-g" name="Move" outgoingEdges="__Fc5wEWCEeiGA_mVH6pg-g" width="3" height="3" resizeKind="NSEW">
+        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_8j3t0EWCEeiGA_mVH6pg-g" name="Move2" outgoingEdges="_Qs0bcFk_Eei-y8TlrGvuSQ" incomingEdges="_QsymQFk_Eei-y8TlrGvuSQ" width="3" height="3" resizeKind="NSEW">
           <target xmi:type="model:Move" href="Ozobot.xmi#//@programs.0/@block/@commands.1"/>
           <semanticElements xmi:type="model:Move" href="Ozobot.xmi#//@programs.0/@block/@commands.1"/>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -268,7 +268,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Move']"/>
         </ownedDiagramElements>
-        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_CGu5cEWDEeiGA_mVH6pg-g" name="Wait" outgoingEdges="_baTfEElrEeijT9Y9cg-WDg" incomingEdges="_De6NUEWDEeiGA_mVH6pg-g" width="3" height="3" resizeKind="NSEW">
+        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_CGu5cEWDEeiGA_mVH6pg-g" name="Wait1" outgoingEdges="_baTfEElrEeijT9Y9cg-WDg" incomingEdges="_Qs0bcFk_Eei-y8TlrGvuSQ" width="3" height="3" resizeKind="NSEW">
           <target xmi:type="model:Wait" href="Ozobot.xmi#//@programs.0/@block/@commands.2"/>
           <semanticElements xmi:type="model:Wait" href="Ozobot.xmi#//@programs.0/@block/@commands.2"/>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -279,7 +279,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Wait']"/>
         </ownedDiagramElements>
-        <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_EENSwEWDEeiGA_mVH6pg-g" name="Repeat" outgoingEdges="_kUkrYElrEeijT9Y9cg-WDg" incomingEdges="_baTfEElrEeijT9Y9cg-WDg">
+        <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_EENSwEWDEeiGA_mVH6pg-g" name="Repeat1" outgoingEdges="_kUkrYElrEeijT9Y9cg-WDg" incomingEdges="_baTfEElrEeijT9Y9cg-WDg">
           <target xmi:type="model:Repeat" href="Ozobot.xmi#//@programs.0/@block/@commands.3"/>
           <semanticElements xmi:type="model:Repeat" href="Ozobot.xmi#//@programs.0/@block/@commands.3"/>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -299,7 +299,7 @@
               <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@style"/>
             </ownedStyle>
             <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']"/>
-            <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_HOyYYEWDEeiGA_mVH6pg-g" name="Move" outgoingEdges="_KAx-4EWDEeiGA_mVH6pg-g" width="3" height="3" resizeKind="NSEW">
+            <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_HOyYYEWDEeiGA_mVH6pg-g" name="MoveInRepeat" outgoingEdges="_KAx-4EWDEeiGA_mVH6pg-g" width="3" height="3" resizeKind="NSEW">
               <target xmi:type="model:Move" href="Ozobot.xmi#//@programs.0/@block/@commands.3/@block/@commands.0"/>
               <semanticElements xmi:type="model:Move" href="Ozobot.xmi#//@programs.0/@block/@commands.3/@block/@commands.0"/>
               <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -310,7 +310,7 @@
               </ownedStyle>
               <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Move']"/>
             </ownedDiagramElements>
-            <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_IrAewEWDEeiGA_mVH6pg-g" name="Light" incomingEdges="_KAx-4EWDEeiGA_mVH6pg-g" width="3" height="3" resizeKind="NSEW">
+            <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_IrAewEWDEeiGA_mVH6pg-g" name="LightGreen" incomingEdges="_KAx-4EWDEeiGA_mVH6pg-g" width="3" height="3" resizeKind="NSEW">
               <target xmi:type="model:Light" href="Ozobot.xmi#//@programs.0/@block/@commands.3/@block/@commands.1"/>
               <semanticElements xmi:type="model:Light" href="Ozobot.xmi#//@programs.0/@block/@commands.3/@block/@commands.1"/>
               <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -323,7 +323,7 @@
             </ownedDiagramElements>
           </ownedDiagramElements>
         </ownedDiagramElements>
-        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_ha-BAElrEeijT9Y9cg-WDg" name="Light" outgoingEdges="_3EtwoElrEeijT9Y9cg-WDg" incomingEdges="_kUkrYElrEeijT9Y9cg-WDg" width="3" height="3" resizeKind="NSEW">
+        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_ha-BAElrEeijT9Y9cg-WDg" name="LightRed" outgoingEdges="_3EtwoElrEeijT9Y9cg-WDg" incomingEdges="_kUkrYElrEeijT9Y9cg-WDg" width="3" height="3" resizeKind="NSEW">
           <target xmi:type="model:Light" href="Ozobot.xmi#//@programs.0/@block/@commands.4"/>
           <semanticElements xmi:type="model:Light" href="Ozobot.xmi#//@programs.0/@block/@commands.4"/>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -334,7 +334,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Light']"/>
         </ownedDiagramElements>
-        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_sCIM8ElrEeijT9Y9cg-WDg" name="Rotate" incomingEdges="_3EtwoElrEeijT9Y9cg-WDg" width="3" height="3" resizeKind="NSEW">
+        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_sCIM8ElrEeijT9Y9cg-WDg" name="Rotate2" incomingEdges="_3EtwoElrEeijT9Y9cg-WDg" width="3" height="3" resizeKind="NSEW">
           <target xmi:type="model:Rotate" href="Ozobot.xmi#//@programs.0/@block/@commands.5"/>
           <semanticElements xmi:type="model:Rotate" href="Ozobot.xmi#//@programs.0/@block/@commands.5"/>
           <ownedStyle xmi:type="diagram:Square" xmi:id="_sCIM8UlrEeijT9Y9cg-WDg" labelPosition="node">
@@ -343,24 +343,6 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Rotate']"/>
         </ownedDiagramElements>
       </ownedDiagramElements>
-    </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="__Fc5wEWCEeiGA_mVH6pg-g" sourceNode="_8j3t0EWCEeiGA_mVH6pg-g" targetNode="_8gvhUEWCEeiGA_mVH6pg-g">
-      <target xmi:type="model:Transition" href="Ozobot.xmi#//@programs.0/@block/@transitions.0"/>
-      <semanticElements xmi:type="model:Transition" href="Ozobot.xmi#//@programs.0/@block/@transitions.0"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="__Fdg0EWCEeiGA_mVH6pg-g" size="2">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@edgeMappings[name='Connector_Commands']/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="__Fdg0UWCEeiGA_mVH6pg-g"/>
-      </ownedStyle>
-      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@edgeMappings[name='Connector_Commands']"/>
-    </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_De6NUEWDEeiGA_mVH6pg-g" sourceNode="_8gvhUEWCEeiGA_mVH6pg-g" targetNode="_CGu5cEWDEeiGA_mVH6pg-g">
-      <target xmi:type="model:Transition" href="Ozobot.xmi#//@programs.0/@block/@transitions.1"/>
-      <semanticElements xmi:type="model:Transition" href="Ozobot.xmi#//@programs.0/@block/@transitions.1"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_De60YEWDEeiGA_mVH6pg-g" size="2">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@edgeMappings[name='Connector_Commands']/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_De60YUWDEeiGA_mVH6pg-g"/>
-      </ownedStyle>
-      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@edgeMappings[name='Connector_Commands']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_KAx-4EWDEeiGA_mVH6pg-g" sourceNode="_HOyYYEWDEeiGA_mVH6pg-g" targetNode="_IrAewEWDEeiGA_mVH6pg-g">
       <target xmi:type="model:Transition" href="Ozobot.xmi#//@programs.0/@block/@commands.3/@block/@transitions.0"/>
@@ -395,6 +377,24 @@
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_3EuXsElrEeijT9Y9cg-WDg" size="2">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@edgeMappings[name='Connector_Commands']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_3EuXsUlrEeijT9Y9cg-WDg"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@edgeMappings[name='Connector_Commands']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_QsymQFk_Eei-y8TlrGvuSQ" sourceNode="_8gvhUEWCEeiGA_mVH6pg-g" targetNode="_8j3t0EWCEeiGA_mVH6pg-g">
+      <target xmi:type="model:Transition" href="Ozobot.xmi#//@programs.0/@block/@transitions.0"/>
+      <semanticElements xmi:type="model:Transition" href="Ozobot.xmi#//@programs.0/@block/@transitions.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_Qsz0YFk_Eei-y8TlrGvuSQ" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@edgeMappings[name='Connector_Commands']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_Qsz0YVk_Eei-y8TlrGvuSQ"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@edgeMappings[name='Connector_Commands']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_Qs0bcFk_Eei-y8TlrGvuSQ" sourceNode="_8j3t0EWCEeiGA_mVH6pg-g" targetNode="_CGu5cEWDEeiGA_mVH6pg-g">
+      <target xmi:type="model:Transition" href="Ozobot.xmi#//@programs.0/@block/@transitions.1"/>
+      <semanticElements xmi:type="model:Transition" href="Ozobot.xmi#//@programs.0/@block/@transitions.1"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_Qs1CgFk_Eei-y8TlrGvuSQ" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@edgeMappings[name='Connector_Commands']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_Qs1CgVk_Eei-y8TlrGvuSQ"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@edgeMappings[name='Connector_Commands']"/>
     </ownedDiagramElements>

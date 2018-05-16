@@ -54,7 +54,8 @@ class OzobotProgramAspect extends NamedElementAspect {
     	}catch (Exception nt){
 			println("Stopped due to "+nt.message)
 		}
-		
+		_self.client.disconnect
+		_self.client.close
 	}
 	
 	@Step
@@ -152,10 +153,17 @@ class RotateAspect extends CommandAspect {
 
 @Aspect(className=Wait)
 class WaitAspect extends CommandAspect {
+	long startTime
+	long elapsedTime
 	
 	@Step
 	@OverrideAspectMethod
 	def public void executeCommand(MqttClient client) {
+		_self.startTime = System.currentTimeMillis();
+    	_self.elapsedTime = 0L
+    	while(_self.elapsedTime < _self.time*1000) {
+    		_self.elapsedTime = (new Date()).getTime() - _self.startTime
+    	}
 		println("Executed command "+_self.name )
 	}
 }

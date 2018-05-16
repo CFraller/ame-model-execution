@@ -24,6 +24,7 @@ import static extension ozobot.k3dsa.BlockAspect.*
 import static extension ozobot.k3dsa.CommandAspect.*
 import static extension ozobot.k3dsa.OzobotProgramAspect.*
 import java.util.Timer
+import java.util.TimerTask
 
 @Aspect(className=NamedElement)
 abstract class NamedElementAspect {
@@ -35,27 +36,25 @@ class OzobotProgramAspect extends NamedElementAspect {
 	public MqttClient client
 	public Timer timer
 	
-	
 	@Step
     def public void run() {
     	try{
     		while (_self.current !== null) {
-    			_self.current.executeCommand(_self.client)
-    			_self.current = _self.current.outgoing.target
+    			_self.timer.schedule(null,2000) {
+    				_self.current.executeCommand(_self.client)
+    				_self.current = _self.current.outgoing.target
+    			}
     		}
     	}catch (Exception nt){
 			println("Stopped due to "+nt.message)
 		}
 		
-		_self.client.disconnect
-		_self.client.close
 	}
 	
 	@Step
 	def public void initialize(MqttClient client) {
 		println("Program " + _self.name + " initialized.")
 		_self.client = client
-		_self.timer = new Timer()
 		_self.block.initialize()
 		_self.current = _self.block.commands.get(0)
 	}
@@ -200,7 +199,10 @@ class OzobotAspect extends NamedElementAspect {
 	
 	@Main
 	def public void main(){
-		_self.programs.forEach [p | p.run]
+		_self.programs.get(0).run()
+		while(_self.client.connected){
+			
+		}
 	}
 }
 

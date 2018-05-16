@@ -4,7 +4,8 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:model="http://ozobot.xdsml.ozobotl/model/"
-    xsi:schemaLocation="http://ozobot.xdsml.ozobotl/model/ ../ozobot.xdsml.ozobotl/model/OzobotL.ecore">
+    xsi:schemaLocation="http://ozobot.xdsml.ozobotl/model/ ../ozobot.xdsml.ozobotl/model/OzobotL.ecore"
+    name="Ozobot">
   <programs
       name="OzobotProgram"
       current="//@programs.0/@block/@commands.1">

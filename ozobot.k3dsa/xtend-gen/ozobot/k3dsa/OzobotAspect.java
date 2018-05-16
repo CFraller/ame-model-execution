@@ -99,10 +99,9 @@ public class OzobotAspect extends NamedElementAspect {
   }
   
   protected static void _privk3_main(final OzobotAspectOzobotAspectProperties _self_, final Ozobot _self) {
-    final Consumer<OzobotProgram> _function = (OzobotProgram p) -> {
-      OzobotProgramAspect.run(p);
-    };
-    _self.getPrograms().forEach(_function);
+    OzobotProgramAspect.run(_self.getPrograms().get(0));
+    while (OzobotAspect.client(_self).isConnected()) {
+    }
   }
   
   protected static float _privk3_xposition(final OzobotAspectOzobotAspectProperties _self_, final Ozobot _self) {

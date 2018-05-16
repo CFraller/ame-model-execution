@@ -8,4 +8,8 @@ public class OzobotProgramAspectOzobotProgramAspectProperties {
   public MqttClient client;
   
   public Timer timer;
+  
+  public long startTime;
+  
+  public long elapsedTime;
 }

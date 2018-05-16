@@ -3,13 +3,13 @@ package ozobot.xdsml.ozobotl.aspects;
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
-import java.util.function.Consumer;
+import java.util.Date;
 import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import ozobot.xdsml.ozobotl.aspects.BlockAspect;
 import ozobot.xdsml.ozobotl.aspects.CommandAspect;
 import ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectProperties;
-import ozobot.xdsml.ozobotl.model.Command;
 import ozobot.xdsml.ozobotl.model.Repeat;
 
 @Aspect(className = Repeat.class)
@@ -75,6 +75,42 @@ public class RepeatAspect extends CommandAspect {
 	;
 }
   
+  private static long startTime(final Repeat _self) {
+    final ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectContext.getSelf(_self);
+    Object result = null;
+    result = _privk3_startTime(_self_, _self);;
+    return (long)result;
+  }
+  
+  private static void startTime(final Repeat _self, final long startTime) {
+    final ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectContext.getSelf(_self);
+    _privk3_startTime(_self_, _self,startTime);;
+  }
+  
+  private static long elapsedTime(final Repeat _self) {
+    final ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectContext.getSelf(_self);
+    Object result = null;
+    result = _privk3_elapsedTime(_self_, _self);;
+    return (long)result;
+  }
+  
+  private static void elapsedTime(final Repeat _self, final long elapsedTime) {
+    final ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectContext.getSelf(_self);
+    _privk3_elapsedTime(_self_, _self,elapsedTime);;
+  }
+  
+  private static int i(final Repeat _self) {
+    final ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectContext.getSelf(_self);
+    Object result = null;
+    result = _privk3_i(_self_, _self);;
+    return (int)result;
+  }
+  
+  private static void i(final Repeat _self, final int i) {
+    final ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectContext.getSelf(_self);
+    _privk3_i(_self_, _self,i);;
+  }
+  
   private static void super_executeCommand(final Repeat _self, final MqttClient client) {
     final ozobot.xdsml.ozobotl.aspects.CommandAspectCommandAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.CommandAspectCommandAspectContext.getSelf(_self);
      ozobot.xdsml.ozobotl.aspects.CommandAspect._privk3_executeCommand(_self_, _self,client);
@@ -83,10 +119,23 @@ public class RepeatAspect extends CommandAspect {
   protected static void _privk3_executeCommand(final RepeatAspectRepeatAspectProperties _self_, final Repeat _self, final MqttClient client) {
     while ((RepeatAspect.runtimeCounter(_self) != 0)) {
       {
-        final Consumer<Command> _function = (Command c) -> {
-          CommandAspect.executeCommand(c, client);
-        };
-        _self.getBlock().getCommands().forEach(_function);
+        RepeatAspect.i(_self, 0);
+        while ((RepeatAspect.i(_self) < ((Object[])Conversions.unwrapArray(_self.getBlock().getCommands(), Object.class)).length)) {
+          {
+            CommandAspect.executeCommand(_self.getBlock().getCommands().get(RepeatAspect.i(_self)), client);
+            RepeatAspect.startTime(_self, System.currentTimeMillis());
+            RepeatAspect.elapsedTime(_self, 0L);
+            while ((RepeatAspect.elapsedTime(_self) < 10000)) {
+              long _time = new Date().getTime();
+              long _startTime = RepeatAspect.startTime(_self);
+              long _minus = (_time - _startTime);
+              RepeatAspect.elapsedTime(_self, _minus);
+            }
+            int _i = RepeatAspect.i(_self);
+            int _plus = (_i + 1);
+            RepeatAspect.i(_self, _plus);
+          }
+        }
         int _runtimeCounter = RepeatAspect.runtimeCounter(_self);
         int _minus = (_runtimeCounter - 1);
         RepeatAspect.runtimeCounter(_self, _minus);
@@ -142,6 +191,108 @@ public class RepeatAspect extends CommandAspect {
     }
     if (!setterCalled) {
     	_self_.runtimeCounter = runtimeCounter;
+    }
+  }
+  
+  protected static long _privk3_startTime(final RepeatAspectRepeatAspectProperties _self_, final Repeat _self) {
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("getStartTime") &&
+    			m.getParameterTypes().length == 0) {
+    				Object ret = m.invoke(_self);
+    				if (ret != null) {
+    					return (long) ret;
+    				}		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    return _self_.startTime;
+  }
+  
+  protected static void _privk3_startTime(final RepeatAspectRepeatAspectProperties _self_, final Repeat _self, final long startTime) {
+    boolean setterCalled = false;
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("setStartTime")
+    				&& m.getParameterTypes().length == 1) {
+    			m.invoke(_self, startTime);
+    			setterCalled = true;
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    if (!setterCalled) {
+    	_self_.startTime = startTime;
+    }
+  }
+  
+  protected static long _privk3_elapsedTime(final RepeatAspectRepeatAspectProperties _self_, final Repeat _self) {
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("getElapsedTime") &&
+    			m.getParameterTypes().length == 0) {
+    				Object ret = m.invoke(_self);
+    				if (ret != null) {
+    					return (long) ret;
+    				}		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    return _self_.elapsedTime;
+  }
+  
+  protected static void _privk3_elapsedTime(final RepeatAspectRepeatAspectProperties _self_, final Repeat _self, final long elapsedTime) {
+    boolean setterCalled = false;
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("setElapsedTime")
+    				&& m.getParameterTypes().length == 1) {
+    			m.invoke(_self, elapsedTime);
+    			setterCalled = true;
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    if (!setterCalled) {
+    	_self_.elapsedTime = elapsedTime;
+    }
+  }
+  
+  protected static int _privk3_i(final RepeatAspectRepeatAspectProperties _self_, final Repeat _self) {
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("getI") &&
+    			m.getParameterTypes().length == 0) {
+    				Object ret = m.invoke(_self);
+    				if (ret != null) {
+    					return (int) ret;
+    				}		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    return _self_.i;
+  }
+  
+  protected static void _privk3_i(final RepeatAspectRepeatAspectProperties _self_, final Repeat _self, final int i) {
+    boolean setterCalled = false;
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("setI")
+    				&& m.getParameterTypes().length == 1) {
+    			m.invoke(_self, i);
+    			setterCalled = true;
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    if (!setterCalled) {
+    	_self_.i = i;
     }
   }
 }

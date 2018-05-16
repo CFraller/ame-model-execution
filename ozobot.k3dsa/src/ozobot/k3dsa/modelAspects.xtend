@@ -25,6 +25,7 @@ import static extension ozobot.k3dsa.CommandAspect.*
 import static extension ozobot.k3dsa.OzobotProgramAspect.*
 import java.util.Timer
 import java.util.TimerTask
+import java.util.Date
 
 @Aspect(className=NamedElement)
 abstract class NamedElementAspect {
@@ -35,14 +36,19 @@ abstract class NamedElementAspect {
 class OzobotProgramAspect extends NamedElementAspect {
 	public MqttClient client
 	public Timer timer
+	long startTime
+	long elapsedTime
 	
 	@Step
     def public void run() {
     	try{
     		while (_self.current !== null) {
-    			_self.timer.schedule(null,2000) {
-    				_self.current.executeCommand(_self.client)
-    				_self.current = _self.current.outgoing.target
+    			_self.current.executeCommand(_self.client)
+    			_self.current = _self.current.outgoing.target
+    			_self.startTime = System.currentTimeMillis();
+    			_self.elapsedTime = 0L
+    			while(_self.elapsedTime < 10000) {
+    				_self.elapsedTime = (new Date()).getTime() - _self.startTime
     			}
     		}
     	}catch (Exception nt){
@@ -157,12 +163,24 @@ class WaitAspect extends CommandAspect {
 @Aspect(className=Repeat)
 class RepeatAspect extends CommandAspect {
 	public int runtimeCounter
+	long startTime
+	long elapsedTime
+	int i
 	
 	@Step
 	@OverrideAspectMethod
 	def public void executeCommand(MqttClient client) {
 		while(_self.runtimeCounter != 0) {
-			_self.block.commands.forEach[c | c.executeCommand(client)]
+			_self.i = 0
+			while(_self.i < _self.block.commands.length){
+				_self.block.commands.get(_self.i).executeCommand(client)
+				_self.startTime = System.currentTimeMillis();
+    			_self.elapsedTime = 0L
+    			while(_self.elapsedTime < 10000) {
+    				_self.elapsedTime = (new Date()).getTime() - _self.startTime
+    			}
+    			_self.i=_self.i +1
+			}
 			_self.runtimeCounter = _self.runtimeCounter - 1
 			println("Executed command "+_self.name )
 		}

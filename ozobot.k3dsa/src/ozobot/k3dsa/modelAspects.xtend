@@ -26,6 +26,7 @@ import static extension ozobot.k3dsa.OzobotProgramAspect.*
 import java.util.Timer
 import java.util.TimerTask
 import java.util.Date
+import org.eclipse.emf.common.util.EList
 
 @Aspect(className=NamedElement)
 abstract class NamedElementAspect {

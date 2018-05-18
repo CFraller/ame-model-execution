@@ -11,6 +11,7 @@ import ozobot.xdsml.ozobotl.aspects.BlockAspect;
 import ozobot.xdsml.ozobotl.aspects.CommandAspect;
 import ozobot.xdsml.ozobotl.aspects.NamedElementAspect;
 import ozobot.xdsml.ozobotl.aspects.OzobotProgramAspectOzobotProgramAspectProperties;
+import ozobot.xdsml.ozobotl.model.Command;
 import ozobot.xdsml.ozobotl.model.OzobotProgram;
 
 @Aspect(className = OzobotProgram.class)
@@ -36,6 +37,24 @@ public class OzobotProgramAspect extends NamedElementAspect {
 	;
 	;
 }
+  
+  @Step
+  private static void stepInRun(final OzobotProgram _self) {
+    final ozobot.xdsml.ozobotl.aspects.OzobotProgramAspectOzobotProgramAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.OzobotProgramAspectOzobotProgramAspectContext.getSelf(_self);
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    	@Override
+    	public void execute() {
+    		_privk3_stepInRun(_self_, _self);
+    	}
+    };
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    if (stepManager != null) {
+    	stepManager.executeStep(_self,command,"OzobotProgram","stepInRun");
+    } else {
+    	command.execute();
+    }
+    ;;
+  }
   
   @Step
   public static void initialize(final OzobotProgram _self, final MqttClient client) {
@@ -114,13 +133,30 @@ public class OzobotProgramAspect extends NamedElementAspect {
     _privk3_elapsedTime(_self_, _self,elapsedTime);;
   }
   
+  public static Command currentCommand(final OzobotProgram _self) {
+	final ozobot.xdsml.ozobotl.aspects.OzobotProgramAspectOzobotProgramAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.OzobotProgramAspectOzobotProgramAspectContext
+			.getSelf(_self);
+	Object result = null;
+	result = _privk3_currentCommand(_self_, _self);
+	;
+	return (ozobot.xdsml.ozobotl.model.Command) result;
+}
+  
+  public static void currentCommand(final OzobotProgram _self, final Command currentCommand) {
+	final ozobot.xdsml.ozobotl.aspects.OzobotProgramAspectOzobotProgramAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.OzobotProgramAspectOzobotProgramAspectContext
+			.getSelf(_self);
+	_privk3_currentCommand(_self_, _self, currentCommand);
+	;
+}
+  
   protected static void _privk3_run(final OzobotProgramAspectOzobotProgramAspectProperties _self_, final OzobotProgram _self) {
     try {
+      OzobotProgramAspect.stepInRun(_self);
       try {
-        while ((_self.getCurrent() != null)) {
+        while ((OzobotProgramAspect.currentCommand(_self) != null)) {
           {
-            CommandAspect.executeCommand(_self.getCurrent(), OzobotProgramAspect.client(_self));
-            _self.setCurrent(_self.getCurrent().getOutgoing().getTarget());
+            CommandAspect.executeCommand(OzobotProgramAspect.currentCommand(_self));
+            OzobotProgramAspect.currentCommand(_self, OzobotProgramAspect.currentCommand(_self).getOutgoing().getTarget());
             OzobotProgramAspect.startTime(_self, System.currentTimeMillis());
             OzobotProgramAspect.elapsedTime(_self, 0L);
             while ((OzobotProgramAspect.elapsedTime(_self) < 10000)) {
@@ -148,6 +184,9 @@ public class OzobotProgramAspect extends NamedElementAspect {
     }
   }
   
+  protected static void _privk3_stepInRun(final OzobotProgramAspectOzobotProgramAspectProperties _self_, final OzobotProgram _self) {
+  }
+  
   protected static void _privk3_initialize(final OzobotProgramAspectOzobotProgramAspectProperties _self_, final OzobotProgram _self, final MqttClient client) {
     String _name = _self.getName();
     String _plus = ("Program " + _name);
@@ -155,7 +194,7 @@ public class OzobotProgramAspect extends NamedElementAspect {
     InputOutput.<String>println(_plus_1);
     OzobotProgramAspect.client(_self, client);
     BlockAspect.initialize(_self.getBlock());
-    _self.setCurrent(_self.getBlock().getCommands().get(0));
+    OzobotProgramAspect.currentCommand(_self, _self.getBlock().getCommands().get(0));
   }
   
   protected static MqttClient _privk3_client(final OzobotProgramAspectOzobotProgramAspectProperties _self_, final OzobotProgram _self) {
@@ -297,6 +336,43 @@ public class OzobotProgramAspect extends NamedElementAspect {
     }
     if (!setterCalled) {
     	_self_.elapsedTime = elapsedTime;
+    }
+  }
+  
+  protected static Command _privk3_currentCommand(final OzobotProgramAspectOzobotProgramAspectProperties _self_, final OzobotProgram _self) {
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("getCurrentCommand") &&
+    			m.getParameterTypes().length == 0) {
+    				Object ret = m.invoke(_self);
+    				if (ret != null) {
+    					return (ozobot.xdsml.ozobotl.model.Command) ret;
+    				} else {
+    					return null;
+    				}
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    return _self_.currentCommand;
+  }
+  
+  protected static void _privk3_currentCommand(final OzobotProgramAspectOzobotProgramAspectProperties _self_, final OzobotProgram _self, final Command currentCommand) {
+    boolean setterCalled = false;
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("setCurrentCommand")
+    				&& m.getParameterTypes().length == 1) {
+    			m.invoke(_self, currentCommand);
+    			setterCalled = true;
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    if (!setterCalled) {
+    	_self_.currentCommand = currentCommand;
     }
   }
 }

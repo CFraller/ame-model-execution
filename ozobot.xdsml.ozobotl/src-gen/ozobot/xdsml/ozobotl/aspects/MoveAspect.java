@@ -17,13 +17,13 @@ import ozobot.xdsml.ozobotl.model.Move;
 public class MoveAspect extends CommandAspect {
   @Step
   @OverrideAspectMethod
-  public static void executeCommand(final Move _self, final MqttClient client) {
+  public static void executeCommand(final Move _self) {
 	final ozobot.xdsml.ozobotl.aspects.MoveAspectMoveAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.MoveAspectMoveAspectContext
 			.getSelf(_self);
 	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
 		@Override
 		public void execute() {
-			_privk3_executeCommand(_self_, _self, client);
+			_privk3_executeCommand(_self_, _self);
 		}
 	};
 	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry
@@ -37,6 +37,24 @@ public class MoveAspect extends CommandAspect {
 	;
 }
   
+  @Step
+  private static void doExecute(final Move _self) {
+    final ozobot.xdsml.ozobotl.aspects.MoveAspectMoveAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.MoveAspectMoveAspectContext.getSelf(_self);
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    	@Override
+    	public void execute() {
+    		_privk3_doExecute(_self_, _self);
+    	}
+    };
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    if (stepManager != null) {
+    	stepManager.executeStep(_self,command,"Move","doExecute");
+    } else {
+    	command.execute();
+    }
+    ;;
+  }
+  
   public static int velocity(final Move _self) {
 	final ozobot.xdsml.ozobotl.aspects.MoveAspectMoveAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.MoveAspectMoveAspectContext
 			.getSelf(_self);
@@ -46,13 +64,18 @@ public class MoveAspect extends CommandAspect {
 	return (int) result;
 }
   
-  private static void super_executeCommand(final Move _self, final MqttClient client) {
+  private static void super_executeCommand(final Move _self) {
     final ozobot.xdsml.ozobotl.aspects.CommandAspectCommandAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.CommandAspectCommandAspectContext.getSelf(_self);
-     ozobot.xdsml.ozobotl.aspects.CommandAspect._privk3_executeCommand(_self_, _self,client);
+     ozobot.xdsml.ozobotl.aspects.CommandAspect._privk3_executeCommand(_self_, _self);
   }
   
-  protected static void _privk3_executeCommand(final MoveAspectMoveAspectProperties _self_, final Move _self, final MqttClient client) {
+  protected static void _privk3_executeCommand(final MoveAspectMoveAspectProperties _self_, final Move _self) {
+    MoveAspect.doExecute(_self);
+  }
+  
+  protected static void _privk3_doExecute(final MoveAspectMoveAspectProperties _self_, final Move _self) {
     try {
+      final MqttClient client = CommandAspect.getMQTTClient(_self);
       int _distance = _self.getDistance();
       String _plus = (("ozobot-move" + " ") + Integer.valueOf(_distance));
       String _plus_1 = (_plus + " ");

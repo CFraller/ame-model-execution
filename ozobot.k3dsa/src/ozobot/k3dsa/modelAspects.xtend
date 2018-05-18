@@ -23,6 +23,7 @@ import ozobot.model.Wait
 import static extension ozobot.k3dsa.BlockAspect.*
 import static extension ozobot.k3dsa.CommandAspect.*
 import static extension ozobot.k3dsa.OzobotProgramAspect.*
+import static extension ozobot.k3dsa.OzobotAspect.*
 import java.util.Timer
 import java.util.TimerTask
 import java.util.Date
@@ -37,15 +38,17 @@ abstract class NamedElementAspect {
 class OzobotProgramAspect extends NamedElementAspect {
 	public MqttClient client
 	public Timer timer
-	long startTime
-	long elapsedTime
+	private long startTime
+	private long elapsedTime
+ 	public Command currentCommand
 	
 	@Step
     def public void run() {
+    	_self.stepInRun()
     	try{
-    		while (_self.current !== null) {
-    			_self.current.executeCommand(_self.client)
-    			_self.current = _self.current.outgoing.target
+    		while (_self.currentCommand !== null) {
+    			_self.currentCommand.executeCommand()
+    			_self.currentCommand = _self.currentCommand.outgoing.target
     			_self.startTime = System.currentTimeMillis();
     			_self.elapsedTime = 0L
     			while(_self.elapsedTime < 10000) {
@@ -60,27 +63,35 @@ class OzobotProgramAspect extends NamedElementAspect {
 	}
 	
 	@Step
+	def private void stepInRun() {
+		//TODO just for testing, remove again
+	}
+	
+	@Step
 	def public void initialize(MqttClient client) {
 		println("Program " + _self.name + " initialized.")
 		_self.client = client
 		_self.block.initialize()
-		_self.current = _self.block.commands.get(0)
+		_self.currentCommand = _self.block.commands.get(0)
 	}
 }
 
 @Aspect(className=Command)
 abstract class CommandAspect extends NamedElementAspect {
 	public String topic = "Actuator"
-	public MqttClient client
 	
 	@Step
-	def public void executeCommand(MqttClient client) {
+	def public void executeCommand() {
 		
 	}
 	
 	@Step	
 	def public void initialize() {
 		println("Command " + _self.name + " initialized.")
+	}
+	
+	def public MqttClient getMQTTClient() {
+		((_self.eContainer() as Block).eContainer() as OzobotProgram).client
 	}
 }
 
@@ -89,7 +100,14 @@ class MoveAspect extends CommandAspect {
 
 	@Step
 	@OverrideAspectMethod
-	def public void executeCommand(MqttClient client) {
+	def public void executeCommand() {
+		_self.doExecute();
+	}
+	
+	@Step
+	def private void doExecute() {
+		// TODO: maybe this is not necessary; try to remove again
+		val client = _self.getMQTTClient()
 		val message = "ozobot-move"+" "+_self.distance+" "+_self.velocity()
 		val tmp = new MqttMessage(message.bytes)
 		client.publish(_self.topic, tmp)	
@@ -116,7 +134,8 @@ class LightAspect extends CommandAspect {
 	
 	@Step
 	@OverrideAspectMethod
-	def public void executeCommand(MqttClient client) {
+	def public void executeCommand() {
+		val client = _self.getMQTTClient()
 		val message = _self.color+"Light"
 		val tmp = new MqttMessage(message.bytes)
 		client.publish(_self.topic, tmp)
@@ -130,7 +149,8 @@ class RotateAspect extends CommandAspect {
 
 	@Step
 	@OverrideAspectMethod
-	def public void executeCommand(MqttClient client) {
+	def public void executeCommand() {
+		val client = _self.getMQTTClient()
 		val message = "ozobot-rotate"+" "+_self.direction+" "+_self.velocity()+" "+_self.angle
 		val tmp = new MqttMessage(message.bytes)
 		client.publish(_self.topic,tmp)	
@@ -159,7 +179,8 @@ class WaitAspect extends CommandAspect {
 	
 	@Step
 	@OverrideAspectMethod
-	def public void executeCommand(MqttClient client) {
+	def public void executeCommand() {
+		val client = _self.getMQTTClient()
 		_self.startTime = System.currentTimeMillis();
     	_self.elapsedTime = 0L
     	while(_self.elapsedTime < _self.time*1000) {
@@ -179,12 +200,12 @@ class RepeatAspect extends CommandAspect {
 	
 	@Step
 	@OverrideAspectMethod
-	def public void executeCommand(MqttClient client) {
+	def public void executeCommand() {
 		while(_self.runtimeCounter != 0) {
 			_self.i = 0
 			while(_self.i < _self.block.commands.length){
-				_self.program.current = _self.block.commands.get(_self.i)
-				_self.program.current.executeCommand(client)
+				_self.program.currentCommand = _self.block.commands.get(_self.i)
+				_self.program.currentCommand.executeCommand()
 				_self.startTime = System.currentTimeMillis();
     			_self.elapsedTime = 0L
     			while(_self.elapsedTime < 10000) {

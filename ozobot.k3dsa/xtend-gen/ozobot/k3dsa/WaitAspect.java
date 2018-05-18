@@ -15,13 +15,13 @@ import ozobot.model.Wait;
 public class WaitAspect extends CommandAspect {
   @Step
   @OverrideAspectMethod
-  public static void executeCommand(final Wait _self, final MqttClient client) {
+  public static void executeCommand(final Wait _self) {
     final ozobot.k3dsa.WaitAspectWaitAspectProperties _self_ = ozobot.k3dsa.WaitAspectWaitAspectContext.getSelf(_self);
      if (_self instanceof ozobot.model.Wait){
     					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
     						@Override
     						public void execute() {
-    							ozobot.k3dsa.WaitAspect._privk3_executeCommand(_self_, (ozobot.model.Wait)_self,client);
+    							ozobot.k3dsa.WaitAspect._privk3_executeCommand(_self_, (ozobot.model.Wait)_self);
     						}
     					};
     					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
@@ -32,7 +32,7 @@ public class WaitAspect extends CommandAspect {
     					}
     					;
     } else  if (_self instanceof ozobot.model.Command){
-    					ozobot.k3dsa.CommandAspect.executeCommand((ozobot.model.Command)_self,client);
+    					ozobot.k3dsa.CommandAspect.executeCommand((ozobot.model.Command)_self);
     } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
   }
   
@@ -60,12 +60,13 @@ public class WaitAspect extends CommandAspect {
     _privk3_elapsedTime(_self_, _self,elapsedTime);;
   }
   
-  private static void super_executeCommand(final Wait _self, final MqttClient client) {
+  private static void super_executeCommand(final Wait _self) {
     final ozobot.k3dsa.CommandAspectCommandAspectProperties _self_ = ozobot.k3dsa.CommandAspectCommandAspectContext.getSelf(_self);
-     ozobot.k3dsa.CommandAspect._privk3_executeCommand(_self_, _self,client);
+     ozobot.k3dsa.CommandAspect._privk3_executeCommand(_self_, _self);
   }
   
-  protected static void _privk3_executeCommand(final WaitAspectWaitAspectProperties _self_, final Wait _self, final MqttClient client) {
+  protected static void _privk3_executeCommand(final WaitAspectWaitAspectProperties _self_, final Wait _self) {
+    final MqttClient client = CommandAspect.getMQTTClient(_self);
     WaitAspect.startTime(_self, System.currentTimeMillis());
     WaitAspect.elapsedTime(_self, 0L);
     while ((WaitAspect.elapsedTime(_self) < (_self.getTime() * 1000))) {

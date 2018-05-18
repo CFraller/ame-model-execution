@@ -17,13 +17,13 @@ import ozobot.xdsml.ozobotl.model.Light;
 public class LightAspect extends CommandAspect {
   @Step
   @OverrideAspectMethod
-  public static void executeCommand(final Light _self, final MqttClient client) {
+  public static void executeCommand(final Light _self) {
 	final ozobot.xdsml.ozobotl.aspects.LightAspectLightAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.LightAspectLightAspectContext
 			.getSelf(_self);
 	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
 		@Override
 		public void execute() {
-			_privk3_executeCommand(_self_, _self, client);
+			_privk3_executeCommand(_self_, _self);
 		}
 	};
 	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry
@@ -37,13 +37,14 @@ public class LightAspect extends CommandAspect {
 	;
 }
   
-  private static void super_executeCommand(final Light _self, final MqttClient client) {
+  private static void super_executeCommand(final Light _self) {
     final ozobot.xdsml.ozobotl.aspects.CommandAspectCommandAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.CommandAspectCommandAspectContext.getSelf(_self);
-     ozobot.xdsml.ozobotl.aspects.CommandAspect._privk3_executeCommand(_self_, _self,client);
+     ozobot.xdsml.ozobotl.aspects.CommandAspect._privk3_executeCommand(_self_, _self);
   }
   
-  protected static void _privk3_executeCommand(final LightAspectLightAspectProperties _self_, final Light _self, final MqttClient client) {
+  protected static void _privk3_executeCommand(final LightAspectLightAspectProperties _self_, final Light _self) {
     try {
+      final MqttClient client = CommandAspect.getMQTTClient(_self);
       Color _color = _self.getColor();
       final String message = (_color + "Light");
       byte[] _bytes = message.getBytes();

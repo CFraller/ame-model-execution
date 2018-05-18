@@ -5,11 +5,11 @@ import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
 import java.util.Date;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import ozobot.k3dsa.BlockAspect;
 import ozobot.k3dsa.CommandAspect;
+import ozobot.k3dsa.OzobotProgramAspect;
 import ozobot.k3dsa.RepeatAspectRepeatAspectProperties;
 import ozobot.model.OzobotProgram;
 import ozobot.model.Repeat;
@@ -19,13 +19,13 @@ import ozobot.model.Repeat;
 public class RepeatAspect extends CommandAspect {
   @Step
   @OverrideAspectMethod
-  public static void executeCommand(final Repeat _self, final MqttClient client) {
+  public static void executeCommand(final Repeat _self) {
     final ozobot.k3dsa.RepeatAspectRepeatAspectProperties _self_ = ozobot.k3dsa.RepeatAspectRepeatAspectContext.getSelf(_self);
      if (_self instanceof ozobot.model.Repeat){
     					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
     						@Override
     						public void execute() {
-    							ozobot.k3dsa.RepeatAspect._privk3_executeCommand(_self_, (ozobot.model.Repeat)_self,client);
+    							ozobot.k3dsa.RepeatAspect._privk3_executeCommand(_self_, (ozobot.model.Repeat)_self);
     						}
     					};
     					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
@@ -36,7 +36,7 @@ public class RepeatAspect extends CommandAspect {
     					}
     					;
     } else  if (_self instanceof ozobot.model.Command){
-    					ozobot.k3dsa.CommandAspect.executeCommand((ozobot.model.Command)_self,client);
+    					ozobot.k3dsa.CommandAspect.executeCommand((ozobot.model.Command)_self);
     } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
   }
   
@@ -123,20 +123,20 @@ public class RepeatAspect extends CommandAspect {
     _privk3_program(_self_, _self,program);;
   }
   
-  private static void super_executeCommand(final Repeat _self, final MqttClient client) {
+  private static void super_executeCommand(final Repeat _self) {
     final ozobot.k3dsa.CommandAspectCommandAspectProperties _self_ = ozobot.k3dsa.CommandAspectCommandAspectContext.getSelf(_self);
-     ozobot.k3dsa.CommandAspect._privk3_executeCommand(_self_, _self,client);
+     ozobot.k3dsa.CommandAspect._privk3_executeCommand(_self_, _self);
   }
   
-  protected static void _privk3_executeCommand(final RepeatAspectRepeatAspectProperties _self_, final Repeat _self, final MqttClient client) {
+  protected static void _privk3_executeCommand(final RepeatAspectRepeatAspectProperties _self_, final Repeat _self) {
     while ((RepeatAspect.runtimeCounter(_self) != 0)) {
       {
         RepeatAspect.i(_self, 0);
         while ((RepeatAspect.i(_self) < ((Object[])Conversions.unwrapArray(_self.getBlock().getCommands(), Object.class)).length)) {
           {
             OzobotProgram _program = RepeatAspect.program(_self);
-            _program.setCurrent(_self.getBlock().getCommands().get(RepeatAspect.i(_self)));
-            CommandAspect.executeCommand(RepeatAspect.program(_self).getCurrent(), client);
+            OzobotProgramAspect.currentCommand(_program, _self.getBlock().getCommands().get(RepeatAspect.i(_self)));
+            CommandAspect.executeCommand(OzobotProgramAspect.currentCommand(RepeatAspect.program(_self)));
             RepeatAspect.startTime(_self, System.currentTimeMillis());
             RepeatAspect.elapsedTime(_self, 0L);
             while ((RepeatAspect.elapsedTime(_self) < 10000)) {

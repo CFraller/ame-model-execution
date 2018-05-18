@@ -25,6 +25,7 @@ import ozobot.xdsml.ozobotl.model.OzobotProgram;
  * <ul>
  *   <li>{@link ozobot.xdsml.ozobotl.model.impl.OzobotProgramImpl#getBlock <em>Block</em>}</li>
  *   <li>{@link ozobot.xdsml.ozobotl.model.impl.OzobotProgramImpl#getCurrent <em>Current</em>}</li>
+ *   <li>{@link ozobot.xdsml.ozobotl.model.impl.OzobotProgramImpl#getCurrentCommand <em>Current Command</em>}</li>
  * </ul>
  *
  * @generated
@@ -49,6 +50,16 @@ public class OzobotProgramImpl extends NamedElementImpl implements OzobotProgram
 	 * @ordered
 	 */
 	protected Command current;
+
+	/**
+	 * The cached value of the '{@link #getCurrentCommand() <em>Current Command</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCurrentCommand()
+	 * @generated
+	 * @ordered
+	 */
+	protected Command currentCommand;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -155,6 +166,44 @@ public class OzobotProgramImpl extends NamedElementImpl implements OzobotProgram
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Command getCurrentCommand() {
+		if (currentCommand != null && currentCommand.eIsProxy()) {
+			InternalEObject oldCurrentCommand = (InternalEObject)currentCommand;
+			currentCommand = (Command)eResolveProxy(oldCurrentCommand);
+			if (currentCommand != oldCurrentCommand) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.OZOBOT_PROGRAM__CURRENT_COMMAND, oldCurrentCommand, currentCommand));
+			}
+		}
+		return currentCommand;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Command basicGetCurrentCommand() {
+		return currentCommand;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCurrentCommand(Command newCurrentCommand) {
+		Command oldCurrentCommand = currentCommand;
+		currentCommand = newCurrentCommand;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.OZOBOT_PROGRAM__CURRENT_COMMAND, oldCurrentCommand, currentCommand));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -177,6 +226,9 @@ public class OzobotProgramImpl extends NamedElementImpl implements OzobotProgram
 			case ModelPackage.OZOBOT_PROGRAM__CURRENT:
 				if (resolve) return getCurrent();
 				return basicGetCurrent();
+			case ModelPackage.OZOBOT_PROGRAM__CURRENT_COMMAND:
+				if (resolve) return getCurrentCommand();
+				return basicGetCurrentCommand();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -194,6 +246,9 @@ public class OzobotProgramImpl extends NamedElementImpl implements OzobotProgram
 				return;
 			case ModelPackage.OZOBOT_PROGRAM__CURRENT:
 				setCurrent((Command)newValue);
+				return;
+			case ModelPackage.OZOBOT_PROGRAM__CURRENT_COMMAND:
+				setCurrentCommand((Command)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -213,6 +268,9 @@ public class OzobotProgramImpl extends NamedElementImpl implements OzobotProgram
 			case ModelPackage.OZOBOT_PROGRAM__CURRENT:
 				setCurrent((Command)null);
 				return;
+			case ModelPackage.OZOBOT_PROGRAM__CURRENT_COMMAND:
+				setCurrentCommand((Command)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -229,6 +287,8 @@ public class OzobotProgramImpl extends NamedElementImpl implements OzobotProgram
 				return block != null;
 			case ModelPackage.OZOBOT_PROGRAM__CURRENT:
 				return current != null;
+			case ModelPackage.OZOBOT_PROGRAM__CURRENT_COMMAND:
+				return currentCommand != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -122,13 +122,22 @@ public interface ModelPackage extends EPackage {
 	int OZOBOT_PROGRAM__CURRENT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Current Command</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OZOBOT_PROGRAM__CURRENT_COMMAND = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Ozobot Program</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OZOBOT_PROGRAM_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int OZOBOT_PROGRAM_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link ozobot.xdsml.ozobotl.model.impl.CommandImpl <em>Command</em>}' class.
@@ -701,6 +710,17 @@ public interface ModelPackage extends EPackage {
 	EReference getOzobotProgram_Current();
 
 	/**
+	 * Returns the meta object for the reference '{@link ozobot.xdsml.ozobotl.model.OzobotProgram#getCurrentCommand <em>Current Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Current Command</em>'.
+	 * @see ozobot.xdsml.ozobotl.model.OzobotProgram#getCurrentCommand()
+	 * @see #getOzobotProgram()
+	 * @generated
+	 */
+	EReference getOzobotProgram_CurrentCommand();
+
+	/**
 	 * Returns the meta object for class '{@link ozobot.xdsml.ozobotl.model.Command <em>Command</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1061,6 +1081,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OZOBOT_PROGRAM__CURRENT = eINSTANCE.getOzobotProgram_Current();
+
+		/**
+		 * The meta object literal for the '<em><b>Current Command</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OZOBOT_PROGRAM__CURRENT_COMMAND = eINSTANCE.getOzobotProgram_CurrentCommand();
 
 		/**
 		 * The meta object literal for the '{@link ozobot.xdsml.ozobotl.model.impl.CommandImpl <em>Command</em>}' class.

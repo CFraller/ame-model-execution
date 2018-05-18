@@ -14,6 +14,7 @@ package ozobot.xdsml.ozobotl.model;
  * <ul>
  *   <li>{@link ozobot.xdsml.ozobotl.model.OzobotProgram#getBlock <em>Block</em>}</li>
  *   <li>{@link ozobot.xdsml.ozobotl.model.OzobotProgram#getCurrent <em>Current</em>}</li>
+ *   <li>{@link ozobot.xdsml.ozobotl.model.OzobotProgram#getCurrentCommand <em>Current Command</em>}</li>
  * </ul>
  *
  * @see ozobot.xdsml.ozobotl.model.ModelPackage#getOzobotProgram()
@@ -72,5 +73,31 @@ public interface OzobotProgram extends NamedElement {
 	 * @generated
 	 */
 	void setCurrent(Command value);
+
+	/**
+	 * Returns the value of the '<em><b>Current Command</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Current Command</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Current Command</em>' reference.
+	 * @see #setCurrentCommand(Command)
+	 * @see ozobot.xdsml.ozobotl.model.ModelPackage#getOzobotProgram_CurrentCommand()
+	 * @model
+	 * @generated
+	 */
+	Command getCurrentCommand();
+
+	/**
+	 * Sets the value of the '{@link ozobot.xdsml.ozobotl.model.OzobotProgram#getCurrentCommand <em>Current Command</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Current Command</em>' reference.
+	 * @see #getCurrentCommand()
+	 * @generated
+	 */
+	void setCurrentCommand(Command value);
 
 } // OzobotProgram

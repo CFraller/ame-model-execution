@@ -243,6 +243,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getOzobotProgram_CurrentCommand() {
+		return (EReference)ozobotProgramEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCommand() {
 		return commandEClass;
 	}
@@ -524,6 +533,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		ozobotProgramEClass = createEClass(OZOBOT_PROGRAM);
 		createEReference(ozobotProgramEClass, OZOBOT_PROGRAM__BLOCK);
 		createEReference(ozobotProgramEClass, OZOBOT_PROGRAM__CURRENT);
+		createEReference(ozobotProgramEClass, OZOBOT_PROGRAM__CURRENT_COMMAND);
 
 		commandEClass = createEClass(COMMAND);
 		createEReference(commandEClass, COMMAND__OUTGOING);
@@ -611,6 +621,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEClass(ozobotProgramEClass, OzobotProgram.class, "OzobotProgram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOzobotProgram_Block(), this.getBlock(), null, "block", null, 1, 1, OzobotProgram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOzobotProgram_Current(), this.getCommand(), null, "current", null, 1, 1, OzobotProgram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOzobotProgram_CurrentCommand(), this.getCommand(), null, "currentCommand", null, 0, 1, OzobotProgram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(commandEClass, Command.class, "Command", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCommand_Outgoing(), this.getTransition(), this.getTransition_Source(), "outgoing", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -667,6 +678,25 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// aspect
+		createAspectAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>aspect</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createAspectAnnotations() {
+		String source = "aspect";	
+		addAnnotation
+		  (getOzobotProgram_CurrentCommand(), 
+		   source, 
+		   new String[] {
+		   });
 	}
 
 } //ModelPackageImpl

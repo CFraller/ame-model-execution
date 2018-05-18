@@ -42,9 +42,7 @@ class OzobotProgramAspect extends NamedElementAspect {
 	private long elapsedTime
  	public Command currentCommand
 	
-	@Step
     def public void run() {
-    	_self.stepInRun()
     	try{
     		while (_self.currentCommand !== null) {
     			_self.currentCommand.executeCommand()
@@ -62,12 +60,6 @@ class OzobotProgramAspect extends NamedElementAspect {
 		_self.client.close
 	}
 	
-	@Step
-	def private void stepInRun() {
-		//TODO just for testing, remove again
-	}
-	
-	@Step
 	def public void initialize(MqttClient client) {
 		println("Program " + _self.name + " initialized.")
 		_self.client = client
@@ -85,13 +77,16 @@ abstract class CommandAspect extends NamedElementAspect {
 		
 	}
 	
-	@Step	
 	def public void initialize() {
 		println("Command " + _self.name + " initialized.")
 	}
 	
 	def public MqttClient getMQTTClient() {
-		((_self.eContainer() as Block).eContainer() as OzobotProgram).client
+		if((_self.eContainer() as Block).eContainer() instanceof OzobotProgram) {
+			return ((_self.eContainer() as Block).eContainer() as OzobotProgram).client
+		} else {
+			return ((_self.eContainer() as Block).eContainer() as Command).getMQTTClient()
+		}
 	}
 }
 
@@ -101,12 +96,6 @@ class MoveAspect extends CommandAspect {
 	@Step
 	@OverrideAspectMethod
 	def public void executeCommand() {
-		_self.doExecute();
-	}
-	
-	@Step
-	def private void doExecute() {
-		// TODO: maybe this is not necessary; try to remove again
 		val client = _self.getMQTTClient()
 		val message = "ozobot-move"+" "+_self.distance+" "+_self.velocity()
 		val tmp = new MqttMessage(message.bytes)
@@ -131,7 +120,7 @@ class MoveAspect extends CommandAspect {
 
 @Aspect(className=Light)
 class LightAspect extends CommandAspect {
-	
+
 	@Step
 	@OverrideAspectMethod
 	def public void executeCommand() {
@@ -174,13 +163,12 @@ class RotateAspect extends CommandAspect {
 
 @Aspect(className=Wait)
 class WaitAspect extends CommandAspect {
-	long startTime
-	long elapsedTime
+	private long startTime
+	private long elapsedTime
 	
 	@Step
 	@OverrideAspectMethod
 	def public void executeCommand() {
-		val client = _self.getMQTTClient()
 		_self.startTime = System.currentTimeMillis();
     	_self.elapsedTime = 0L
     	while(_self.elapsedTime < _self.time*1000) {
@@ -192,9 +180,9 @@ class WaitAspect extends CommandAspect {
 
 @Aspect(className=Repeat)
 class RepeatAspect extends CommandAspect {
-	public int runtimeCounter
-	long startTime
-	long elapsedTime
+	private int runtimeCounter
+	private long startTime
+	private long elapsedTime
 	int i
 	OzobotProgram program
 	
@@ -216,9 +204,9 @@ class RepeatAspect extends CommandAspect {
 			_self.runtimeCounter = _self.runtimeCounter - 1
 			println("Executed command "+_self.name )
 		}
+		_self.program.currentCommand = _self
 	}
 	
-	@Step
 	@OverrideAspectMethod
 	def public void initialize() {
 		println("Command " + _self.name + " initialized.")

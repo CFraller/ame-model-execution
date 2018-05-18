@@ -1,7 +1,6 @@
 package ozobot.xdsml.ozobotl.aspects;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
-import fr.inria.diverse.k3.al.annotationprocessor.Step;
 import java.util.Date;
 import java.util.Timer;
 import org.eclipse.paho.client.mqttv3.MqttClient;
@@ -17,63 +16,17 @@ import ozobot.xdsml.ozobotl.model.OzobotProgram;
 @Aspect(className = OzobotProgram.class)
 @SuppressWarnings("all")
 public class OzobotProgramAspect extends NamedElementAspect {
-  @Step
   public static void run(final OzobotProgram _self) {
 	final ozobot.xdsml.ozobotl.aspects.OzobotProgramAspectOzobotProgramAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.OzobotProgramAspectOzobotProgramAspectContext
 			.getSelf(_self);
-	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
-		@Override
-		public void execute() {
-			_privk3_run(_self_, _self);
-		}
-	};
-	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry
-			.getInstance().findStepManager(_self);
-	if (manager != null) {
-		manager.executeStep(_self, command, "OzobotProgram", "run");
-	} else {
-		command.execute();
-	}
-	;
+	_privk3_run(_self_, _self);
 	;
 }
   
-  @Step
-  private static void stepInRun(final OzobotProgram _self) {
-    final ozobot.xdsml.ozobotl.aspects.OzobotProgramAspectOzobotProgramAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.OzobotProgramAspectOzobotProgramAspectContext.getSelf(_self);
-    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
-    	@Override
-    	public void execute() {
-    		_privk3_stepInRun(_self_, _self);
-    	}
-    };
-    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
-    if (stepManager != null) {
-    	stepManager.executeStep(_self,command,"OzobotProgram","stepInRun");
-    } else {
-    	command.execute();
-    }
-    ;;
-  }
-  
-  @Step
   public static void initialize(final OzobotProgram _self, final MqttClient client) {
 	final ozobot.xdsml.ozobotl.aspects.OzobotProgramAspectOzobotProgramAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.OzobotProgramAspectOzobotProgramAspectContext
 			.getSelf(_self);
-	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
-		@Override
-		public void execute() {
-			_privk3_initialize(_self_, _self, client);
-		}
-	};
-	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry
-			.getInstance().findStepManager(_self);
-	if (manager != null) {
-		manager.executeStep(_self, command, "OzobotProgram", "initialize");
-	} else {
-		command.execute();
-	}
-	;
+	_privk3_initialize(_self_, _self, client);
 	;
 }
   
@@ -151,7 +104,6 @@ public class OzobotProgramAspect extends NamedElementAspect {
   
   protected static void _privk3_run(final OzobotProgramAspectOzobotProgramAspectProperties _self_, final OzobotProgram _self) {
     try {
-      OzobotProgramAspect.stepInRun(_self);
       try {
         while ((OzobotProgramAspect.currentCommand(_self) != null)) {
           {
@@ -182,9 +134,6 @@ public class OzobotProgramAspect extends NamedElementAspect {
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
-  }
-  
-  protected static void _privk3_stepInRun(final OzobotProgramAspectOzobotProgramAspectProperties _self_, final OzobotProgram _self) {
   }
   
   protected static void _privk3_initialize(final OzobotProgramAspectOzobotProgramAspectProperties _self_, final OzobotProgram _self, final MqttClient client) {

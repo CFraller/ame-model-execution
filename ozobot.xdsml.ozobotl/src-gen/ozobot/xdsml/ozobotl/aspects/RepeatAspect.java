@@ -39,43 +39,25 @@ public class RepeatAspect extends CommandAspect {
 	;
 }
   
-  @Step
   @OverrideAspectMethod
   public static void initialize(final Repeat _self) {
 	final ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectContext
 			.getSelf(_self);
-	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
-		@Override
-		public void execute() {
-			_privk3_initialize(_self_, _self);
-		}
-	};
-	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry
-			.getInstance().findStepManager(_self);
-	if (manager != null) {
-		manager.executeStep(_self, command, "Repeat", "initialize");
-	} else {
-		command.execute();
-	}
-	;
+	_privk3_initialize(_self_, _self);
 	;
 }
   
-  public static int runtimeCounter(final Repeat _self) {
-	final ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectContext
-			.getSelf(_self);
-	Object result = null;
-	result = _privk3_runtimeCounter(_self_, _self);
-	;
-	return (int) result;
-}
+  private static int runtimeCounter(final Repeat _self) {
+    final ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectContext.getSelf(_self);
+    Object result = null;
+    result = _privk3_runtimeCounter(_self_, _self);;
+    return (int)result;
+  }
   
-  public static void runtimeCounter(final Repeat _self, final int runtimeCounter) {
-	final ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectContext
-			.getSelf(_self);
-	_privk3_runtimeCounter(_self_, _self, runtimeCounter);
-	;
-}
+  private static void runtimeCounter(final Repeat _self, final int runtimeCounter) {
+    final ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectContext.getSelf(_self);
+    _privk3_runtimeCounter(_self_, _self,runtimeCounter);;
+  }
   
   private static long startTime(final Repeat _self) {
     final ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectContext.getSelf(_self);
@@ -160,6 +142,8 @@ public class RepeatAspect extends CommandAspect {
         InputOutput.<String>println(_plus);
       }
     }
+    OzobotProgram _program = RepeatAspect.program(_self);
+    OzobotProgramAspect.currentCommand(_program, _self);
   }
   
   private static void super_initialize(final Repeat _self) {

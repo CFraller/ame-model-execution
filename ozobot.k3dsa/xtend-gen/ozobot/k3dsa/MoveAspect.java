@@ -38,24 +38,6 @@ public class MoveAspect extends CommandAspect {
     } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
   }
   
-  @Step
-  private static void doExecute(final Move _self) {
-    final ozobot.k3dsa.MoveAspectMoveAspectProperties _self_ = ozobot.k3dsa.MoveAspectMoveAspectContext.getSelf(_self);
-    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
-    	@Override
-    	public void execute() {
-    		_privk3_doExecute(_self_, _self);
-    	}
-    };
-    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
-    if (stepManager != null) {
-    	stepManager.executeStep(_self,command,"Move","doExecute");
-    } else {
-    	command.execute();
-    }
-    ;;
-  }
-  
   public static int velocity(final Move _self) {
     final ozobot.k3dsa.MoveAspectMoveAspectProperties _self_ = ozobot.k3dsa.MoveAspectMoveAspectContext.getSelf(_self);
     Object result = null;
@@ -69,10 +51,6 @@ public class MoveAspect extends CommandAspect {
   }
   
   protected static void _privk3_executeCommand(final MoveAspectMoveAspectProperties _self_, final Move _self) {
-    MoveAspect.doExecute(_self);
-  }
-  
-  protected static void _privk3_doExecute(final MoveAspectMoveAspectProperties _self_, final Move _self) {
     try {
       final MqttClient client = CommandAspect.getMQTTClient(_self);
       int _distance = _self.getDistance();

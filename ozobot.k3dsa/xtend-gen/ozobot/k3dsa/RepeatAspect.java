@@ -40,37 +40,24 @@ public class RepeatAspect extends CommandAspect {
     } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
   }
   
-  @Step
   @OverrideAspectMethod
   public static void initialize(final Repeat _self) {
     final ozobot.k3dsa.RepeatAspectRepeatAspectProperties _self_ = ozobot.k3dsa.RepeatAspectRepeatAspectContext.getSelf(_self);
      if (_self instanceof ozobot.model.Repeat){
-    					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
-    						@Override
-    						public void execute() {
-    							ozobot.k3dsa.RepeatAspect._privk3_initialize(_self_, (ozobot.model.Repeat)_self);
-    						}
-    					};
-    					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
-    					if (stepManager != null) {
-    						stepManager.executeStep(_self,command,"Repeat","initialize");
-    					} else {
-    						command.execute();
-    					}
-    					;
+    					ozobot.k3dsa.RepeatAspect._privk3_initialize(_self_, (ozobot.model.Repeat)_self);
     } else  if (_self instanceof ozobot.model.Command){
     					ozobot.k3dsa.CommandAspect.initialize((ozobot.model.Command)_self);
     } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
   }
   
-  public static int runtimeCounter(final Repeat _self) {
+  private static int runtimeCounter(final Repeat _self) {
     final ozobot.k3dsa.RepeatAspectRepeatAspectProperties _self_ = ozobot.k3dsa.RepeatAspectRepeatAspectContext.getSelf(_self);
     Object result = null;
     result = _privk3_runtimeCounter(_self_, _self);;
     return (int)result;
   }
   
-  public static void runtimeCounter(final Repeat _self, final int runtimeCounter) {
+  private static void runtimeCounter(final Repeat _self, final int runtimeCounter) {
     final ozobot.k3dsa.RepeatAspectRepeatAspectProperties _self_ = ozobot.k3dsa.RepeatAspectRepeatAspectContext.getSelf(_self);
     _privk3_runtimeCounter(_self_, _self,runtimeCounter);;
   }
@@ -158,6 +145,8 @@ public class RepeatAspect extends CommandAspect {
         InputOutput.<String>println(_plus);
       }
     }
+    OzobotProgram _program = RepeatAspect.program(_self);
+    OzobotProgramAspect.currentCommand(_program, _self);
   }
   
   private static void super_initialize(final Repeat _self) {

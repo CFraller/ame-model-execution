@@ -18,16 +18,16 @@ public abstract class CommandAspect extends NamedElementAspect {
   @Step
   public static void executeCommand(final Command _self) {
     final ozobot.k3dsa.CommandAspectCommandAspectProperties _self_ = ozobot.k3dsa.CommandAspectCommandAspectContext.getSelf(_self);
-     if (_self instanceof ozobot.model.Repeat){
-    					ozobot.k3dsa.RepeatAspect.executeCommand((ozobot.model.Repeat)_self);
+     if (_self instanceof ozobot.model.Light){
+    					ozobot.k3dsa.LightAspect.executeCommand((ozobot.model.Light)_self);
+    } else  if (_self instanceof ozobot.model.Rotate){
+    					ozobot.k3dsa.RotateAspect.executeCommand((ozobot.model.Rotate)_self);
     } else  if (_self instanceof ozobot.model.Wait){
     					ozobot.k3dsa.WaitAspect.executeCommand((ozobot.model.Wait)_self);
     } else  if (_self instanceof ozobot.model.Move){
     					ozobot.k3dsa.MoveAspect.executeCommand((ozobot.model.Move)_self);
-    } else  if (_self instanceof ozobot.model.Rotate){
-    					ozobot.k3dsa.RotateAspect.executeCommand((ozobot.model.Rotate)_self);
-    } else  if (_self instanceof ozobot.model.Light){
-    					ozobot.k3dsa.LightAspect.executeCommand((ozobot.model.Light)_self);
+    } else  if (_self instanceof ozobot.model.Repeat){
+    					ozobot.k3dsa.RepeatAspect.executeCommand((ozobot.model.Repeat)_self);
     } else  if (_self instanceof ozobot.model.Command){
     					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
     						@Override
@@ -45,25 +45,12 @@ public abstract class CommandAspect extends NamedElementAspect {
     } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
   }
   
-  @Step
   public static void initialize(final Command _self) {
     final ozobot.k3dsa.CommandAspectCommandAspectProperties _self_ = ozobot.k3dsa.CommandAspectCommandAspectContext.getSelf(_self);
      if (_self instanceof ozobot.model.Repeat){
     					ozobot.k3dsa.RepeatAspect.initialize((ozobot.model.Repeat)_self);
     } else  if (_self instanceof ozobot.model.Command){
-    					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
-    						@Override
-    						public void execute() {
-    							ozobot.k3dsa.CommandAspect._privk3_initialize(_self_, (ozobot.model.Command)_self);
-    						}
-    					};
-    					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
-    					if (stepManager != null) {
-    						stepManager.executeStep(_self,command,"Command","initialize");
-    					} else {
-    						command.execute();
-    					}
-    					;
+    					ozobot.k3dsa.CommandAspect._privk3_initialize(_self_, (ozobot.model.Command)_self);
     } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
   }
   
@@ -99,7 +86,15 @@ public abstract class CommandAspect extends NamedElementAspect {
   protected static MqttClient _privk3_getMQTTClient(final CommandAspectCommandAspectProperties _self_, final Command _self) {
     EObject _eContainer = _self.eContainer();
     EObject _eContainer_1 = ((Block) _eContainer).eContainer();
-    return OzobotProgramAspect.client(((OzobotProgram) _eContainer_1));
+    if ((_eContainer_1 instanceof OzobotProgram)) {
+      EObject _eContainer_2 = _self.eContainer();
+      EObject _eContainer_3 = ((Block) _eContainer_2).eContainer();
+      return OzobotProgramAspect.client(((OzobotProgram) _eContainer_3));
+    } else {
+      EObject _eContainer_4 = _self.eContainer();
+      EObject _eContainer_5 = ((Block) _eContainer_4).eContainer();
+      return CommandAspect.getMQTTClient(((Command) _eContainer_5));
+    }
   }
   
   protected static String _privk3_topic(final CommandAspectCommandAspectProperties _self_, final Command _self) {

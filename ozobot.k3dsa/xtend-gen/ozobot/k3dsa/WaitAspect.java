@@ -4,7 +4,6 @@ import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
 import java.util.Date;
-import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import ozobot.k3dsa.CommandAspect;
 import ozobot.k3dsa.WaitAspectWaitAspectProperties;
@@ -66,7 +65,6 @@ public class WaitAspect extends CommandAspect {
   }
   
   protected static void _privk3_executeCommand(final WaitAspectWaitAspectProperties _self_, final Wait _self) {
-    final MqttClient client = CommandAspect.getMQTTClient(_self);
     WaitAspect.startTime(_self, System.currentTimeMillis());
     WaitAspect.elapsedTime(_self, 0L);
     while ((WaitAspect.elapsedTime(_self) < (_self.getTime() * 1000))) {

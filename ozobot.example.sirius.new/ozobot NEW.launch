@@ -10,6 +10,6 @@
 <booleanAttribute key="Generic MultiDimensional Trace" value="false"/>
 <stringAttribute key="LAUNCH_METHOD_ENTRY_POINT" value="public static void ozobot.xdsml.ozobotl.aspects.OzobotAspect.main(ozobot.xdsml.ozobotl.model.Ozobot)"/>
 <stringAttribute key="LAUNCH_MODEL_ENTRY_POINT" value="/"/>
-<stringAttribute key="Resource" value="/ozobot.example.sirius/Ozobot.xmi"/>
-<stringAttribute key="airdResource" value="/ozobot.example.sirius/representations.aird"/>
+<stringAttribute key="Resource" value="/ozobot.example.sirius.new/Ozobot.xmi"/>
+<stringAttribute key="airdResource" value="/ozobot.example.sirius.new/representations.aird"/>
 </launchConfiguration>

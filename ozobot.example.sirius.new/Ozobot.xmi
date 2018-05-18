@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model:Ozobot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://ozobot.xdsml.ozobotl/model/" name="Ozobot">
-  <programs name="OzobotProgram" current="//@programs.0/@block/@commands.0">
+  <programs name="OzobotProgram" current="//@programs.0/@block/@commands.1">
     <block name="Block1">
       <commands xsi:type="model:Move" name="Move1" outgoing="//@programs.0/@block/@transitions.0" distance="5"/>
       <commands xsi:type="model:Light" name="Light1" outgoing="//@programs.0/@block/@transitions.1" incoming="//@programs.0/@block/@transitions.0" color="red"/>

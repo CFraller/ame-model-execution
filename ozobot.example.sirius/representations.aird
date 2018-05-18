@@ -32,9 +32,9 @@
                           <children xmi:type="notation:Node" xmi:id="_RyKn8FoFEeijaMaWFAPiMA" type="5003">
                             <layoutConstraint xmi:type="notation:Location" xmi:id="_RyKn8VoFEeijaMaWFAPiMA" y="5"/>
                           </children>
-                          <children xmi:type="notation:Node" xmi:id="_RyL2EFoFEeijaMaWFAPiMA" type="3003" element="_RvzQcFoFEeijaMaWFAPiMA">
-                            <styles xmi:type="notation:ShapeStyle" xmi:id="_RyL2EVoFEeijaMaWFAPiMA" fontName="Segoe UI"/>
-                            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RyL2EloFEeijaMaWFAPiMA"/>
+                          <children xmi:type="notation:Node" xmi:id="_DRGBMFpzEeijaMaWFAPiMA" type="3003" element="_DQvb4FpzEeijaMaWFAPiMA">
+                            <styles xmi:type="notation:ShapeStyle" xmi:id="_DRGBMVpzEeijaMaWFAPiMA" fontName="Segoe UI"/>
+                            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DRGBMlpzEeijaMaWFAPiMA"/>
                           </children>
                           <styles xmi:type="notation:ShapeStyle" xmi:id="_RyKA4VoFEeijaMaWFAPiMA" fontName="Segoe UI" fontHeight="8"/>
                           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RyKA4loFEeijaMaWFAPiMA" x="55" y="120" width="90" height="30"/>
@@ -43,9 +43,9 @@
                           <children xmi:type="notation:Node" xmi:id="_RyLPA1oFEeijaMaWFAPiMA" type="5003">
                             <layoutConstraint xmi:type="notation:Location" xmi:id="_RyLPBFoFEeijaMaWFAPiMA" y="5"/>
                           </children>
-                          <children xmi:type="notation:Node" xmi:id="_RyMdIFoFEeijaMaWFAPiMA" type="3003" element="_RvzQcloFEeijaMaWFAPiMA">
-                            <styles xmi:type="notation:ShapeStyle" xmi:id="_RyMdIVoFEeijaMaWFAPiMA" fontName="Segoe UI"/>
-                            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RyMdIloFEeijaMaWFAPiMA"/>
+                          <children xmi:type="notation:Node" xmi:id="_FleMsFp1EeijaMaWFAPiMA" type="3003" element="_FkxCEFp1EeijaMaWFAPiMA">
+                            <styles xmi:type="notation:ShapeStyle" xmi:id="_FleMsVp1EeijaMaWFAPiMA" fontName="Segoe UI"/>
+                            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FleMslp1EeijaMaWFAPiMA"/>
                           </children>
                           <styles xmi:type="notation:ShapeStyle" xmi:id="_RyLPAVoFEeijaMaWFAPiMA" fontName="Segoe UI" fontHeight="8"/>
                           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RyLPAloFEeijaMaWFAPiMA" x="55" y="48" width="90" height="30"/>
@@ -66,9 +66,9 @@
                   <children xmi:type="notation:Node" xmi:id="_RyD6QFoFEeijaMaWFAPiMA" type="5003">
                     <layoutConstraint xmi:type="notation:Location" xmi:id="_RyD6QVoFEeijaMaWFAPiMA" y="5"/>
                   </children>
-                  <children xmi:type="notation:Node" xmi:id="_RyNEMFoFEeijaMaWFAPiMA" type="3003" element="_RvzQdFoFEeijaMaWFAPiMA">
-                    <styles xmi:type="notation:ShapeStyle" xmi:id="_RyNEMVoFEeijaMaWFAPiMA" fontName="Segoe UI"/>
-                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RyNEMloFEeijaMaWFAPiMA"/>
+                  <children xmi:type="notation:Node" xmi:id="_tg6BEFofEeijaMaWFAPiMA" type="3003" element="_tgysUFofEeijaMaWFAPiMA">
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_tg6BEVofEeijaMaWFAPiMA" fontName="Segoe UI"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tg6BElofEeijaMaWFAPiMA"/>
                   </children>
                   <styles xmi:type="notation:ShapeStyle" xmi:id="_RyCsIVoFEeijaMaWFAPiMA" fontName="Segoe UI" fontHeight="8"/>
                   <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RyCsIloFEeijaMaWFAPiMA" x="450" y="168" width="91" height="30"/>
@@ -77,9 +77,9 @@
                   <children xmi:type="notation:Node" xmi:id="_RyGWgFoFEeijaMaWFAPiMA" type="5003">
                     <layoutConstraint xmi:type="notation:Location" xmi:id="_RyGWgVoFEeijaMaWFAPiMA" y="5"/>
                   </children>
-                  <children xmi:type="notation:Node" xmi:id="_RyNEM1oFEeijaMaWFAPiMA" type="3003" element="_RvzQdloFEeijaMaWFAPiMA">
-                    <styles xmi:type="notation:ShapeStyle" xmi:id="_RyNENFoFEeijaMaWFAPiMA" fontName="Segoe UI"/>
-                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RyNENVoFEeijaMaWFAPiMA"/>
+                  <children xmi:type="notation:Node" xmi:id="_DVDxQ1odEeijaMaWFAPiMA" type="3003" element="_DUV_kFodEeijaMaWFAPiMA">
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_DVDxRFodEeijaMaWFAPiMA" fontName="Segoe UI"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DVDxRVodEeijaMaWFAPiMA"/>
                   </children>
                   <styles xmi:type="notation:ShapeStyle" xmi:id="_RyFvcVoFEeijaMaWFAPiMA" fontName="Segoe UI" fontHeight="8"/>
                   <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RyFvcloFEeijaMaWFAPiMA" x="60" y="144" width="102" height="30"/>
@@ -88,9 +88,9 @@
                   <children xmi:type="notation:Node" xmi:id="_RyG9kFoFEeijaMaWFAPiMA" type="5003">
                     <layoutConstraint xmi:type="notation:Location" xmi:id="_RyG9kVoFEeijaMaWFAPiMA" y="5"/>
                   </children>
-                  <children xmi:type="notation:Node" xmi:id="_RyNENloFEeijaMaWFAPiMA" type="3003" element="_RvzQeFoFEeijaMaWFAPiMA">
-                    <styles xmi:type="notation:ShapeStyle" xmi:id="_RyNEN1oFEeijaMaWFAPiMA" fontName="Segoe UI"/>
-                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RyNEOFoFEeijaMaWFAPiMA"/>
+                  <children xmi:type="notation:Node" xmi:id="_DVDxRlodEeijaMaWFAPiMA" type="3003" element="_DUWmoFodEeijaMaWFAPiMA">
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_DVDxR1odEeijaMaWFAPiMA" fontName="Segoe UI"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DVDxSFodEeijaMaWFAPiMA"/>
                   </children>
                   <styles xmi:type="notation:ShapeStyle" xmi:id="_RyGWg1oFEeijaMaWFAPiMA" fontName="Segoe UI" fontHeight="8"/>
                   <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RyGWhFoFEeijaMaWFAPiMA" x="450" y="390" width="91" height="30"/>
@@ -99,9 +99,9 @@
                   <children xmi:type="notation:Node" xmi:id="_RyHkoFoFEeijaMaWFAPiMA" type="5003">
                     <layoutConstraint xmi:type="notation:Location" xmi:id="_RyHkoVoFEeijaMaWFAPiMA" y="5"/>
                   </children>
-                  <children xmi:type="notation:Node" xmi:id="_RyNrQFoFEeijaMaWFAPiMA" type="3003" element="_RvzQeloFEeijaMaWFAPiMA">
-                    <styles xmi:type="notation:ShapeStyle" xmi:id="_RyNrQVoFEeijaMaWFAPiMA" fontName="Segoe UI"/>
-                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RyNrQloFEeijaMaWFAPiMA"/>
+                  <children xmi:type="notation:Node" xmi:id="_Zkh8IFp1EeijaMaWFAPiMA" type="3003" element="_Zj-igFp1EeijaMaWFAPiMA">
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_Zkh8IVp1EeijaMaWFAPiMA" fontName="Segoe UI"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Zkh8Ilp1EeijaMaWFAPiMA"/>
                   </children>
                   <styles xmi:type="notation:ShapeStyle" xmi:id="_RyG9k1oFEeijaMaWFAPiMA" fontName="Segoe UI" fontHeight="8"/>
                   <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RyG9lFoFEeijaMaWFAPiMA" x="60" y="60" width="102" height="30"/>
@@ -110,9 +110,9 @@
                   <children xmi:type="notation:Node" xmi:id="_RyILs1oFEeijaMaWFAPiMA" type="5003">
                     <layoutConstraint xmi:type="notation:Location" xmi:id="_RyILtFoFEeijaMaWFAPiMA" y="5"/>
                   </children>
-                  <children xmi:type="notation:Node" xmi:id="_RyNrQ1oFEeijaMaWFAPiMA" type="3003" element="_RvzQfFoFEeijaMaWFAPiMA">
-                    <styles xmi:type="notation:ShapeStyle" xmi:id="_RyNrRFoFEeijaMaWFAPiMA" fontName="Segoe UI"/>
-                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RyNrRVoFEeijaMaWFAPiMA"/>
+                  <children xmi:type="notation:Node" xmi:id="_DVOwYFodEeijaMaWFAPiMA" type="3003" element="_DUaRAFodEeijaMaWFAPiMA">
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_DVOwYVodEeijaMaWFAPiMA" fontName="Segoe UI"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DVOwYlodEeijaMaWFAPiMA"/>
                   </children>
                   <styles xmi:type="notation:ShapeStyle" xmi:id="_RyILsVoFEeijaMaWFAPiMA" fontName="Segoe UI" fontHeight="8"/>
                   <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RyILsloFEeijaMaWFAPiMA" x="60" y="216" width="102" height="30"/>
@@ -121,9 +121,9 @@
                   <children xmi:type="notation:Node" xmi:id="_RyIyw1oFEeijaMaWFAPiMA" type="5003">
                     <layoutConstraint xmi:type="notation:Location" xmi:id="_RyIyxFoFEeijaMaWFAPiMA" y="5"/>
                   </children>
-                  <children xmi:type="notation:Node" xmi:id="_RyPgcFoFEeijaMaWFAPiMA" type="3003" element="_RvzQfloFEeijaMaWFAPiMA">
-                    <styles xmi:type="notation:ShapeStyle" xmi:id="_RyPgcVoFEeijaMaWFAPiMA" fontName="Segoe UI"/>
-                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RyPgcloFEeijaMaWFAPiMA"/>
+                  <children xmi:type="notation:Node" xmi:id="_DVOwY1odEeijaMaWFAPiMA" type="3003" element="_DUbfIFodEeijaMaWFAPiMA">
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_DVOwZFodEeijaMaWFAPiMA" fontName="Segoe UI"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DVOwZVodEeijaMaWFAPiMA"/>
                   </children>
                   <styles xmi:type="notation:ShapeStyle" xmi:id="_RyIywVoFEeijaMaWFAPiMA" fontName="Segoe UI" fontHeight="8"/>
                   <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RyIywloFEeijaMaWFAPiMA" x="450" y="252" width="91" height="30"/>
@@ -132,9 +132,9 @@
                   <children xmi:type="notation:Node" xmi:id="_RyIyyFoFEeijaMaWFAPiMA" type="5003">
                     <layoutConstraint xmi:type="notation:Location" xmi:id="_RyIyyVoFEeijaMaWFAPiMA" y="5"/>
                   </children>
-                  <children xmi:type="notation:Node" xmi:id="_RyQHgFoFEeijaMaWFAPiMA" type="3003" element="_RvzQgFoFEeijaMaWFAPiMA">
-                    <styles xmi:type="notation:ShapeStyle" xmi:id="_RyQHgVoFEeijaMaWFAPiMA" fontName="Segoe UI"/>
-                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RyQHgloFEeijaMaWFAPiMA"/>
+                  <children xmi:type="notation:Node" xmi:id="_DVOwZlodEeijaMaWFAPiMA" type="3003" element="_DUcGMFodEeijaMaWFAPiMA">
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_DVOwZ1odEeijaMaWFAPiMA" fontName="Segoe UI"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DVOwaFodEeijaMaWFAPiMA"/>
                   </children>
                   <styles xmi:type="notation:ShapeStyle" xmi:id="_RyIyxloFEeijaMaWFAPiMA" fontName="Segoe UI" fontHeight="8"/>
                   <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RyIyx1oFEeijaMaWFAPiMA" x="450" y="318" width="91" height="30"/>
@@ -150,6 +150,24 @@
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_RxvxMVoFEeijaMaWFAPiMA" fontName="Segoe UI" fontHeight="8"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RxvxMloFEeijaMaWFAPiMA" x="-12" y="6" width="633" height="693"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_vGCakFoZEeijaMaWFAPiMA" visible="false" type="2002" element="_vFXsMFoZEeijaMaWFAPiMA">
+          <children xmi:type="notation:Node" xmi:id="_vGDBoFoZEeijaMaWFAPiMA" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_vGDBoVoZEeijaMaWFAPiMA" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_vGDBoloZEeijaMaWFAPiMA"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_vGDBo1oZEeijaMaWFAPiMA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_vGCakVoZEeijaMaWFAPiMA" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vGCakloZEeijaMaWFAPiMA" x="-192" y="-96"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_UQSDoFoaEeijaMaWFAPiMA" visible="false" type="2002" element="_UPYEsFoaEeijaMaWFAPiMA">
+          <children xmi:type="notation:Node" xmi:id="_UQSqsFoaEeijaMaWFAPiMA" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_UQSqsVoaEeijaMaWFAPiMA" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_UQSqsloaEeijaMaWFAPiMA"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_UQSqs1oaEeijaMaWFAPiMA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_UQSDoVoaEeijaMaWFAPiMA" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UQSDoloaEeijaMaWFAPiMA" x="-192" y="-96"/>
         </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_Rxf5kloFEeijaMaWFAPiMA"/>
         <edges xmi:type="notation:Edge" xmi:id="_Ryf_IFoFEeijaMaWFAPiMA" type="4001" element="_RvzQgVoFEeijaMaWFAPiMA" source="_RyLPAFoFEeijaMaWFAPiMA" target="_RyKA4FoFEeijaMaWFAPiMA">
@@ -305,7 +323,7 @@
         <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_RvypaFoFEeijaMaWFAPiMA" name="Repeat1" outgoingEdges="_RvzQlloFEeijaMaWFAPiMA" incomingEdges="_RvzQiloFEeijaMaWFAPiMA">
           <target xmi:type="model:Repeat" href="gemoc-gen/execution/execution-20180517_203917/Ozobot.xmi#//@programs.0/@block/@commands.3"/>
           <semanticElements xmi:type="model:Repeat" href="gemoc-gen/execution/execution-20180517_203917/Ozobot.xmi#//@programs.0/@block/@commands.3"/>
-          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_RvypaVoFEeijaMaWFAPiMA" borderSize="1" borderSizeComputationExpression="1">
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_ZjrnkFp1EeijaMaWFAPiMA" borderSize="1" borderSizeComputationExpression="1">
             <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subContainerMappings[name='Repeat']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subContainerMappings[name='Repeat']"/>
@@ -322,7 +340,7 @@
               <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
               <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
               <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-              <ownedStyle xmi:type="diagram:Square" xmi:id="_RvzQcFoFEeijaMaWFAPiMA" labelPosition="node">
+              <ownedStyle xmi:type="diagram:Square" xmi:id="_DQvb4FpzEeijaMaWFAPiMA" labelPosition="node">
                 <description xmi:type="style:SquareDescription" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Light']/@style"/>
               </ownedStyle>
               <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Light']"/>
@@ -333,7 +351,7 @@
               <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
               <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
               <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-              <ownedStyle xmi:type="diagram:Square" xmi:id="_RvzQcloFEeijaMaWFAPiMA" labelPosition="node">
+              <ownedStyle xmi:type="diagram:Square" xmi:id="_FkxCEFp1EeijaMaWFAPiMA" labelPosition="node">
                 <description xmi:type="style:SquareDescription" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Rotate']/@style"/>
               </ownedStyle>
               <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Rotate']"/>
@@ -346,7 +364,7 @@
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:Square" xmi:id="_RvzQdFoFEeijaMaWFAPiMA" labelPosition="node">
+          <ownedStyle xmi:type="diagram:Square" xmi:id="_tgysUFofEeijaMaWFAPiMA" labelPosition="node">
             <description xmi:type="style:SquareDescription" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Wait']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Wait']"/>
@@ -357,7 +375,7 @@
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:Square" xmi:id="_RvzQdloFEeijaMaWFAPiMA" labelPosition="node">
+          <ownedStyle xmi:type="diagram:Square" xmi:id="_DUV_kFodEeijaMaWFAPiMA" labelPosition="node">
             <description xmi:type="style:SquareDescription" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Light']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Light']"/>
@@ -368,7 +386,7 @@
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:Square" xmi:id="_RvzQeFoFEeijaMaWFAPiMA" labelPosition="node">
+          <ownedStyle xmi:type="diagram:Square" xmi:id="_DUWmoFodEeijaMaWFAPiMA" labelPosition="node">
             <description xmi:type="style:SquareDescription" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Light']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Light']"/>
@@ -376,11 +394,14 @@
         <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_RvzQeVoFEeijaMaWFAPiMA" name="Move1" outgoingEdges="_RvzQhFoFEeijaMaWFAPiMA" width="3" height="3" resizeKind="NSEW">
           <target xmi:type="model:Move" href="gemoc-gen/execution/execution-20180517_203917/Ozobot.xmi#//@programs.0/@block/@commands.0"/>
           <semanticElements xmi:type="model:Move" href="gemoc-gen/execution/execution-20180517_203917/Ozobot.xmi#//@programs.0/@block/@commands.0"/>
+          <decorations xmi:type="viewpoint:Decoration" xmi:id="_Zj_JkFp1EeijaMaWFAPiMA">
+            <description xmi:type="description_1:MappingBasedDecoration" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@additionalLayers[name='Animation']/@decorationDescriptionsSet/@decorationDescriptions[name='Current%20Command']"/>
+          </decorations>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:Square" xmi:id="_RvzQeloFEeijaMaWFAPiMA" labelPosition="node">
-            <description xmi:type="style:SquareDescription" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Move']/@style"/>
+          <ownedStyle xmi:type="diagram:Square" xmi:id="_Zj-igFp1EeijaMaWFAPiMA" labelPosition="node" color="194,239,255">
+            <description xmi:type="style:SquareDescription" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Move']/@conditionnalStyles.0/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Move']"/>
         </ownedDiagramElements>
@@ -390,7 +411,7 @@
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:Square" xmi:id="_RvzQfFoFEeijaMaWFAPiMA" labelPosition="node">
+          <ownedStyle xmi:type="diagram:Square" xmi:id="_DUaRAFodEeijaMaWFAPiMA" labelPosition="node">
             <description xmi:type="style:SquareDescription" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Move']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Move']"/>
@@ -401,7 +422,7 @@
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:Square" xmi:id="_RvzQfloFEeijaMaWFAPiMA" labelPosition="node">
+          <ownedStyle xmi:type="diagram:Square" xmi:id="_DUbfIFodEeijaMaWFAPiMA" labelPosition="node">
             <description xmi:type="style:SquareDescription" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Move']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Move']"/>
@@ -412,7 +433,7 @@
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:Square" xmi:id="_RvzQgFoFEeijaMaWFAPiMA" labelPosition="node">
+          <ownedStyle xmi:type="diagram:Square" xmi:id="_DUcGMFodEeijaMaWFAPiMA" labelPosition="node">
             <description xmi:type="style:SquareDescription" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Rotate']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Rotate']"/>
@@ -490,6 +511,22 @@
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_RvzQmFoFEeijaMaWFAPiMA"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@edgeMappings[name='Connector_Commands']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_vFXsMFoZEeijaMaWFAPiMA" name="Ozobot" visible="false">
+      <target xmi:type="model:Ozobot" href="gemoc-gen/execution/execution-20180517_203917/Ozobot.xmi#/"/>
+      <semanticElements xmi:type="model:Ozobot" href="gemoc-gen/execution/execution-20180517_203917/Ozobot.xmi#/"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_vFx74FoZEeijaMaWFAPiMA" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@additionalLayers[name='Animation']/@containerMappings[name='']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@additionalLayers[name='Animation']/@containerMappings[name='']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_UPYEsFoaEeijaMaWFAPiMA" name="Ozobot" visible="false">
+      <target xmi:type="model:Ozobot" href="gemoc-gen/execution/execution-20180517_203917/Ozobot.xmi#/"/>
+      <semanticElements xmi:type="model:Ozobot" href="gemoc-gen/execution/execution-20180517_203917/Ozobot.xmi#/"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_UP8FYFoaEeijaMaWFAPiMA" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@additionalLayers[name='Animation']/@containerMappings[name='Oz']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@additionalLayers[name='Animation']/@containerMappings[name='Oz']"/>
     </ownedDiagramElements>
     <description xmi:type="description_1:DiagramDescription" href="platform:/resource/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']"/>
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_RvzQmVoFEeijaMaWFAPiMA"/>

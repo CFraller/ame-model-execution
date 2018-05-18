@@ -20,6 +20,5 @@ public class OzobotAnimationServices extends AbstractGemocAnimatorServices {
 
 		return res;
 	}
-	
 
 }

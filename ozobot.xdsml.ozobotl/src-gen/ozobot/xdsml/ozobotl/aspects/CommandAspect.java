@@ -17,12 +17,12 @@ public abstract class CommandAspect extends NamedElementAspect {
 			.getSelf(_self);
 	if (_self instanceof ozobot.xdsml.ozobotl.model.Repeat) {
 		ozobot.xdsml.ozobotl.aspects.RepeatAspect.executeCommand((ozobot.xdsml.ozobotl.model.Repeat) _self, client);
+	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Rotate) {
+		ozobot.xdsml.ozobotl.aspects.RotateAspect.executeCommand((ozobot.xdsml.ozobotl.model.Rotate) _self, client);
 	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Light) {
 		ozobot.xdsml.ozobotl.aspects.LightAspect.executeCommand((ozobot.xdsml.ozobotl.model.Light) _self, client);
 	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Wait) {
 		ozobot.xdsml.ozobotl.aspects.WaitAspect.executeCommand((ozobot.xdsml.ozobotl.model.Wait) _self, client);
-	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Rotate) {
-		ozobot.xdsml.ozobotl.aspects.RotateAspect.executeCommand((ozobot.xdsml.ozobotl.model.Rotate) _self, client);
 	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Move) {
 		ozobot.xdsml.ozobotl.aspects.MoveAspect.executeCommand((ozobot.xdsml.ozobotl.model.Move) _self, client);
 	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Command) {
@@ -54,6 +54,22 @@ public abstract class CommandAspect extends NamedElementAspect {
 			.getSelf(_self);
 	if (_self instanceof ozobot.xdsml.ozobotl.model.Repeat) {
 		ozobot.xdsml.ozobotl.aspects.RepeatAspect.initialize((ozobot.xdsml.ozobotl.model.Repeat) _self);
+	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Rotate) {
+		fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+			@Override
+			public void execute() {
+				ozobot.xdsml.ozobotl.aspects.CommandAspect._privk3_initialize(_self_,
+						(ozobot.xdsml.ozobotl.model.Rotate) _self);
+			}
+		};
+		fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry
+				.getInstance().findStepManager(_self);
+		if (manager != null) {
+			manager.executeStep(_self, command, "Command", "initialize");
+		} else {
+			command.execute();
+		}
+		;
 	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Light) {
 		fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
 			@Override
@@ -76,22 +92,6 @@ public abstract class CommandAspect extends NamedElementAspect {
 			public void execute() {
 				ozobot.xdsml.ozobotl.aspects.CommandAspect._privk3_initialize(_self_,
 						(ozobot.xdsml.ozobotl.model.Wait) _self);
-			}
-		};
-		fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry
-				.getInstance().findStepManager(_self);
-		if (manager != null) {
-			manager.executeStep(_self, command, "Command", "initialize");
-		} else {
-			command.execute();
-		}
-		;
-	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Rotate) {
-		fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
-			@Override
-			public void execute() {
-				ozobot.xdsml.ozobotl.aspects.CommandAspect._privk3_initialize(_self_,
-						(ozobot.xdsml.ozobotl.model.Rotate) _self);
 			}
 		};
 		fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry

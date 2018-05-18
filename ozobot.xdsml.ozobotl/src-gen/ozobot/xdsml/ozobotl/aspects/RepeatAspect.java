@@ -4,12 +4,14 @@ import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
 import java.util.Date;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import ozobot.xdsml.ozobotl.aspects.BlockAspect;
 import ozobot.xdsml.ozobotl.aspects.CommandAspect;
 import ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectProperties;
+import ozobot.xdsml.ozobotl.model.OzobotProgram;
 import ozobot.xdsml.ozobotl.model.Repeat;
 
 @Aspect(className = Repeat.class)
@@ -111,6 +113,18 @@ public class RepeatAspect extends CommandAspect {
     _privk3_i(_self_, _self,i);;
   }
   
+  private static OzobotProgram program(final Repeat _self) {
+    final ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectContext.getSelf(_self);
+    Object result = null;
+    result = _privk3_program(_self_, _self);;
+    return (ozobot.xdsml.ozobotl.model.OzobotProgram)result;
+  }
+  
+  private static void program(final Repeat _self, final OzobotProgram program) {
+    final ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectContext.getSelf(_self);
+    _privk3_program(_self_, _self,program);;
+  }
+  
   private static void super_executeCommand(final Repeat _self, final MqttClient client) {
     final ozobot.xdsml.ozobotl.aspects.CommandAspectCommandAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.CommandAspectCommandAspectContext.getSelf(_self);
      ozobot.xdsml.ozobotl.aspects.CommandAspect._privk3_executeCommand(_self_, _self,client);
@@ -122,7 +136,9 @@ public class RepeatAspect extends CommandAspect {
         RepeatAspect.i(_self, 0);
         while ((RepeatAspect.i(_self) < ((Object[])Conversions.unwrapArray(_self.getBlock().getCommands(), Object.class)).length)) {
           {
-            CommandAspect.executeCommand(_self.getBlock().getCommands().get(RepeatAspect.i(_self)), client);
+            OzobotProgram _program = RepeatAspect.program(_self);
+            _program.setCurrent(_self.getBlock().getCommands().get(RepeatAspect.i(_self)));
+            CommandAspect.executeCommand(RepeatAspect.program(_self).getCurrent(), client);
             RepeatAspect.startTime(_self, System.currentTimeMillis());
             RepeatAspect.elapsedTime(_self, 0L);
             while ((RepeatAspect.elapsedTime(_self) < 10000)) {
@@ -157,6 +173,8 @@ public class RepeatAspect extends CommandAspect {
     String _plus_1 = (_plus + " initialized.");
     InputOutput.<String>println(_plus_1);
     RepeatAspect.runtimeCounter(_self, _self.getCount());
+    EObject _eContainer = _self.eContainer().eContainer();
+    RepeatAspect.program(_self, ((OzobotProgram) _eContainer));
     BlockAspect.initialize(_self.getBlock());
   }
   
@@ -293,6 +311,43 @@ public class RepeatAspect extends CommandAspect {
     }
     if (!setterCalled) {
     	_self_.i = i;
+    }
+  }
+  
+  protected static OzobotProgram _privk3_program(final RepeatAspectRepeatAspectProperties _self_, final Repeat _self) {
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("getProgram") &&
+    			m.getParameterTypes().length == 0) {
+    				Object ret = m.invoke(_self);
+    				if (ret != null) {
+    					return (ozobot.xdsml.ozobotl.model.OzobotProgram) ret;
+    				} else {
+    					return null;
+    				}
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    return _self_.program;
+  }
+  
+  protected static void _privk3_program(final RepeatAspectRepeatAspectProperties _self_, final Repeat _self, final OzobotProgram program) {
+    boolean setterCalled = false;
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("setProgram")
+    				&& m.getParameterTypes().length == 1) {
+    			m.invoke(_self, program);
+    			setterCalled = true;
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    if (!setterCalled) {
+    	_self_.program = program;
     }
   }
 }

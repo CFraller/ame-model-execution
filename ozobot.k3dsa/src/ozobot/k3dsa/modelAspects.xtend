@@ -175,6 +175,7 @@ class RepeatAspect extends CommandAspect {
 	long startTime
 	long elapsedTime
 	int i
+	OzobotProgram program
 	
 	@Step
 	@OverrideAspectMethod
@@ -182,7 +183,8 @@ class RepeatAspect extends CommandAspect {
 		while(_self.runtimeCounter != 0) {
 			_self.i = 0
 			while(_self.i < _self.block.commands.length){
-				_self.block.commands.get(_self.i).executeCommand(client)
+				_self.program.current = _self.block.commands.get(_self.i)
+				_self.program.current.executeCommand(client)
 				_self.startTime = System.currentTimeMillis();
     			_self.elapsedTime = 0L
     			while(_self.elapsedTime < 10000) {
@@ -200,6 +202,7 @@ class RepeatAspect extends CommandAspect {
 	def public void initialize() {
 		println("Command " + _self.name + " initialized.")
 		_self.runtimeCounter = _self.count
+		_self.program = _self.eContainer.eContainer as OzobotProgram
 		_self.block.initialize()
 	}
 }

@@ -4,11 +4,11 @@ import org.eclipse.paho.client.mqttv3.MqttClient;
 
 @SuppressWarnings("all")
 public class OzobotAspectOzobotAspectProperties {
-  public float xposition;
+  public double xposition = 0;
   
-  public float yposition;
+  public double yposition = 0;
   
-  public float orientation;
+  public double orientation = 0;
   
   public MqttClient client;
 }

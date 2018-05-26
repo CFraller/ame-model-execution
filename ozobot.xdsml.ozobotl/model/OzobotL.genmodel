@@ -122,6 +122,15 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="OzobotL.ecore#//Ozobot/programs"/>
       </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="OzobotL.ecore#//Ozobot/xposition"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="OzobotL.ecore#//Ozobot/yposition"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="OzobotL.ecore#//Ozobot/orientation"/>
+      </genFeatures>
     </genClasses>
     <genClasses>
       <ecoreClass href="OzobotL.ecore#//Block"/>

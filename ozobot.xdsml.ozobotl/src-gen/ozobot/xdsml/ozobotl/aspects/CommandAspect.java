@@ -10,6 +10,7 @@ import ozobot.xdsml.ozobotl.aspects.NamedElementAspect;
 import ozobot.xdsml.ozobotl.aspects.OzobotProgramAspect;
 import ozobot.xdsml.ozobotl.model.Block;
 import ozobot.xdsml.ozobotl.model.Command;
+import ozobot.xdsml.ozobotl.model.Ozobot;
 import ozobot.xdsml.ozobotl.model.OzobotProgram;
 
 @Aspect(className = Command.class)
@@ -19,14 +20,14 @@ public abstract class CommandAspect extends NamedElementAspect {
   public static void executeCommand(final Command _self) {
 	final ozobot.xdsml.ozobotl.aspects.CommandAspectCommandAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.CommandAspectCommandAspectContext
 			.getSelf(_self);
-	if (_self instanceof ozobot.xdsml.ozobotl.model.Rotate) {
-		ozobot.xdsml.ozobotl.aspects.RotateAspect.executeCommand((ozobot.xdsml.ozobotl.model.Rotate) _self);
-	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Move) {
-		ozobot.xdsml.ozobotl.aspects.MoveAspect.executeCommand((ozobot.xdsml.ozobotl.model.Move) _self);
+	if (_self instanceof ozobot.xdsml.ozobotl.model.Repeat) {
+		ozobot.xdsml.ozobotl.aspects.RepeatAspect.executeCommand((ozobot.xdsml.ozobotl.model.Repeat) _self);
 	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Light) {
 		ozobot.xdsml.ozobotl.aspects.LightAspect.executeCommand((ozobot.xdsml.ozobotl.model.Light) _self);
-	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Repeat) {
-		ozobot.xdsml.ozobotl.aspects.RepeatAspect.executeCommand((ozobot.xdsml.ozobotl.model.Repeat) _self);
+	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Move) {
+		ozobot.xdsml.ozobotl.aspects.MoveAspect.executeCommand((ozobot.xdsml.ozobotl.model.Move) _self);
+	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Rotate) {
+		ozobot.xdsml.ozobotl.aspects.RotateAspect.executeCommand((ozobot.xdsml.ozobotl.model.Rotate) _self);
 	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Wait) {
 		ozobot.xdsml.ozobotl.aspects.WaitAspect.executeCommand((ozobot.xdsml.ozobotl.model.Wait) _self);
 	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Command) {
@@ -55,15 +56,15 @@ public abstract class CommandAspect extends NamedElementAspect {
   public static void initialize(final Command _self) {
 	final ozobot.xdsml.ozobotl.aspects.CommandAspectCommandAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.CommandAspectCommandAspectContext
 			.getSelf(_self);
-	if (_self instanceof ozobot.xdsml.ozobotl.model.Rotate) {
-		ozobot.xdsml.ozobotl.aspects.CommandAspect._privk3_initialize(_self_,
-				(ozobot.xdsml.ozobotl.model.Rotate) _self);
-	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Move) {
-		ozobot.xdsml.ozobotl.aspects.CommandAspect._privk3_initialize(_self_, (ozobot.xdsml.ozobotl.model.Move) _self);
+	if (_self instanceof ozobot.xdsml.ozobotl.model.Repeat) {
+		ozobot.xdsml.ozobotl.aspects.RepeatAspect.initialize((ozobot.xdsml.ozobotl.model.Repeat) _self);
 	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Light) {
 		ozobot.xdsml.ozobotl.aspects.CommandAspect._privk3_initialize(_self_, (ozobot.xdsml.ozobotl.model.Light) _self);
-	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Repeat) {
-		ozobot.xdsml.ozobotl.aspects.RepeatAspect.initialize((ozobot.xdsml.ozobotl.model.Repeat) _self);
+	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Move) {
+		ozobot.xdsml.ozobotl.aspects.CommandAspect._privk3_initialize(_self_, (ozobot.xdsml.ozobotl.model.Move) _self);
+	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Rotate) {
+		ozobot.xdsml.ozobotl.aspects.CommandAspect._privk3_initialize(_self_,
+				(ozobot.xdsml.ozobotl.model.Rotate) _self);
 	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Wait) {
 		ozobot.xdsml.ozobotl.aspects.CommandAspect._privk3_initialize(_self_, (ozobot.xdsml.ozobotl.model.Wait) _self);
 	} else if (_self instanceof ozobot.xdsml.ozobotl.model.Command) {
@@ -83,6 +84,15 @@ public abstract class CommandAspect extends NamedElementAspect {
 	result = _privk3_getMQTTClient(_self_, _self);
 	;
 	return (org.eclipse.paho.client.mqttv3.MqttClient) result;
+}
+  
+  public static Ozobot getOzobot(final Command _self) {
+	final ozobot.xdsml.ozobotl.aspects.CommandAspectCommandAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.CommandAspectCommandAspectContext
+			.getSelf(_self);
+	Object result = null;
+	result = _privk3_getOzobot(_self_, _self);
+	;
+	return (ozobot.xdsml.ozobotl.model.Ozobot) result;
 }
   
   public static String topic(final Command _self) {
@@ -122,6 +132,21 @@ public abstract class CommandAspect extends NamedElementAspect {
       EObject _eContainer_4 = _self.eContainer();
       EObject _eContainer_5 = ((Block) _eContainer_4).eContainer();
       return CommandAspect.getMQTTClient(((Command) _eContainer_5));
+    }
+  }
+  
+  protected static Ozobot _privk3_getOzobot(final CommandAspectCommandAspectProperties _self_, final Command _self) {
+    EObject _eContainer = _self.eContainer();
+    EObject _eContainer_1 = ((Block) _eContainer).eContainer();
+    if ((_eContainer_1 instanceof OzobotProgram)) {
+      EObject _eContainer_2 = _self.eContainer();
+      EObject _eContainer_3 = ((Block) _eContainer_2).eContainer();
+      EObject _eContainer_4 = ((OzobotProgram) _eContainer_3).eContainer();
+      return ((Ozobot) _eContainer_4);
+    } else {
+      EObject _eContainer_5 = _self.eContainer();
+      EObject _eContainer_6 = ((Block) _eContainer_5).eContainer();
+      return CommandAspect.getOzobot(((Command) _eContainer_6));
     }
   }
   

@@ -41,7 +41,7 @@ class OzobotProgramAspect extends NamedElementAspect {
 	private long startTime
 	private long elapsedTime
  	public Command currentCommand
-	
+ 		
     def public void run() {
     	try{
     		while (_self.currentCommand !== null) {
@@ -88,6 +88,15 @@ abstract class CommandAspect extends NamedElementAspect {
 			return ((_self.eContainer() as Block).eContainer() as Command).getMQTTClient()
 		}
 	}
+	
+	def public Ozobot getOzobot() {
+		if((_self.eContainer() as Block).eContainer() instanceof OzobotProgram) {
+			return ((_self.eContainer() as Block).eContainer() as OzobotProgram).eContainer() as Ozobot
+		} else {
+			return ((_self.eContainer() as Block).eContainer() as Command).getOzobot()
+		}
+	}
+	
 }
 
 @Aspect(className=Move)
@@ -99,21 +108,23 @@ class MoveAspect extends CommandAspect {
 		val client = _self.getMQTTClient()
 		val message = "ozobot-move"+" "+_self.distance+" "+_self.velocity()
 		val tmp = new MqttMessage(message.bytes)
+		_self.getOzobot().xposition = Math.round((_self.getOzobot().xposition + _self.distance * Math.cos(Math.toRadians(_self.getOzobot().orientation))) * 100) / 100
+		_self.getOzobot().yposition = Math.round((_self.getOzobot().yposition + _self.distance * Math.sin(Math.toRadians(_self.getOzobot().orientation))) * 100) / 100
 		client.publish(_self.topic, tmp)	
 		println("Executed command "+_self.name +" on topic: "+_self.topic +" with Message: "+message)
 	}
 	
 	def int velocity() {
-		if(_self.velocity.toString.toString == 'very_slow') {
-			return 1;
+		if(_self.velocity.toString == 'very_slow') {
+			return 1
 		}else if(_self.velocity.toString == 'slow') {
-			return 2;
+			return 2
 		}else if(_self.velocity.toString == 'medium') {
-			return 3;
+			return 3
 		}else if(_self.velocity.toString == 'fast') {
-			return 4;
+			return 4
 		}else if(_self.velocity.toString == 'very_fast') {
-			return 5;
+			return 5
 		}
 	}
 }
@@ -135,6 +146,7 @@ class LightAspect extends CommandAspect {
 
 @Aspect(className=Rotate)
 class RotateAspect extends CommandAspect {
+	private double z
 
 	@Step
 	@OverrideAspectMethod
@@ -142,21 +154,38 @@ class RotateAspect extends CommandAspect {
 		val client = _self.getMQTTClient()
 		val message = "ozobot-rotate"+" "+_self.direction+" "+_self.velocity()+" "+_self.angle
 		val tmp = new MqttMessage(message.bytes)
+	
+		if(_self.direction.toString == 'Left') {
+			_self.z = _self.getOzobot().orientation + _self.angle - 360
+			if(_self.z >= 0) {
+				_self.getOzobot().orientation =  _self.z
+			} else {
+				_self.getOzobot().orientation = _self.getOzobot().orientation + _self.angle
+			}
+		} else if(_self.direction.toString == 'Right') {
+			_self.z = _self.getOzobot().orientation - _self.angle
+			if(_self.z <= 0) {
+				_self.getOzobot().orientation = _self.getOzobot().orientation + 360 - _self.z
+			} else {
+				_self.getOzobot().orientation = _self.getOzobot().orientation - _self.angle
+				}
+		}
+		
 		client.publish(_self.topic,tmp)	
 		println("Executed command "+_self.name +" on topic: "+_self.topic +" with Message: "+message)
 	}
 	
 	def int velocity() {
-		if(_self.velocity.toString.toString == 'very_slow') {
-			return 1;
+		if(_self.velocity.toString == 'very_slow') {
+			return 1
 		}else if(_self.velocity.toString == 'slow') {
-			return 2;
+			return 2
 		}else if(_self.velocity.toString == 'medium') {
-			return 3;
+			return 3
 		}else if(_self.velocity.toString == 'fast') {
-			return 4;
+			return 4
 		}else if(_self.velocity.toString == 'very_fast') {
-			return 5;
+			return 5
 		}
 	}
 }
@@ -194,7 +223,7 @@ class RepeatAspect extends CommandAspect {
 			while(_self.i < _self.block.commands.length){
 				_self.program.currentCommand = _self.block.commands.get(_self.i)
 				_self.program.currentCommand.executeCommand()
-				_self.startTime = System.currentTimeMillis();
+				_self.startTime = System.currentTimeMillis()
     			_self.elapsedTime = 0L
     			while(_self.elapsedTime < 10000) {
     				_self.elapsedTime = (new Date()).getTime() - _self.startTime
@@ -218,9 +247,9 @@ class RepeatAspect extends CommandAspect {
 
 @Aspect(className=Ozobot)
 class OzobotAspect extends NamedElementAspect {
-	public float xposition
-	public float yposition
-	public float orientation 
+	public double xposition = 0
+	public double yposition = 0
+	public double orientation  = 0
 	public MqttClient client
 
 
@@ -243,6 +272,7 @@ class OzobotAspect extends NamedElementAspect {
 			
 		}
 	}
+
 }
 
 @Aspect(className=Block)

@@ -10,7 +10,9 @@ import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import ozobot.xdsml.ozobotl.aspects.CommandAspect;
 import ozobot.xdsml.ozobotl.aspects.MoveAspectMoveAspectProperties;
+import ozobot.xdsml.ozobotl.aspects.OzobotAspect;
 import ozobot.xdsml.ozobotl.model.Move;
+import ozobot.xdsml.ozobotl.model.Ozobot;
 
 @Aspect(className = Move.class)
 @SuppressWarnings("all")
@@ -61,22 +63,42 @@ public class MoveAspect extends CommandAspect {
       final String message = (_plus_1 + Integer.valueOf(_velocity));
       byte[] _bytes = message.getBytes();
       final MqttMessage tmp = new MqttMessage(_bytes);
+      Ozobot _ozobot = CommandAspect.getOzobot(_self);
+      double _xposition = OzobotAspect.xposition(CommandAspect.getOzobot(_self));
+      int _distance_1 = _self.getDistance();
+      double _cos = Math.cos(Math.toRadians(OzobotAspect.orientation(CommandAspect.getOzobot(_self))));
+      double _multiply = (_distance_1 * _cos);
+      double _plus_2 = (_xposition + _multiply);
+      double _multiply_1 = (_plus_2 * 100);
+      long _round = Math.round(_multiply_1);
+      long _divide = (_round / 100);
+      OzobotAspect.xposition(_ozobot, _divide);
+      Ozobot _ozobot_1 = CommandAspect.getOzobot(_self);
+      double _yposition = OzobotAspect.yposition(CommandAspect.getOzobot(_self));
+      int _distance_2 = _self.getDistance();
+      double _sin = Math.sin(Math.toRadians(OzobotAspect.orientation(CommandAspect.getOzobot(_self))));
+      double _multiply_2 = (_distance_2 * _sin);
+      double _plus_3 = (_yposition + _multiply_2);
+      double _multiply_3 = (_plus_3 * 100);
+      long _round_1 = Math.round(_multiply_3);
+      long _divide_1 = (_round_1 / 100);
+      OzobotAspect.yposition(_ozobot_1, _divide_1);
       client.publish(CommandAspect.topic(_self), tmp);
       String _name = _self.getName();
-      String _plus_2 = ("Executed command " + _name);
-      String _plus_3 = (_plus_2 + " on topic: ");
+      String _plus_4 = ("Executed command " + _name);
+      String _plus_5 = (_plus_4 + " on topic: ");
       String _pic = CommandAspect.topic(_self);
-      String _plus_4 = (_plus_3 + _pic);
-      String _plus_5 = (_plus_4 + " with Message: ");
-      String _plus_6 = (_plus_5 + message);
-      InputOutput.<String>println(_plus_6);
+      String _plus_6 = (_plus_5 + _pic);
+      String _plus_7 = (_plus_6 + " with Message: ");
+      String _plus_8 = (_plus_7 + message);
+      InputOutput.<String>println(_plus_8);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
   }
   
   protected static int _privk3_velocity(final MoveAspectMoveAspectProperties _self_, final Move _self) {
-    String _string = _self.getVelocity().toString().toString();
+    String _string = _self.getVelocity().toString();
     boolean _equals = Objects.equal(_string, "very_slow");
     if (_equals) {
       return 1;

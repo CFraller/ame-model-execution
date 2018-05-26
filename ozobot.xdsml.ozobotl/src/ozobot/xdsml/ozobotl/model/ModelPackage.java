@@ -525,13 +525,40 @@ public interface ModelPackage extends EPackage {
 	int OZOBOT__PROGRAMS = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Xposition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OZOBOT__XPOSITION = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Yposition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OZOBOT__YPOSITION = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Orientation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OZOBOT__ORIENTATION = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Ozobot</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OZOBOT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int OZOBOT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link ozobot.xdsml.ozobotl.model.impl.BlockImpl <em>Block</em>}' class.
@@ -923,6 +950,39 @@ public interface ModelPackage extends EPackage {
 	EReference getOzobot_Programs();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ozobot.xdsml.ozobotl.model.Ozobot#getXposition <em>Xposition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Xposition</em>'.
+	 * @see ozobot.xdsml.ozobotl.model.Ozobot#getXposition()
+	 * @see #getOzobot()
+	 * @generated
+	 */
+	EAttribute getOzobot_Xposition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozobot.xdsml.ozobotl.model.Ozobot#getYposition <em>Yposition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Yposition</em>'.
+	 * @see ozobot.xdsml.ozobotl.model.Ozobot#getYposition()
+	 * @see #getOzobot()
+	 * @generated
+	 */
+	EAttribute getOzobot_Yposition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozobot.xdsml.ozobotl.model.Ozobot#getOrientation <em>Orientation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Orientation</em>'.
+	 * @see ozobot.xdsml.ozobotl.model.Ozobot#getOrientation()
+	 * @see #getOzobot()
+	 * @generated
+	 */
+	EAttribute getOzobot_Orientation();
+
+	/**
 	 * Returns the meta object for class '{@link ozobot.xdsml.ozobotl.model.Block <em>Block</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1255,6 +1315,30 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OZOBOT__PROGRAMS = eINSTANCE.getOzobot_Programs();
+
+		/**
+		 * The meta object literal for the '<em><b>Xposition</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OZOBOT__XPOSITION = eINSTANCE.getOzobot_Xposition();
+
+		/**
+		 * The meta object literal for the '<em><b>Yposition</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OZOBOT__YPOSITION = eINSTANCE.getOzobot_Yposition();
+
+		/**
+		 * The meta object literal for the '<em><b>Orientation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OZOBOT__ORIENTATION = eINSTANCE.getOzobot_Orientation();
 
 		/**
 		 * The meta object literal for the '{@link ozobot.xdsml.ozobotl.model.impl.BlockImpl <em>Block</em>}' class.

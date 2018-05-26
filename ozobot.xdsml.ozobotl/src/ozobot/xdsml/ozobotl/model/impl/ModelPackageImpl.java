@@ -423,6 +423,33 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getOzobot_Xposition() {
+		return (EAttribute)ozobotEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOzobot_Yposition() {
+		return (EAttribute)ozobotEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOzobot_Orientation() {
+		return (EAttribute)ozobotEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBlock() {
 		return blockEClass;
 	}
@@ -560,6 +587,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		ozobotEClass = createEClass(OZOBOT);
 		createEReference(ozobotEClass, OZOBOT__PROGRAMS);
+		createEAttribute(ozobotEClass, OZOBOT__XPOSITION);
+		createEAttribute(ozobotEClass, OZOBOT__YPOSITION);
+		createEAttribute(ozobotEClass, OZOBOT__ORIENTATION);
 
 		blockEClass = createEClass(BLOCK);
 		createEReference(blockEClass, BLOCK__COMMANDS);
@@ -648,6 +678,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEClass(ozobotEClass, Ozobot.class, "Ozobot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOzobot_Programs(), this.getOzobotProgram(), null, "programs", null, 0, -1, Ozobot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOzobot_Xposition(), ecorePackage.getEDouble(), "xposition", "0", 0, 1, Ozobot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOzobot_Yposition(), ecorePackage.getEDouble(), "yposition", "0", 0, 1, Ozobot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOzobot_Orientation(), ecorePackage.getEDouble(), "orientation", "0", 0, 1, Ozobot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(blockEClass, Block.class, "Block", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBlock_Commands(), this.getCommand(), null, "commands", null, 0, -1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

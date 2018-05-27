@@ -193,30 +193,30 @@
         </decorationDescriptionsSet>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="service:self.isCurrentInstruction">
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="borderColor" value="//@userColorsPalettes[name='Ozobot%20Palette']/@entries[name='current%20instruction']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="strokeColor" value="//@userColorsPalettes[name='Ozobot%20Palette']/@entries[name='current%20instruction']"/>
-            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='Ozobot%20Palette']/@entries[name='current%20instruction']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="borderColor"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="strokeColor"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor"/>
           </vsmElementCustomizations>
         </customization>
       </additionalLayers>
       <additionalLayers name="Animation">
         <containerMappings name="Positions" semanticCandidatesExpression="[self/]" domainClass="Ozobot" childrenPresentation="List">
           <subNodeMappings name="xPosition" semanticCandidatesExpression="[self/]" domainClass="Ozobot">
-            <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="aql:' xPosition:'+self.xposition" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="aql:' xPosition: '+self.xposition" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
           <subNodeMappings name="yPosition" semanticCandidatesExpression="[self/]" domainClass="Ozobot">
-            <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="aql:' yPosition:'+self.yposition" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="aql:' yPosition: '+self.yposition" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
           <subNodeMappings name="orientation" semanticCandidatesExpression="[self/]" domainClass="Ozobot">
-            <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="aql:' orientation:'+self.orientation" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="aql:' orientation: '+self.orientation+'°'" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -230,7 +230,7 @@
           </style>
         </containerMappings>
         <decorationDescriptionsSet>
-          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Current Command" position="EAST" preconditionExpression="[self.eContainer().oclAsType(Block).eContainer().oclAsType(OzobotProgram).currentCommand = self/]" imageExpression="/ozobot.design/icons/cursor-3-24.png" mappings="//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Wait'] //@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Rotate'] //@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subContainerMappings[name='Repeat'] //@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Move'] //@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Light']"/>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Current Command" position="NORTH_WEST" preconditionExpression="[self.eContainer().oclAsType(Block).eContainer().oclAsType(OzobotProgram).currentCommand = self/]" imageExpression="/ozobot.design/icons/cursor-3-24.png" mappings="//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Wait'] //@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Rotate'] //@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subContainerMappings[name='Repeat'] //@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Move'] //@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Light']"/>
           <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Current Command in Repeat" position="EAST" preconditionExpression="[ self.eContainer().oclAsType(Block).eContainer(Command).eContainer().oclAsType(Block).eContainer().oclAsType(OzobotProgram).currentCommand = self/]" imageExpression="/ozobot.design/icons/cursor-3-24.png" mappings="//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Light'] //@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Move'] //@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subContainerMappings[name='Repeat'] //@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Rotate'] //@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@containerMappings[name='OzobotProgram']/@subContainerMappings[name='Block']/@subNodeMappings[name='Wait']"/>
         </decorationDescriptionsSet>
         <customization>

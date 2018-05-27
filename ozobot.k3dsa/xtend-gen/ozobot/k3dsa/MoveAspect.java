@@ -47,18 +47,6 @@ public class MoveAspect extends CommandAspect {
     return (int)result;
   }
   
-  private static double orientation(final Move _self) {
-    final ozobot.k3dsa.MoveAspectMoveAspectProperties _self_ = ozobot.k3dsa.MoveAspectMoveAspectContext.getSelf(_self);
-    Object result = null;
-    result = _privk3_orientation(_self_, _self);;
-    return (double)result;
-  }
-  
-  private static void orientation(final Move _self, final double orientation) {
-    final ozobot.k3dsa.MoveAspectMoveAspectProperties _self_ = ozobot.k3dsa.MoveAspectMoveAspectContext.getSelf(_self);
-    _privk3_orientation(_self_, _self,orientation);;
-  }
-  
   private static void super_executeCommand(final Move _self) {
     final ozobot.k3dsa.CommandAspectCommandAspectProperties _self_ = ozobot.k3dsa.CommandAspectCommandAspectContext.getSelf(_self);
      ozobot.k3dsa.CommandAspect._privk3_executeCommand(_self_, _self);
@@ -74,33 +62,24 @@ public class MoveAspect extends CommandAspect {
       final String message = (_plus_1 + Integer.valueOf(_velocity));
       byte[] _bytes = message.getBytes();
       final MqttMessage tmp = new MqttMessage(_bytes);
-      double _orientation = OzobotAspect.orientation(CommandAspect.getOzobot(_self));
-      boolean _lessThan = (_orientation < 0);
-      if (_lessThan) {
-        double _orientation_1 = OzobotAspect.orientation(CommandAspect.getOzobot(_self));
-        double _multiply = (_orientation_1 * (-1));
-        MoveAspect.orientation(_self, _multiply);
-      } else {
-        MoveAspect.orientation(_self, OzobotAspect.orientation(CommandAspect.getOzobot(_self)));
-      }
       Ozobot _ozobot = CommandAspect.getOzobot(_self);
       double _xposition = OzobotAspect.xposition(CommandAspect.getOzobot(_self));
       int _distance_1 = _self.getDistance();
-      double _cos = Math.cos(Math.toRadians(MoveAspect.orientation(_self)));
-      double _multiply_1 = (_distance_1 * _cos);
-      double _plus_2 = (_xposition + _multiply_1);
-      double _multiply_2 = (_plus_2 * 100);
-      long _round = Math.round(_multiply_2);
+      double _cos = Math.cos(Math.toRadians(OzobotAspect.orientation(CommandAspect.getOzobot(_self))));
+      double _multiply = (_distance_1 * _cos);
+      double _plus_2 = (_xposition + _multiply);
+      double _multiply_1 = (_plus_2 * 100);
+      long _round = Math.round(_multiply_1);
       long _divide = (_round / 100);
       OzobotAspect.xposition(_ozobot, _divide);
       Ozobot _ozobot_1 = CommandAspect.getOzobot(_self);
       double _yposition = OzobotAspect.yposition(CommandAspect.getOzobot(_self));
       int _distance_2 = _self.getDistance();
-      double _sin = Math.sin(Math.toRadians(MoveAspect.orientation(_self)));
-      double _multiply_3 = (_distance_2 * _sin);
-      double _plus_3 = (_yposition + _multiply_3);
-      double _multiply_4 = (_plus_3 * 100);
-      long _round_1 = Math.round(_multiply_4);
+      double _sin = Math.sin(Math.toRadians(OzobotAspect.orientation(CommandAspect.getOzobot(_self))));
+      double _multiply_2 = (_distance_2 * _sin);
+      double _plus_3 = (_yposition + _multiply_2);
+      double _multiply_3 = (_plus_3 * 100);
+      long _round_1 = Math.round(_multiply_3);
       long _divide_1 = (_round_1 / 100);
       OzobotAspect.yposition(_ozobot_1, _divide_1);
       client.publish(CommandAspect.topic(_self), tmp);
@@ -148,39 +127,5 @@ public class MoveAspect extends CommandAspect {
       }
     }
     return 0;
-  }
-  
-  protected static double _privk3_orientation(final MoveAspectMoveAspectProperties _self_, final Move _self) {
-    try {
-    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
-    		if (m.getName().equals("getOrientation") &&
-    			m.getParameterTypes().length == 0) {
-    				Object ret = m.invoke(_self);
-    				if (ret != null) {
-    					return (double) ret;
-    				}		}
-    	}
-    } catch (Exception e) {
-    	// Chut !
-    }
-    return _self_.orientation;
-  }
-  
-  protected static void _privk3_orientation(final MoveAspectMoveAspectProperties _self_, final Move _self, final double orientation) {
-    boolean setterCalled = false;
-    try {
-    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
-    		if (m.getName().equals("setOrientation")
-    				&& m.getParameterTypes().length == 1) {
-    			m.invoke(_self, orientation);
-    			setterCalled = true;
-    		}
-    	}
-    } catch (Exception e) {
-    	// Chut !
-    }
-    if (!setterCalled) {
-    	_self_.orientation = orientation;
-    }
   }
 }

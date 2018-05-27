@@ -94,7 +94,7 @@ public class RotateAspect extends CommandAspect {
       byte[] _bytes = CommandAspect.message(_self).getBytes();
       final MqttMessage tmp = new MqttMessage(_bytes);
       String _string = _self.getDirection().toString();
-      boolean _equals = Objects.equal(_string, "Left");
+      boolean _equals = Objects.equal(_string, "left");
       if (_equals) {
         double _orientation = OzobotAspect.orientation(CommandAspect.getOzobot(_self));
         float _angle = _self.getAngle();
@@ -115,7 +115,7 @@ public class RotateAspect extends CommandAspect {
         }
       } else {
         String _string_1 = _self.getDirection().toString();
-        boolean _equals_1 = Objects.equal(_string_1, "Right");
+        boolean _equals_1 = Objects.equal(_string_1, "right");
         if (_equals_1) {
           double _orientation_2 = OzobotAspect.orientation(CommandAspect.getOzobot(_self));
           float _angle_2 = _self.getAngle();

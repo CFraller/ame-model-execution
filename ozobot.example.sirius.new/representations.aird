@@ -3,6 +3,17 @@
   <viewpoint:DAnalysis xmi:id="_0f9-IFqREeiYy6CeTxxJrw" selectedViews="_65XwMFqREeiYy6CeTxxJrw" version="12.1.0.201708031200">
     <semanticResources>Ozobot.xmi</semanticResources>
     <semanticResources>gemoc-gen/execution/execution-20180527_121548/Ozobot.xmi</semanticResources>
+    <semanticResources>gemoc-gen/execution/execution-20180527_122002/Ozobot.xmi</semanticResources>
+    <semanticResources>gemoc-gen/execution/execution-20180527_122219/Ozobot.xmi</semanticResources>
+    <semanticResources>gemoc-gen/execution/execution-20180527_122625/Ozobot.xmi</semanticResources>
+    <semanticResources>gemoc-gen/execution/execution-20180527_123116/Ozobot.xmi</semanticResources>
+    <semanticResources>gemoc-gen/execution/execution-20180527_123511/Ozobot.xmi</semanticResources>
+    <semanticResources>gemoc-gen/execution/execution-20180527_123814/Ozobot.xmi</semanticResources>
+    <semanticResources>gemoc-gen/execution/execution-20180527_124336/Ozobot.xmi</semanticResources>
+    <semanticResources>gemoc-gen/execution/execution-20180527_124722/Ozobot.xmi</semanticResources>
+    <semanticResources>gemoc-gen/execution/execution-20180527_124928/Ozobot.xmi</semanticResources>
+    <semanticResources>gemoc-gen/execution/execution-20180527_130701/Ozobot.xmi</semanticResources>
+    <semanticResources>gemoc-gen/execution/execution-20180527_131639/Ozobot.xmi</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="_65XwMFqREeiYy6CeTxxJrw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_7Ct5cFqREeiYy6CeTxxJrw" name="Ozobot" repPath="#_65bakFqREeiYy6CeTxxJrw">
@@ -352,7 +363,7 @@
             <styles xmi:type="notation:FilteringStyle" xmi:id="_QtgHUmGXEeiOMNIt3itZTA"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_QtW9YWGXEeiOMNIt3itZTA" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QtW9YmGXEeiOMNIt3itZTA" x="756" y="174" width="555" height="69"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QtW9YmGXEeiOMNIt3itZTA" x="756" y="174" width="375" height="69"/>
         </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_7Cyx8lqREeiYy6CeTxxJrw"/>
         <edges xmi:type="notation:Edge" xmi:id="_0ZaVsGGNEeiQ9qad8N-r1Q" type="4001" element="_0WiA0GGNEeiQ9qad8N-r1Q" source="_7GipglqREeiYy6CeTxxJrw" target="_Uo6_kGGNEeiQ9qad8N-r1Q">
@@ -1228,7 +1239,7 @@
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Qhr44GGXEeiOMNIt3itZTA" name=" Command published: ">
         <target xmi:type="model:Ozobot" href="Ozobot.xmi#/"/>
         <semanticElements xmi:type="model:Ozobot" href="Ozobot.xmi#/"/>
-        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_QhtuEGGXEeiOMNIt3itZTA" labelAlignment="LEFT" labelPosition="node">
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_QhtuEGGXEeiOMNIt3itZTA" showIcon="false" labelAlignment="LEFT" labelPosition="node">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@additionalLayers[name='Animation']/@containerMappings[name='Ozobot']/@subNodeMappings[name='currentCommand']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@additionalLayers[name='Animation']/@containerMappings[name='Ozobot']/@subNodeMappings[name='currentCommand']"/>

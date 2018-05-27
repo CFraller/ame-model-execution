@@ -171,14 +171,14 @@ class RotateAspect extends CommandAspect {
 	def public void executeCommand() {
 		val client = _self.getMQTTClient()
 		val tmp = new MqttMessage(_self.message.bytes)
-		if(_self.direction.toString == 'Left') {
+		if(_self.direction.toString == 'left') {
 			_self.z = _self.getOzobot().orientation + _self.angle - 360
 			if(_self.z >= 0) {
 				_self.getOzobot().orientation =  _self.z
 			} else {
 				_self.getOzobot().orientation = _self.getOzobot().orientation + _self.angle
 			}
-		} else if(_self.direction.toString == 'Right') {
+		} else if(_self.direction.toString == 'right') {
 			_self.z = _self.getOzobot().orientation - _self.angle
 			if(_self.z <= 0) {
 				_self.getOzobot().orientation = _self.getOzobot().orientation + 360 - _self.z

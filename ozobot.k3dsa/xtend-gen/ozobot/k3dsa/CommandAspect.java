@@ -19,16 +19,16 @@ public abstract class CommandAspect extends NamedElementAspect {
   @Step
   public static void executeCommand(final Command _self) {
     final ozobot.k3dsa.CommandAspectCommandAspectProperties _self_ = ozobot.k3dsa.CommandAspectCommandAspectContext.getSelf(_self);
-     if (_self instanceof ozobot.model.Light){
-    					ozobot.k3dsa.LightAspect.executeCommand((ozobot.model.Light)_self);
-    } else  if (_self instanceof ozobot.model.Move){
+     if (_self instanceof ozobot.model.Move){
     					ozobot.k3dsa.MoveAspect.executeCommand((ozobot.model.Move)_self);
     } else  if (_self instanceof ozobot.model.Rotate){
     					ozobot.k3dsa.RotateAspect.executeCommand((ozobot.model.Rotate)_self);
-    } else  if (_self instanceof ozobot.model.Wait){
-    					ozobot.k3dsa.WaitAspect.executeCommand((ozobot.model.Wait)_self);
     } else  if (_self instanceof ozobot.model.Repeat){
     					ozobot.k3dsa.RepeatAspect.executeCommand((ozobot.model.Repeat)_self);
+    } else  if (_self instanceof ozobot.model.Wait){
+    					ozobot.k3dsa.WaitAspect.executeCommand((ozobot.model.Wait)_self);
+    } else  if (_self instanceof ozobot.model.Light){
+    					ozobot.k3dsa.LightAspect.executeCommand((ozobot.model.Light)_self);
     } else  if (_self instanceof ozobot.model.Command){
     					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
     						@Override
@@ -72,16 +72,16 @@ public abstract class CommandAspect extends NamedElementAspect {
   @Step
   public static void createMessage(final Command _self) {
     final ozobot.k3dsa.CommandAspectCommandAspectProperties _self_ = ozobot.k3dsa.CommandAspectCommandAspectContext.getSelf(_self);
-     if (_self instanceof ozobot.model.Light){
-    					ozobot.k3dsa.LightAspect.createMessage((ozobot.model.Light)_self);
-    } else  if (_self instanceof ozobot.model.Move){
+     if (_self instanceof ozobot.model.Move){
     					ozobot.k3dsa.MoveAspect.createMessage((ozobot.model.Move)_self);
     } else  if (_self instanceof ozobot.model.Rotate){
     					ozobot.k3dsa.RotateAspect.createMessage((ozobot.model.Rotate)_self);
-    } else  if (_self instanceof ozobot.model.Wait){
-    					ozobot.k3dsa.WaitAspect.createMessage((ozobot.model.Wait)_self);
     } else  if (_self instanceof ozobot.model.Repeat){
     					ozobot.k3dsa.RepeatAspect.createMessage((ozobot.model.Repeat)_self);
+    } else  if (_self instanceof ozobot.model.Wait){
+    					ozobot.k3dsa.WaitAspect.createMessage((ozobot.model.Wait)_self);
+    } else  if (_self instanceof ozobot.model.Light){
+    					ozobot.k3dsa.LightAspect.createMessage((ozobot.model.Light)_self);
     } else  if (_self instanceof ozobot.model.Command){
     					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
     						@Override

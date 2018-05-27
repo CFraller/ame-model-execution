@@ -101,6 +101,7 @@ abstract class CommandAspect extends NamedElementAspect {
 
 @Aspect(className=Move)
 class MoveAspect extends CommandAspect {
+	private double orientation
 
 	@Step
 	@OverrideAspectMethod
@@ -108,8 +109,14 @@ class MoveAspect extends CommandAspect {
 		val client = _self.getMQTTClient()
 		val message = "ozobot-move"+" "+_self.distance+" "+_self.velocity()
 		val tmp = new MqttMessage(message.bytes)
-		_self.getOzobot().xposition = Math.round((_self.getOzobot().xposition + _self.distance * Math.cos(Math.toRadians(_self.getOzobot().orientation))) * 100) / 100
-		_self.getOzobot().yposition = Math.round((_self.getOzobot().yposition + _self.distance * Math.sin(Math.toRadians(_self.getOzobot().orientation))) * 100) / 100
+		if(_self.getOzobot().orientation < 0){
+			_self.orientation = _self.getOzobot().orientation * (-1)
+		}
+		else{
+			_self.orientation= _self.getOzobot().orientation
+		}
+		_self.getOzobot().xposition = Math.round((_self.getOzobot().xposition + _self.distance * Math.cos(Math.toRadians(_self.orientation))) * 100) / 100
+		_self.getOzobot().yposition = Math.round((_self.getOzobot().yposition + _self.distance * Math.sin(Math.toRadians(_self.orientation))) * 100) / 100
 		client.publish(_self.topic, tmp)	
 		println("Executed command "+_self.name +" on topic: "+_self.topic +" with Message: "+message)
 	}
@@ -156,20 +163,12 @@ class RotateAspect extends CommandAspect {
 		val tmp = new MqttMessage(message.bytes)
 	
 		if(_self.direction.toString == 'Left') {
-			_self.z = _self.getOzobot().orientation + _self.angle - 360
-			if(_self.z >= 0) {
-				_self.getOzobot().orientation =  _self.z
-			} else {
-				_self.getOzobot().orientation = _self.getOzobot().orientation + _self.angle
-			}
+			_self.z = _self.getOzobot().orientation + _self.angle
+			
 		} else if(_self.direction.toString == 'Right') {
 			_self.z = _self.getOzobot().orientation - _self.angle
-			if(_self.z <= 0) {
-				_self.getOzobot().orientation = _self.getOzobot().orientation + 360 - _self.z
-			} else {
-				_self.getOzobot().orientation = _self.getOzobot().orientation - _self.angle
-				}
 		}
+		_self.getOzobot().orientation =  _self.z
 		
 		client.publish(_self.topic,tmp)	
 		println("Executed command "+_self.name +" on topic: "+_self.topic +" with Message: "+message)

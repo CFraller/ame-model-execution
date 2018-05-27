@@ -279,6 +279,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getCommand_Message() {
+		return (EAttribute)commandEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMove() {
 		return moveEClass;
 	}
@@ -565,6 +574,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		commandEClass = createEClass(COMMAND);
 		createEReference(commandEClass, COMMAND__OUTGOING);
 		createEReference(commandEClass, COMMAND__INCOMING);
+		createEAttribute(commandEClass, COMMAND__MESSAGE);
 
 		moveEClass = createEClass(MOVE);
 		createEAttribute(moveEClass, MOVE__DISTANCE);
@@ -656,6 +666,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEClass(commandEClass, Command.class, "Command", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCommand_Outgoing(), this.getTransition(), this.getTransition_Source(), "outgoing", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCommand_Incoming(), this.getTransition(), this.getTransition_Target(), "incoming", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommand_Message(), ecorePackage.getEString(), "message", "init", 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(moveEClass, Move.class, "Move", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMove_Distance(), ecorePackage.getEInt(), "distance", "0", 0, 1, Move.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

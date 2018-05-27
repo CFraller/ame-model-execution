@@ -39,6 +39,28 @@ public class MoveAspect extends CommandAspect {
 	;
 }
   
+  @Step
+  @OverrideAspectMethod
+  public static void createMessage(final Move _self) {
+	final ozobot.xdsml.ozobotl.aspects.MoveAspectMoveAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.MoveAspectMoveAspectContext
+			.getSelf(_self);
+	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+		@Override
+		public void execute() {
+			_privk3_createMessage(_self_, _self);
+		}
+	};
+	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry
+			.getInstance().findStepManager(_self);
+	if (manager != null) {
+		manager.executeStep(_self, command, "Move", "createMessage");
+	} else {
+		command.execute();
+	}
+	;
+	;
+}
+  
   public static int velocity(final Move _self) {
 	final ozobot.xdsml.ozobotl.aspects.MoveAspectMoveAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.MoveAspectMoveAspectContext
 			.getSelf(_self);
@@ -56,45 +78,55 @@ public class MoveAspect extends CommandAspect {
   protected static void _privk3_executeCommand(final MoveAspectMoveAspectProperties _self_, final Move _self) {
     try {
       final MqttClient client = CommandAspect.getMQTTClient(_self);
-      int _distance = _self.getDistance();
-      String _plus = (("ozobot-move" + " ") + Integer.valueOf(_distance));
-      String _plus_1 = (_plus + " ");
-      int _velocity = MoveAspect.velocity(_self);
-      final String message = (_plus_1 + Integer.valueOf(_velocity));
-      byte[] _bytes = message.getBytes();
+      byte[] _bytes = CommandAspect.message(_self).getBytes();
       final MqttMessage tmp = new MqttMessage(_bytes);
       Ozobot _ozobot = CommandAspect.getOzobot(_self);
       double _xposition = OzobotAspect.xposition(CommandAspect.getOzobot(_self));
-      int _distance_1 = _self.getDistance();
+      int _distance = _self.getDistance();
       double _cos = Math.cos(Math.toRadians(OzobotAspect.orientation(CommandAspect.getOzobot(_self))));
-      double _multiply = (_distance_1 * _cos);
-      double _plus_2 = (_xposition + _multiply);
-      double _multiply_1 = (_plus_2 * 100);
+      double _multiply = (_distance * _cos);
+      double _plus = (_xposition + _multiply);
+      double _multiply_1 = (_plus * 100);
       long _round = Math.round(_multiply_1);
       long _divide = (_round / 100);
       OzobotAspect.xposition(_ozobot, _divide);
       Ozobot _ozobot_1 = CommandAspect.getOzobot(_self);
       double _yposition = OzobotAspect.yposition(CommandAspect.getOzobot(_self));
-      int _distance_2 = _self.getDistance();
+      int _distance_1 = _self.getDistance();
       double _sin = Math.sin(Math.toRadians(OzobotAspect.orientation(CommandAspect.getOzobot(_self))));
-      double _multiply_2 = (_distance_2 * _sin);
-      double _plus_3 = (_yposition + _multiply_2);
-      double _multiply_3 = (_plus_3 * 100);
+      double _multiply_2 = (_distance_1 * _sin);
+      double _plus_1 = (_yposition + _multiply_2);
+      double _multiply_3 = (_plus_1 * 100);
       long _round_1 = Math.round(_multiply_3);
       long _divide_1 = (_round_1 / 100);
       OzobotAspect.yposition(_ozobot_1, _divide_1);
       client.publish(CommandAspect.topic(_self), tmp);
       String _name = _self.getName();
-      String _plus_4 = ("Executed command " + _name);
-      String _plus_5 = (_plus_4 + " on topic: ");
+      String _plus_2 = ("Executed command " + _name);
+      String _plus_3 = (_plus_2 + " on topic: ");
       String _pic = CommandAspect.topic(_self);
-      String _plus_6 = (_plus_5 + _pic);
-      String _plus_7 = (_plus_6 + " with Message: ");
-      String _plus_8 = (_plus_7 + message);
-      InputOutput.<String>println(_plus_8);
+      String _plus_4 = (_plus_3 + _pic);
+      String _plus_5 = (_plus_4 + " with Message: ");
+      String _message = CommandAspect.message(_self);
+      String _plus_6 = (_plus_5 + _message);
+      InputOutput.<String>println(_plus_6);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
+  }
+  
+  private static void super_createMessage(final Move _self) {
+    final ozobot.xdsml.ozobotl.aspects.CommandAspectCommandAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.CommandAspectCommandAspectContext.getSelf(_self);
+     ozobot.xdsml.ozobotl.aspects.CommandAspect._privk3_createMessage(_self_, _self);
+  }
+  
+  protected static void _privk3_createMessage(final MoveAspectMoveAspectProperties _self_, final Move _self) {
+    int _distance = _self.getDistance();
+    String _plus = (("ozobot-move" + " ") + Integer.valueOf(_distance));
+    String _plus_1 = (_plus + " ");
+    int _velocity = MoveAspect.velocity(_self);
+    String _plus_2 = (_plus_1 + Integer.valueOf(_velocity));
+    CommandAspect.message(_self, _plus_2);
   }
   
   protected static int _privk3_velocity(final MoveAspectMoveAspectProperties _self_, final Move _self) {

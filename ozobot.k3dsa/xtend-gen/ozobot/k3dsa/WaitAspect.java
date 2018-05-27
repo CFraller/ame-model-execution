@@ -35,6 +35,29 @@ public class WaitAspect extends CommandAspect {
     } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
   }
   
+  @Step
+  @OverrideAspectMethod
+  public static void createMessage(final Wait _self) {
+    final ozobot.k3dsa.WaitAspectWaitAspectProperties _self_ = ozobot.k3dsa.WaitAspectWaitAspectContext.getSelf(_self);
+     if (_self instanceof ozobot.model.Wait){
+    					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    						@Override
+    						public void execute() {
+    							ozobot.k3dsa.WaitAspect._privk3_createMessage(_self_, (ozobot.model.Wait)_self);
+    						}
+    					};
+    					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    					if (stepManager != null) {
+    						stepManager.executeStep(_self,command,"Wait","createMessage");
+    					} else {
+    						command.execute();
+    					}
+    					;
+    } else  if (_self instanceof ozobot.model.Command){
+    					ozobot.k3dsa.CommandAspect.createMessage((ozobot.model.Command)_self);
+    } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
+  }
+  
   private static long startTime(final Wait _self) {
     final ozobot.k3dsa.WaitAspectWaitAspectProperties _self_ = ozobot.k3dsa.WaitAspectWaitAspectContext.getSelf(_self);
     Object result = null;
@@ -76,6 +99,17 @@ public class WaitAspect extends CommandAspect {
     String _name = _self.getName();
     String _plus = ("Executed command " + _name);
     InputOutput.<String>println(_plus);
+  }
+  
+  private static void super_createMessage(final Wait _self) {
+    final ozobot.k3dsa.CommandAspectCommandAspectProperties _self_ = ozobot.k3dsa.CommandAspectCommandAspectContext.getSelf(_self);
+     ozobot.k3dsa.CommandAspect._privk3_createMessage(_self_, _self);
+  }
+  
+  protected static void _privk3_createMessage(final WaitAspectWaitAspectProperties _self_, final Wait _self) {
+    int _time = _self.getTime();
+    String _plus = ("ozobot-wait " + Integer.valueOf(_time));
+    CommandAspect.message(_self, _plus);
   }
   
   protected static long _privk3_startTime(final WaitAspectWaitAspectProperties _self_, final Wait _self) {

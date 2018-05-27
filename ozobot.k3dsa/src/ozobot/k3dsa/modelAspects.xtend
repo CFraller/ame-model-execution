@@ -71,6 +71,7 @@ class OzobotProgramAspect extends NamedElementAspect {
 @Aspect(className=Command)
 abstract class CommandAspect extends NamedElementAspect {
 	public String topic = "Actuator"
+	public String message = ""
 	
 	@Step
 	def public void executeCommand() {
@@ -78,6 +79,7 @@ abstract class CommandAspect extends NamedElementAspect {
 	}
 	
 	def public void initialize() {
+		_self.createMessage()
 		println("Command " + _self.name + " initialized.")
 	}
 	
@@ -97,6 +99,11 @@ abstract class CommandAspect extends NamedElementAspect {
 		}
 	}
 	
+	@Step
+	def public void createMessage() {
+		
+	}
+	
 }
 
 @Aspect(className=Move)
@@ -106,12 +113,17 @@ class MoveAspect extends CommandAspect {
 	@OverrideAspectMethod
 	def public void executeCommand() {
 		val client = _self.getMQTTClient()
-		val message = "ozobot-move"+" "+_self.distance+" "+_self.velocity()
-		val tmp = new MqttMessage(message.bytes)
+		val tmp = new MqttMessage(_self.message.bytes)
 		_self.getOzobot().xposition = Math.round((_self.getOzobot().xposition + _self.distance * Math.cos(Math.toRadians(_self.getOzobot().orientation))) * 100) / 100
 		_self.getOzobot().yposition = Math.round((_self.getOzobot().yposition + _self.distance * Math.sin(Math.toRadians(_self.getOzobot().orientation))) * 100) / 100
 		client.publish(_self.topic, tmp)	
-		println("Executed command "+_self.name +" on topic: "+_self.topic +" with Message: "+message)
+		println("Executed command "+_self.name +" on topic: "+_self.topic +" with Message: "+_self.message)
+	}
+	
+	@Step
+	@OverrideAspectMethod
+	def public void createMessage() {
+		_self.message = "ozobot-move"+" "+_self.distance+" "+_self.velocity()
 	}
 	
 	def int velocity() {
@@ -135,11 +147,17 @@ class LightAspect extends CommandAspect {
 	@Step
 	@OverrideAspectMethod
 	def public void executeCommand() {
+		_self.createMessage()
 		val client = _self.getMQTTClient()
-		val message = _self.color+"Light"
-		val tmp = new MqttMessage(message.bytes)
+		val tmp = new MqttMessage(_self.message.bytes)
 		client.publish(_self.topic, tmp)
-		println("Executed command "+_self.name +" on topic: "+_self.topic +" with Message: "+message)	
+		println("Executed command "+_self.name +" on topic: "+_self.topic +" with Message: "+_self.message)	
+	}
+	
+	@Step
+	@OverrideAspectMethod
+	def public void createMessage() {
+		_self.message = _self.color+"Light"
 	}
 }
 
@@ -152,9 +170,7 @@ class RotateAspect extends CommandAspect {
 	@OverrideAspectMethod
 	def public void executeCommand() {
 		val client = _self.getMQTTClient()
-		val message = "ozobot-rotate"+" "+_self.direction+" "+_self.velocity()+" "+_self.angle
-		val tmp = new MqttMessage(message.bytes)
-	
+		val tmp = new MqttMessage(_self.message.bytes)
 		if(_self.direction.toString == 'Left') {
 			_self.z = _self.getOzobot().orientation + _self.angle - 360
 			if(_self.z >= 0) {
@@ -172,7 +188,13 @@ class RotateAspect extends CommandAspect {
 		}
 		
 		client.publish(_self.topic,tmp)	
-		println("Executed command "+_self.name +" on topic: "+_self.topic +" with Message: "+message)
+		println("Executed command "+_self.name +" on topic: "+_self.topic +" with Message: "+_self.message)
+	}
+	
+	@Step
+	@OverrideAspectMethod
+	def public void createMessage() {
+		_self.message = "ozobot-rotate"+" "+_self.direction+" "+_self.velocity()+" "+_self.angle
 	}
 	
 	def int velocity() {
@@ -200,10 +222,17 @@ class WaitAspect extends CommandAspect {
 	def public void executeCommand() {
 		_self.startTime = System.currentTimeMillis();
     	_self.elapsedTime = 0L
+
     	while(_self.elapsedTime < _self.time*1000) {
     		_self.elapsedTime = (new Date()).getTime() - _self.startTime
     	}
 		println("Executed command "+_self.name )
+	}
+	
+	@Step
+	@OverrideAspectMethod
+	def public void createMessage() {
+    	_self.message = "ozobot-wait "+_self.time
 	}
 }
 
@@ -234,6 +263,12 @@ class RepeatAspect extends CommandAspect {
 			println("Executed command "+_self.name )
 		}
 		_self.program.currentCommand = _self
+	}
+	
+	@Step
+	@OverrideAspectMethod
+	def public void createMessage() {
+		_self.message = "ozobot-repeat "+_self.count
 	}
 	
 	@OverrideAspectMethod

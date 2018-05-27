@@ -177,13 +177,22 @@ public interface ModelPackage extends EPackage {
 	int COMMAND__INCOMING = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Message</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND__MESSAGE = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Command</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int COMMAND_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link ozobot.xdsml.ozobotl.model.impl.MoveImpl <em>Move</em>}' class.
@@ -221,6 +230,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int MOVE__INCOMING = COMMAND__INCOMING;
+
+	/**
+	 * The feature id for the '<em><b>Message</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE__MESSAGE = COMMAND__MESSAGE;
 
 	/**
 	 * The feature id for the '<em><b>Distance</b></em>' attribute.
@@ -287,6 +305,15 @@ public interface ModelPackage extends EPackage {
 	int LIGHT__INCOMING = COMMAND__INCOMING;
 
 	/**
+	 * The feature id for the '<em><b>Message</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIGHT__MESSAGE = COMMAND__MESSAGE;
+
+	/**
 	 * The feature id for the '<em><b>Color</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -340,6 +367,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int ROTATE__INCOMING = COMMAND__INCOMING;
+
+	/**
+	 * The feature id for the '<em><b>Message</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROTATE__MESSAGE = COMMAND__MESSAGE;
 
 	/**
 	 * The feature id for the '<em><b>Direction</b></em>' attribute.
@@ -415,6 +451,15 @@ public interface ModelPackage extends EPackage {
 	int WAIT__INCOMING = COMMAND__INCOMING;
 
 	/**
+	 * The feature id for the '<em><b>Message</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WAIT__MESSAGE = COMMAND__MESSAGE;
+
+	/**
 	 * The feature id for the '<em><b>Time</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -468,6 +513,15 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int REPEAT__INCOMING = COMMAND__INCOMING;
+
+	/**
+	 * The feature id for the '<em><b>Message</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPEAT__MESSAGE = COMMAND__MESSAGE;
 
 	/**
 	 * The feature id for the '<em><b>Count</b></em>' attribute.
@@ -778,6 +832,17 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCommand_Incoming();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozobot.xdsml.ozobotl.model.Command#getMessage <em>Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Message</em>'.
+	 * @see ozobot.xdsml.ozobotl.model.Command#getMessage()
+	 * @see #getCommand()
+	 * @generated
+	 */
+	EAttribute getCommand_Message();
 
 	/**
 	 * Returns the meta object for class '{@link ozobot.xdsml.ozobotl.model.Move <em>Move</em>}'.
@@ -1175,6 +1240,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMMAND__INCOMING = eINSTANCE.getCommand_Incoming();
+
+		/**
+		 * The meta object literal for the '<em><b>Message</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMAND__MESSAGE = eINSTANCE.getCommand_Message();
 
 		/**
 		 * The meta object literal for the '{@link ozobot.xdsml.ozobotl.model.impl.MoveImpl <em>Move</em>}' class.

@@ -37,6 +37,28 @@ public class LightAspect extends CommandAspect {
 	;
 }
   
+  @Step
+  @OverrideAspectMethod
+  public static void createMessage(final Light _self) {
+	final ozobot.xdsml.ozobotl.aspects.LightAspectLightAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.LightAspectLightAspectContext
+			.getSelf(_self);
+	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+		@Override
+		public void execute() {
+			_privk3_createMessage(_self_, _self);
+		}
+	};
+	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry
+			.getInstance().findStepManager(_self);
+	if (manager != null) {
+		manager.executeStep(_self, command, "Light", "createMessage");
+	} else {
+		command.execute();
+	}
+	;
+	;
+}
+  
   private static void super_executeCommand(final Light _self) {
     final ozobot.xdsml.ozobotl.aspects.CommandAspectCommandAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.CommandAspectCommandAspectContext.getSelf(_self);
      ozobot.xdsml.ozobotl.aspects.CommandAspect._privk3_executeCommand(_self_, _self);
@@ -44,10 +66,9 @@ public class LightAspect extends CommandAspect {
   
   protected static void _privk3_executeCommand(final LightAspectLightAspectProperties _self_, final Light _self) {
     try {
+      LightAspect.createMessage(_self);
       final MqttClient client = CommandAspect.getMQTTClient(_self);
-      Color _color = _self.getColor();
-      final String message = (_color + "Light");
-      byte[] _bytes = message.getBytes();
+      byte[] _bytes = CommandAspect.message(_self).getBytes();
       final MqttMessage tmp = new MqttMessage(_bytes);
       client.publish(CommandAspect.topic(_self), tmp);
       String _name = _self.getName();
@@ -56,10 +77,22 @@ public class LightAspect extends CommandAspect {
       String _pic = CommandAspect.topic(_self);
       String _plus_2 = (_plus_1 + _pic);
       String _plus_3 = (_plus_2 + " with Message: ");
-      String _plus_4 = (_plus_3 + message);
+      String _message = CommandAspect.message(_self);
+      String _plus_4 = (_plus_3 + _message);
       InputOutput.<String>println(_plus_4);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
+  }
+  
+  private static void super_createMessage(final Light _self) {
+    final ozobot.xdsml.ozobotl.aspects.CommandAspectCommandAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.CommandAspectCommandAspectContext.getSelf(_self);
+     ozobot.xdsml.ozobotl.aspects.CommandAspect._privk3_createMessage(_self_, _self);
+  }
+  
+  protected static void _privk3_createMessage(final LightAspectLightAspectProperties _self_, final Light _self) {
+    Color _color = _self.getColor();
+    String _plus = (_color + "Light");
+    CommandAspect.message(_self, _plus);
   }
 }

@@ -24,6 +24,7 @@ import ozobot.xdsml.ozobotl.model.Transition;
  * <ul>
  *   <li>{@link ozobot.xdsml.ozobotl.model.impl.CommandImpl#getOutgoing <em>Outgoing</em>}</li>
  *   <li>{@link ozobot.xdsml.ozobotl.model.impl.CommandImpl#getIncoming <em>Incoming</em>}</li>
+ *   <li>{@link ozobot.xdsml.ozobotl.model.impl.CommandImpl#getMessage <em>Message</em>}</li>
  * </ul>
  *
  * @generated
@@ -48,6 +49,26 @@ public abstract class CommandImpl extends NamedElementImpl implements Command {
 	 * @ordered
 	 */
 	protected Transition incoming;
+
+	/**
+	 * The default value of the '{@link #getMessage() <em>Message</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMessage()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MESSAGE_EDEFAULT = "init";
+
+	/**
+	 * The cached value of the '{@link #getMessage() <em>Message</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMessage()
+	 * @generated
+	 * @ordered
+	 */
+	protected String message = MESSAGE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -193,6 +214,27 @@ public abstract class CommandImpl extends NamedElementImpl implements Command {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getMessage() {
+		return message;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMessage(String newMessage) {
+		String oldMessage = message;
+		message = newMessage;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.COMMAND__MESSAGE, oldMessage, message));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -238,6 +280,8 @@ public abstract class CommandImpl extends NamedElementImpl implements Command {
 			case ModelPackage.COMMAND__INCOMING:
 				if (resolve) return getIncoming();
 				return basicGetIncoming();
+			case ModelPackage.COMMAND__MESSAGE:
+				return getMessage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -255,6 +299,9 @@ public abstract class CommandImpl extends NamedElementImpl implements Command {
 				return;
 			case ModelPackage.COMMAND__INCOMING:
 				setIncoming((Transition)newValue);
+				return;
+			case ModelPackage.COMMAND__MESSAGE:
+				setMessage((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -274,6 +321,9 @@ public abstract class CommandImpl extends NamedElementImpl implements Command {
 			case ModelPackage.COMMAND__INCOMING:
 				setIncoming((Transition)null);
 				return;
+			case ModelPackage.COMMAND__MESSAGE:
+				setMessage(MESSAGE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -290,8 +340,26 @@ public abstract class CommandImpl extends NamedElementImpl implements Command {
 				return outgoing != null;
 			case ModelPackage.COMMAND__INCOMING:
 				return incoming != null;
+			case ModelPackage.COMMAND__MESSAGE:
+				return MESSAGE_EDEFAULT == null ? message != null : !MESSAGE_EDEFAULT.equals(message);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (message: ");
+		result.append(message);
+		result.append(')');
+		return result.toString();
 	}
 
 } //CommandImpl

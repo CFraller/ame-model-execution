@@ -40,6 +40,28 @@ public class RotateAspect extends CommandAspect {
 	;
 }
   
+  @Step
+  @OverrideAspectMethod
+  public static void createMessage(final Rotate _self) {
+	final ozobot.xdsml.ozobotl.aspects.RotateAspectRotateAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.RotateAspectRotateAspectContext
+			.getSelf(_self);
+	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+		@Override
+		public void execute() {
+			_privk3_createMessage(_self_, _self);
+		}
+	};
+	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry
+			.getInstance().findStepManager(_self);
+	if (manager != null) {
+		manager.executeStep(_self, command, "Rotate", "createMessage");
+	} else {
+		command.execute();
+	}
+	;
+	;
+}
+  
   public static int velocity(final Rotate _self) {
 	final ozobot.xdsml.ozobotl.aspects.RotateAspectRotateAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.RotateAspectRotateAspectContext
 			.getSelf(_self);
@@ -69,23 +91,15 @@ public class RotateAspect extends CommandAspect {
   protected static void _privk3_executeCommand(final RotateAspectRotateAspectProperties _self_, final Rotate _self) {
     try {
       final MqttClient client = CommandAspect.getMQTTClient(_self);
-      Direction _direction = _self.getDirection();
-      String _plus = (("ozobot-rotate" + " ") + _direction);
-      String _plus_1 = (_plus + " ");
-      int _velocity = RotateAspect.velocity(_self);
-      String _plus_2 = (_plus_1 + Integer.valueOf(_velocity));
-      String _plus_3 = (_plus_2 + " ");
-      float _angle = _self.getAngle();
-      final String message = (_plus_3 + Float.valueOf(_angle));
-      byte[] _bytes = message.getBytes();
+      byte[] _bytes = CommandAspect.message(_self).getBytes();
       final MqttMessage tmp = new MqttMessage(_bytes);
       String _string = _self.getDirection().toString();
       boolean _equals = Objects.equal(_string, "Left");
       if (_equals) {
         double _orientation = OzobotAspect.orientation(CommandAspect.getOzobot(_self));
-        float _angle_1 = _self.getAngle();
-        double _plus_4 = (_orientation + _angle_1);
-        double _minus = (_plus_4 - 360);
+        float _angle = _self.getAngle();
+        double _plus = (_orientation + _angle);
+        double _minus = (_plus - 360);
         RotateAspect.z(_self, _minus);
         double _z = RotateAspect.z(_self);
         boolean _greaterEqualsThan = (_z >= 0);
@@ -95,48 +109,66 @@ public class RotateAspect extends CommandAspect {
         } else {
           Ozobot _ozobot_1 = CommandAspect.getOzobot(_self);
           double _orientation_1 = OzobotAspect.orientation(CommandAspect.getOzobot(_self));
-          float _angle_2 = _self.getAngle();
-          double _plus_5 = (_orientation_1 + _angle_2);
-          OzobotAspect.orientation(_ozobot_1, _plus_5);
+          float _angle_1 = _self.getAngle();
+          double _plus_1 = (_orientation_1 + _angle_1);
+          OzobotAspect.orientation(_ozobot_1, _plus_1);
         }
       } else {
         String _string_1 = _self.getDirection().toString();
         boolean _equals_1 = Objects.equal(_string_1, "Right");
         if (_equals_1) {
           double _orientation_2 = OzobotAspect.orientation(CommandAspect.getOzobot(_self));
-          float _angle_3 = _self.getAngle();
-          double _minus_1 = (_orientation_2 - _angle_3);
+          float _angle_2 = _self.getAngle();
+          double _minus_1 = (_orientation_2 - _angle_2);
           RotateAspect.z(_self, _minus_1);
           double _z_1 = RotateAspect.z(_self);
           boolean _lessEqualsThan = (_z_1 <= 0);
           if (_lessEqualsThan) {
             Ozobot _ozobot_2 = CommandAspect.getOzobot(_self);
             double _orientation_3 = OzobotAspect.orientation(CommandAspect.getOzobot(_self));
-            double _plus_6 = (_orientation_3 + 360);
+            double _plus_2 = (_orientation_3 + 360);
             double _z_2 = RotateAspect.z(_self);
-            double _minus_2 = (_plus_6 - _z_2);
+            double _minus_2 = (_plus_2 - _z_2);
             OzobotAspect.orientation(_ozobot_2, _minus_2);
           } else {
             Ozobot _ozobot_3 = CommandAspect.getOzobot(_self);
             double _orientation_4 = OzobotAspect.orientation(CommandAspect.getOzobot(_self));
-            float _angle_4 = _self.getAngle();
-            double _minus_3 = (_orientation_4 - _angle_4);
+            float _angle_3 = _self.getAngle();
+            double _minus_3 = (_orientation_4 - _angle_3);
             OzobotAspect.orientation(_ozobot_3, _minus_3);
           }
         }
       }
       client.publish(CommandAspect.topic(_self), tmp);
       String _name = _self.getName();
-      String _plus_7 = ("Executed command " + _name);
-      String _plus_8 = (_plus_7 + " on topic: ");
+      String _plus_3 = ("Executed command " + _name);
+      String _plus_4 = (_plus_3 + " on topic: ");
       String _pic = CommandAspect.topic(_self);
-      String _plus_9 = (_plus_8 + _pic);
-      String _plus_10 = (_plus_9 + " with Message: ");
-      String _plus_11 = (_plus_10 + message);
-      InputOutput.<String>println(_plus_11);
+      String _plus_5 = (_plus_4 + _pic);
+      String _plus_6 = (_plus_5 + " with Message: ");
+      String _message = CommandAspect.message(_self);
+      String _plus_7 = (_plus_6 + _message);
+      InputOutput.<String>println(_plus_7);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
+  }
+  
+  private static void super_createMessage(final Rotate _self) {
+    final ozobot.xdsml.ozobotl.aspects.CommandAspectCommandAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.CommandAspectCommandAspectContext.getSelf(_self);
+     ozobot.xdsml.ozobotl.aspects.CommandAspect._privk3_createMessage(_self_, _self);
+  }
+  
+  protected static void _privk3_createMessage(final RotateAspectRotateAspectProperties _self_, final Rotate _self) {
+    Direction _direction = _self.getDirection();
+    String _plus = (("ozobot-rotate" + " ") + _direction);
+    String _plus_1 = (_plus + " ");
+    int _velocity = RotateAspect.velocity(_self);
+    String _plus_2 = (_plus_1 + Integer.valueOf(_velocity));
+    String _plus_3 = (_plus_2 + " ");
+    float _angle = _self.getAngle();
+    String _plus_4 = (_plus_3 + Float.valueOf(_angle));
+    CommandAspect.message(_self, _plus_4);
   }
   
   protected static int _privk3_velocity(final RotateAspectRotateAspectProperties _self_, final Rotate _self) {

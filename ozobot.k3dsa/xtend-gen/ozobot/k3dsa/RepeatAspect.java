@@ -40,6 +40,29 @@ public class RepeatAspect extends CommandAspect {
     } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
   }
   
+  @Step
+  @OverrideAspectMethod
+  public static void createMessage(final Repeat _self) {
+    final ozobot.k3dsa.RepeatAspectRepeatAspectProperties _self_ = ozobot.k3dsa.RepeatAspectRepeatAspectContext.getSelf(_self);
+     if (_self instanceof ozobot.model.Repeat){
+    					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    						@Override
+    						public void execute() {
+    							ozobot.k3dsa.RepeatAspect._privk3_createMessage(_self_, (ozobot.model.Repeat)_self);
+    						}
+    					};
+    					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    					if (stepManager != null) {
+    						stepManager.executeStep(_self,command,"Repeat","createMessage");
+    					} else {
+    						command.execute();
+    					}
+    					;
+    } else  if (_self instanceof ozobot.model.Command){
+    					ozobot.k3dsa.CommandAspect.createMessage((ozobot.model.Command)_self);
+    } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
+  }
+  
   @OverrideAspectMethod
   public static void initialize(final Repeat _self) {
     final ozobot.k3dsa.RepeatAspectRepeatAspectProperties _self_ = ozobot.k3dsa.RepeatAspectRepeatAspectContext.getSelf(_self);
@@ -147,6 +170,17 @@ public class RepeatAspect extends CommandAspect {
     }
     OzobotProgram _program = RepeatAspect.program(_self);
     OzobotProgramAspect.currentCommand(_program, _self);
+  }
+  
+  private static void super_createMessage(final Repeat _self) {
+    final ozobot.k3dsa.CommandAspectCommandAspectProperties _self_ = ozobot.k3dsa.CommandAspectCommandAspectContext.getSelf(_self);
+     ozobot.k3dsa.CommandAspect._privk3_createMessage(_self_, _self);
+  }
+  
+  protected static void _privk3_createMessage(final RepeatAspectRepeatAspectProperties _self_, final Repeat _self) {
+    int _count = _self.getCount();
+    String _plus = ("ozobot-repeat " + Integer.valueOf(_count));
+    CommandAspect.message(_self, _plus);
   }
   
   private static void super_initialize(final Repeat _self) {

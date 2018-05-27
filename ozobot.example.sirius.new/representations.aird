@@ -2,6 +2,7 @@
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:model="http://ozobot.xdsml.ozobotl/model/" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
   <viewpoint:DAnalysis xmi:id="_0f9-IFqREeiYy6CeTxxJrw" selectedViews="_65XwMFqREeiYy6CeTxxJrw" version="12.1.0.201708031200">
     <semanticResources>Ozobot.xmi</semanticResources>
+    <semanticResources>gemoc-gen/execution/execution-20180527_121548/Ozobot.xmi</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="_65XwMFqREeiYy6CeTxxJrw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_7Ct5cFqREeiYy6CeTxxJrw" name="Ozobot" repPath="#_65bakFqREeiYy6CeTxxJrw">
@@ -339,6 +340,19 @@
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_u1VekWGMEeiQ9qad8N-r1Q" fontName="Segoe UI" fontHeight="8"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_u1VekmGMEeiQ9qad8N-r1Q" x="756" y="54" width="183" height="99"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_QtW9YGGXEeiOMNIt3itZTA" type="2003" element="_QhnAYGGXEeiOMNIt3itZTA">
+          <children xmi:type="notation:Node" xmi:id="_QtfgQGGXEeiOMNIt3itZTA" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_QtgHUGGXEeiOMNIt3itZTA" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_Qtm1AGGXEeiOMNIt3itZTA" type="3010" element="_Qhr44GGXEeiOMNIt3itZTA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_Qtm1AWGXEeiOMNIt3itZTA" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Qtm1AmGXEeiOMNIt3itZTA"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_QtgHUWGXEeiOMNIt3itZTA"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_QtgHUmGXEeiOMNIt3itZTA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_QtW9YWGXEeiOMNIt3itZTA" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QtW9YmGXEeiOMNIt3itZTA" x="756" y="174" width="555" height="69"/>
         </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_7Cyx8lqREeiYy6CeTxxJrw"/>
         <edges xmi:type="notation:Edge" xmi:id="_0ZaVsGGNEeiQ9qad8N-r1Q" type="4001" element="_0WiA0GGNEeiQ9qad8N-r1Q" source="_7GipglqREeiYy6CeTxxJrw" target="_Uo6_kGGNEeiQ9qad8N-r1Q">
@@ -1200,6 +1214,25 @@
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_OT4MQmGREeiQ9qad8N-r1Q"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@defaultLayer/@edgeMappings[name='Connector_Commands']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_QhnAYGGXEeiOMNIt3itZTA" name="Ozobot currentCommand">
+      <target xmi:type="model:Ozobot" href="Ozobot.xmi#/"/>
+      <semanticElements xmi:type="model:Ozobot" href="Ozobot.xmi#/"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_QhqDsGGXEeiOMNIt3itZTA" showIcon="false" labelAlignment="LEFT" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@additionalLayers[name='Animation']/@containerMappings[name='Ozobot']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@additionalLayers[name='Animation']/@containerMappings[name='Ozobot']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Qhr44GGXEeiOMNIt3itZTA" name=" Command published: ">
+        <target xmi:type="model:Ozobot" href="Ozobot.xmi#/"/>
+        <semanticElements xmi:type="model:Ozobot" href="Ozobot.xmi#/"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_QhtuEGGXEeiOMNIt3itZTA" labelAlignment="LEFT" labelPosition="node">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@additionalLayers[name='Animation']/@containerMappings[name='Ozobot']/@subNodeMappings[name='currentCommand']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']/@additionalLayers[name='Animation']/@containerMappings[name='Ozobot']/@subNodeMappings[name='currentCommand']"/>
+      </ownedElements>
     </ownedDiagramElements>
     <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']/@ownedRepresentations[name='Ozobot']"/>
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_7BIlRVqREeiYy6CeTxxJrw"/>

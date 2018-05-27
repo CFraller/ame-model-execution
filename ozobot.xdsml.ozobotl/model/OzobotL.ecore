@@ -15,6 +15,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="Command" abstract="true" eSuperTypes="//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" eType="//Transition" eOpposite="//Transition/source"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="incoming" eType="//Transition" eOpposite="//Transition/target"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="message" defaultValueLiteral="init">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Move" eSuperTypes="//Command">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="distance" defaultValueLiteral="0">

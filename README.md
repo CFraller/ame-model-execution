@@ -1,3 +1,5 @@
 # ame-model-execution
 
-Important to get the mqtt server running you first have to import the library org.eclipse.paho.client.mqttv3-1.2.0.jar into the ozobot.k3dsa project. 
+For the MQTT-Broker run:
+
+docker run -ti -p 1883:1883 -p 9001:9001 toke/mosquitto

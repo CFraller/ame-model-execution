@@ -16,13 +16,13 @@ def roundedPi():
 
 def rotate(direction,velocity,angle,targetAngle):
     velocity = velocity/100
-    if(direction == "left" and angle >= 180):
+    if(direction == "Left" and angle >= 180):
         rotateToLeft1(angle,velocity)  
-    if(direction == "left" and angle < 180):
+    if(direction == "Left" and angle < 180):
         rotateToLeft2(angle,velocity,targetAngle) 
-    if(direction == "right" and angle >= 180):
+    if(direction == "Right" and angle >= 180):
         rotateToRight1(angle,velocity)
-    if(direction == "right" and angle < 180):
+    if(direction == "Right" and angle < 180):
         rotateToRight2(angle,velocity,targetAngle)    
 
 def rotateToLeft1(rotationDegree,rotationSpeed):
@@ -114,12 +114,12 @@ def reset(resetDirection):
     if(bge.logic.reset_ozobot):
         bge.logic.rotate_targetAngle = 0
         currentOrientation = round(ozobot.localOrientation.to_euler().z,2)
-        if(resetDirection == "left"):
+        if(resetDirection == "Left"):
             speed = -1*currentOrientation
             if(currentOrientation <= 0.00):
                 ozobot.applyRotation((0, 0, speed), True)
         else:
-            if(resetDirection == "right"):
+            if(resetDirection == "Right"):
                 speed = currentOrientation
             if(currentOrientation >= 0.00):
                 ozobot.applyRotation((0, 0, -speed), True)      

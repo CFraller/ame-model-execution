@@ -78,9 +78,9 @@ def main():
     bge.logic.move_ozobot = False
     bge.logic.rotate_ozobot = False
     bge.logic.reset_ozobot = False
-    bge.logic.reset_direction = "left"
+    bge.logic.reset_direction = "Left"
     bge.logic.rotate_currentOrientation = 0
-    bge.logic.rotate_direction = "left"
+    bge.logic.rotate_direction = "Left"
     bge.logic.rotate_velocity = 0
     bge.logic.rotate_angle = 0
     bge.logic.rotate_targetAngle = 0

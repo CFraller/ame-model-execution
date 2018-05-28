@@ -35,24 +35,11 @@ public class WaitAspect extends CommandAspect {
     } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
   }
   
-  @Step
   @OverrideAspectMethod
   public static void createMessage(final Wait _self) {
     final ozobot.k3dsa.WaitAspectWaitAspectProperties _self_ = ozobot.k3dsa.WaitAspectWaitAspectContext.getSelf(_self);
      if (_self instanceof ozobot.model.Wait){
-    					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
-    						@Override
-    						public void execute() {
-    							ozobot.k3dsa.WaitAspect._privk3_createMessage(_self_, (ozobot.model.Wait)_self);
-    						}
-    					};
-    					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
-    					if (stepManager != null) {
-    						stepManager.executeStep(_self,command,"Wait","createMessage");
-    					} else {
-    						command.execute();
-    					}
-    					;
+    					ozobot.k3dsa.WaitAspect._privk3_createMessage(_self_, (ozobot.model.Wait)_self);
     } else  if (_self instanceof ozobot.model.Command){
     					ozobot.k3dsa.CommandAspect.createMessage((ozobot.model.Command)_self);
     } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };

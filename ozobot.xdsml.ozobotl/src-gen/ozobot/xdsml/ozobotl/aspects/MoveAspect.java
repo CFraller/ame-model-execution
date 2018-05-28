@@ -39,25 +39,11 @@ public class MoveAspect extends CommandAspect {
 	;
 }
   
-  @Step
   @OverrideAspectMethod
   public static void createMessage(final Move _self) {
 	final ozobot.xdsml.ozobotl.aspects.MoveAspectMoveAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.MoveAspectMoveAspectContext
 			.getSelf(_self);
-	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
-		@Override
-		public void execute() {
-			_privk3_createMessage(_self_, _self);
-		}
-	};
-	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry
-			.getInstance().findStepManager(_self);
-	if (manager != null) {
-		manager.executeStep(_self, command, "Move", "createMessage");
-	} else {
-		command.execute();
-	}
-	;
+	_privk3_createMessage(_self_, _self);
 	;
 }
   

@@ -41,24 +41,11 @@ public class RotateAspect extends CommandAspect {
     } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
   }
   
-  @Step
   @OverrideAspectMethod
   public static void createMessage(final Rotate _self) {
     final ozobot.k3dsa.RotateAspectRotateAspectProperties _self_ = ozobot.k3dsa.RotateAspectRotateAspectContext.getSelf(_self);
      if (_self instanceof ozobot.model.Rotate){
-    					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
-    						@Override
-    						public void execute() {
-    							ozobot.k3dsa.RotateAspect._privk3_createMessage(_self_, (ozobot.model.Rotate)_self);
-    						}
-    					};
-    					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
-    					if (stepManager != null) {
-    						stepManager.executeStep(_self,command,"Rotate","createMessage");
-    					} else {
-    						command.execute();
-    					}
-    					;
+    					ozobot.k3dsa.RotateAspect._privk3_createMessage(_self_, (ozobot.model.Rotate)_self);
     } else  if (_self instanceof ozobot.model.Command){
     					ozobot.k3dsa.CommandAspect.createMessage((ozobot.model.Command)_self);
     } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
@@ -94,7 +81,7 @@ public class RotateAspect extends CommandAspect {
       byte[] _bytes = CommandAspect.message(_self).getBytes();
       final MqttMessage tmp = new MqttMessage(_bytes);
       String _string = _self.getDirection().toString();
-      boolean _equals = Objects.equal(_string, "left");
+      boolean _equals = Objects.equal(_string, "Left");
       if (_equals) {
         double _orientation = OzobotAspect.orientation(CommandAspect.getOzobot(_self));
         float _angle = _self.getAngle();
@@ -115,27 +102,33 @@ public class RotateAspect extends CommandAspect {
         }
       } else {
         String _string_1 = _self.getDirection().toString();
-        boolean _equals_1 = Objects.equal(_string_1, "right");
+        boolean _equals_1 = Objects.equal(_string_1, "Right");
         if (_equals_1) {
           double _orientation_2 = OzobotAspect.orientation(CommandAspect.getOzobot(_self));
+          boolean _equals_2 = (_orientation_2 == 0);
+          if (_equals_2) {
+            Ozobot _ozobot_2 = CommandAspect.getOzobot(_self);
+            OzobotAspect.orientation(_ozobot_2, 360);
+          }
+          double _orientation_3 = OzobotAspect.orientation(CommandAspect.getOzobot(_self));
           float _angle_2 = _self.getAngle();
-          double _minus_1 = (_orientation_2 - _angle_2);
+          double _minus_1 = (_orientation_3 - _angle_2);
           RotateAspect.z(_self, _minus_1);
           double _z_1 = RotateAspect.z(_self);
-          boolean _lessEqualsThan = (_z_1 <= 0);
-          if (_lessEqualsThan) {
-            Ozobot _ozobot_2 = CommandAspect.getOzobot(_self);
-            double _orientation_3 = OzobotAspect.orientation(CommandAspect.getOzobot(_self));
-            double _plus_2 = (_orientation_3 + 360);
-            double _z_2 = RotateAspect.z(_self);
-            double _minus_2 = (_plus_2 - _z_2);
-            OzobotAspect.orientation(_ozobot_2, _minus_2);
-          } else {
+          boolean _lessThan = (_z_1 < 0);
+          if (_lessThan) {
             Ozobot _ozobot_3 = CommandAspect.getOzobot(_self);
             double _orientation_4 = OzobotAspect.orientation(CommandAspect.getOzobot(_self));
+            double _plus_2 = (_orientation_4 + 360);
+            double _z_2 = RotateAspect.z(_self);
+            double _minus_2 = (_plus_2 - _z_2);
+            OzobotAspect.orientation(_ozobot_3, _minus_2);
+          } else {
+            Ozobot _ozobot_4 = CommandAspect.getOzobot(_self);
+            double _orientation_5 = OzobotAspect.orientation(CommandAspect.getOzobot(_self));
             float _angle_3 = _self.getAngle();
-            double _minus_3 = (_orientation_4 - _angle_3);
-            OzobotAspect.orientation(_ozobot_3, _minus_3);
+            double _minus_3 = (_orientation_5 - _angle_3);
+            OzobotAspect.orientation(_ozobot_4, _minus_3);
           }
         }
       }

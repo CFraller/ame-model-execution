@@ -49,7 +49,7 @@ class OzobotProgramAspect extends NamedElementAspect {
     			_self.currentCommand = _self.currentCommand.outgoing.target
     			_self.startTime = System.currentTimeMillis();
     			_self.elapsedTime = 0L
-    			while(_self.elapsedTime < 10000) {
+    			while(_self.elapsedTime < 5000) {
     				_self.elapsedTime = (new Date()).getTime() - _self.startTime
     			}
     		}
@@ -99,7 +99,6 @@ abstract class CommandAspect extends NamedElementAspect {
 		}
 	}
 	
-	@Step
 	def public void createMessage() {
 		
 	}
@@ -120,7 +119,6 @@ class MoveAspect extends CommandAspect {
 		println("Executed command "+_self.name +" on topic: "+_self.topic +" with Message: "+_self.message)
 	}
 	
-	@Step
 	@OverrideAspectMethod
 	def public void createMessage() {
 		_self.message = "ozobot-move"+" "+_self.distance+" "+_self.velocity()
@@ -154,7 +152,6 @@ class LightAspect extends CommandAspect {
 		println("Executed command "+_self.name +" on topic: "+_self.topic +" with Message: "+_self.message)	
 	}
 	
-	@Step
 	@OverrideAspectMethod
 	def public void createMessage() {
 		_self.message = _self.color+"Light"
@@ -171,27 +168,31 @@ class RotateAspect extends CommandAspect {
 	def public void executeCommand() {
 		val client = _self.getMQTTClient()
 		val tmp = new MqttMessage(_self.message.bytes)
-		if(_self.direction.toString == 'left') {
+		if(_self.direction.toString == 'Left') {
 			_self.z = _self.getOzobot().orientation + _self.angle - 360
 			if(_self.z >= 0) {
 				_self.getOzobot().orientation =  _self.z
 			} else {
 				_self.getOzobot().orientation = _self.getOzobot().orientation + _self.angle
 			}
-		} else if(_self.direction.toString == 'right') {
+		
+		} else if(_self.direction.toString == 'Right') {
+			if(_self.getOzobot().orientation == 0) {
+				_self.getOzobot().orientation = 360
+			}
 			_self.z = _self.getOzobot().orientation - _self.angle
-			if(_self.z <= 0) {
+			if(_self.z < 0) {
 				_self.getOzobot().orientation = _self.getOzobot().orientation + 360 - _self.z
 			} else {
 				_self.getOzobot().orientation = _self.getOzobot().orientation - _self.angle
-				}
+			}
+		
 		}
 		
 		client.publish(_self.topic,tmp)	
 		println("Executed command "+_self.name +" on topic: "+_self.topic +" with Message: "+_self.message)
 	}
 	
-	@Step
 	@OverrideAspectMethod
 	def public void createMessage() {
 		_self.message = "ozobot-rotate"+" "+_self.direction+" "+_self.velocity()+" "+_self.angle
@@ -229,7 +230,6 @@ class WaitAspect extends CommandAspect {
 		println("Executed command "+_self.name )
 	}
 	
-	@Step
 	@OverrideAspectMethod
 	def public void createMessage() {
     	_self.message = "ozobot-wait "+_self.time
@@ -254,7 +254,7 @@ class RepeatAspect extends CommandAspect {
 				_self.program.currentCommand.executeCommand()
 				_self.startTime = System.currentTimeMillis()
     			_self.elapsedTime = 0L
-    			while(_self.elapsedTime < 10000) {
+    			while(_self.elapsedTime < 5000) {
     				_self.elapsedTime = (new Date()).getTime() - _self.startTime
     			}
     			_self.i=_self.i +1
@@ -265,7 +265,6 @@ class RepeatAspect extends CommandAspect {
 		_self.program.currentCommand = _self
 	}
 	
-	@Step
 	@OverrideAspectMethod
 	def public void createMessage() {
 		_self.message = "ozobot-repeat "+_self.count
@@ -274,6 +273,7 @@ class RepeatAspect extends CommandAspect {
 	@OverrideAspectMethod
 	def public void initialize() {
 		println("Command " + _self.name + " initialized.")
+		_self.createMessage()
 		_self.runtimeCounter = _self.count
 		_self.program = _self.eContainer.eContainer as OzobotProgram
 		_self.block.initialize()
@@ -313,7 +313,6 @@ class OzobotAspect extends NamedElementAspect {
 @Aspect(className=Block)
 class BlockAspect extends NamedElementAspect {
 
-	@Step
 	def public void initialize() {
 		println("Block " + _self.name + " initialized.")
 		_self.commands.forEach [c | c.initialize]

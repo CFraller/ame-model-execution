@@ -58,7 +58,7 @@ public abstract class CommandImpl extends NamedElementImpl implements Command {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String MESSAGE_EDEFAULT = "init";
+	protected static final String MESSAGE_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getMessage() <em>Message</em>}' attribute.

@@ -95,7 +95,7 @@ public class OzobotProgramAspect extends NamedElementAspect {
             OzobotProgramAspect.currentCommand(_self, OzobotProgramAspect.currentCommand(_self).getOutgoing().getTarget());
             OzobotProgramAspect.startTime(_self, System.currentTimeMillis());
             OzobotProgramAspect.elapsedTime(_self, 0L);
-            while ((OzobotProgramAspect.elapsedTime(_self) < 10000)) {
+            while ((OzobotProgramAspect.elapsedTime(_self) < 5000)) {
               long _time = new Date().getTime();
               long _startTime = OzobotProgramAspect.startTime(_self);
               long _minus = (_time - _startTime);

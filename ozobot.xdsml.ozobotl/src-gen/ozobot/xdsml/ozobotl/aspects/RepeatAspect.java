@@ -39,25 +39,11 @@ public class RepeatAspect extends CommandAspect {
 	;
 }
   
-  @Step
   @OverrideAspectMethod
   public static void createMessage(final Repeat _self) {
 	final ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.RepeatAspectRepeatAspectContext
 			.getSelf(_self);
-	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
-		@Override
-		public void execute() {
-			_privk3_createMessage(_self_, _self);
-		}
-	};
-	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry
-			.getInstance().findStepManager(_self);
-	if (manager != null) {
-		manager.executeStep(_self, command, "Repeat", "createMessage");
-	} else {
-		command.execute();
-	}
-	;
+	_privk3_createMessage(_self_, _self);
 	;
 }
   
@@ -145,7 +131,7 @@ public class RepeatAspect extends CommandAspect {
             CommandAspect.executeCommand(OzobotProgramAspect.currentCommand(RepeatAspect.program(_self)));
             RepeatAspect.startTime(_self, System.currentTimeMillis());
             RepeatAspect.elapsedTime(_self, 0L);
-            while ((RepeatAspect.elapsedTime(_self) < 10000)) {
+            while ((RepeatAspect.elapsedTime(_self) < 5000)) {
               long _time = new Date().getTime();
               long _startTime = RepeatAspect.startTime(_self);
               long _minus = (_time - _startTime);
@@ -189,6 +175,7 @@ public class RepeatAspect extends CommandAspect {
     String _plus = ("Command " + _name);
     String _plus_1 = (_plus + " initialized.");
     InputOutput.<String>println(_plus_1);
+    RepeatAspect.createMessage(_self);
     RepeatAspect.runtimeCounter(_self, _self.getCount());
     EObject _eContainer = _self.eContainer().eContainer();
     RepeatAspect.program(_self, ((OzobotProgram) _eContainer));

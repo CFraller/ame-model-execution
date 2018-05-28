@@ -38,24 +38,11 @@ public class LightAspect extends CommandAspect {
     } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
   }
   
-  @Step
   @OverrideAspectMethod
   public static void createMessage(final Light _self) {
     final ozobot.k3dsa.LightAspectLightAspectProperties _self_ = ozobot.k3dsa.LightAspectLightAspectContext.getSelf(_self);
      if (_self instanceof ozobot.model.Light){
-    					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
-    						@Override
-    						public void execute() {
-    							ozobot.k3dsa.LightAspect._privk3_createMessage(_self_, (ozobot.model.Light)_self);
-    						}
-    					};
-    					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
-    					if (stepManager != null) {
-    						stepManager.executeStep(_self,command,"Light","createMessage");
-    					} else {
-    						command.execute();
-    					}
-    					;
+    					ozobot.k3dsa.LightAspect._privk3_createMessage(_self_, (ozobot.model.Light)_self);
     } else  if (_self instanceof ozobot.model.Command){
     					ozobot.k3dsa.CommandAspect.createMessage((ozobot.model.Command)_self);
     } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };

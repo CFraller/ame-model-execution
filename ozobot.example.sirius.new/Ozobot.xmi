@@ -14,7 +14,7 @@
       </commands>
       <commands xsi:type="model:Move" name="Move3" outgoing="//@programs.0/@block/@transitions.3" incoming="//@programs.0/@block/@transitions.2" distance="10" velocity="slow"/>
       <commands xsi:type="model:Rotate" name="Rotate2" outgoing="//@programs.0/@block/@transitions.5" incoming="//@programs.0/@block/@transitions.4" velocity="medium" angle="90.0"/>
-      <commands xsi:type="model:Light" name="Light2" outgoing="//@programs.0/@block/@transitions.4" incoming="//@programs.0/@block/@transitions.3" color="green"/>
+      <commands xsi:type="model:Light" name="Light2" outgoing="//@programs.0/@block/@transitions.4" incoming="//@programs.0/@block/@transitions.3" color="yellow"/>
       <commands xsi:type="model:Repeat" name="Repeat2" outgoing="//@programs.0/@block/@transitions.6" incoming="//@programs.0/@block/@transitions.10" count="2">
         <block name="">
           <commands xsi:type="model:Rotate" name="Rotate3" velocity="medium" angle="90.0"/>

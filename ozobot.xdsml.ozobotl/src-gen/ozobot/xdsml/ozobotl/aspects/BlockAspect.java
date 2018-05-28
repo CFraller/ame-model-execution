@@ -1,7 +1,6 @@
 package ozobot.xdsml.ozobotl.aspects;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
-import fr.inria.diverse.k3.al.annotationprocessor.Step;
 import java.util.function.Consumer;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import ozobot.xdsml.ozobotl.aspects.BlockAspectBlockAspectProperties;
@@ -13,24 +12,10 @@ import ozobot.xdsml.ozobotl.model.Command;
 @Aspect(className = Block.class)
 @SuppressWarnings("all")
 public class BlockAspect extends NamedElementAspect {
-  @Step
   public static void initialize(final Block _self) {
 	final ozobot.xdsml.ozobotl.aspects.BlockAspectBlockAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.BlockAspectBlockAspectContext
 			.getSelf(_self);
-	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
-		@Override
-		public void execute() {
-			_privk3_initialize(_self_, _self);
-		}
-	};
-	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry
-			.getInstance().findStepManager(_self);
-	if (manager != null) {
-		manager.executeStep(_self, command, "Block", "initialize");
-	} else {
-		command.execute();
-	}
-	;
+	_privk3_initialize(_self_, _self);
 	;
 }
   

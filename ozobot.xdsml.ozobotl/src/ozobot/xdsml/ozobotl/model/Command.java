@@ -80,7 +80,7 @@ public interface Command extends NamedElement {
 
 	/**
 	 * Returns the value of the '<em><b>Message</b></em>' attribute.
-	 * The default value is <code>"init"</code>.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Message</em>' attribute isn't clear,
@@ -90,7 +90,7 @@ public interface Command extends NamedElement {
 	 * @return the value of the '<em>Message</em>' attribute.
 	 * @see #setMessage(String)
 	 * @see ozobot.xdsml.ozobotl.model.ModelPackage#getCommand_Message()
-	 * @model default="init"
+	 * @model default=""
 	 * @generated
 	 */
 	String getMessage();

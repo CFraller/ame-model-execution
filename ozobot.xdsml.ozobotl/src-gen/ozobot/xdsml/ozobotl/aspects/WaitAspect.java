@@ -34,25 +34,11 @@ public class WaitAspect extends CommandAspect {
 	;
 }
   
-  @Step
   @OverrideAspectMethod
   public static void createMessage(final Wait _self) {
 	final ozobot.xdsml.ozobotl.aspects.WaitAspectWaitAspectProperties _self_ = ozobot.xdsml.ozobotl.aspects.WaitAspectWaitAspectContext
 			.getSelf(_self);
-	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
-		@Override
-		public void execute() {
-			_privk3_createMessage(_self_, _self);
-		}
-	};
-	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry
-			.getInstance().findStepManager(_self);
-	if (manager != null) {
-		manager.executeStep(_self, command, "Wait", "createMessage");
-	} else {
-		command.execute();
-	}
-	;
+	_privk3_createMessage(_self_, _self);
 	;
 }
   

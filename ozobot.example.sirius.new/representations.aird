@@ -14,6 +14,7 @@
     <semanticResources>gemoc-gen/execution/execution-20180527_124928/Ozobot.xmi</semanticResources>
     <semanticResources>gemoc-gen/execution/execution-20180527_130701/Ozobot.xmi</semanticResources>
     <semanticResources>gemoc-gen/execution/execution-20180527_131639/Ozobot.xmi</semanticResources>
+    <semanticResources>gemoc-gen/execution/execution-20180528_221502/Ozobot.xmi</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="_65XwMFqREeiYy6CeTxxJrw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/ozobot.design/description/ozobot.odesign#//@ownedViewpoints[name='ozobotmodel']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_7Ct5cFqREeiYy6CeTxxJrw" name="Ozobot" repPath="#_65bakFqREeiYy6CeTxxJrw">

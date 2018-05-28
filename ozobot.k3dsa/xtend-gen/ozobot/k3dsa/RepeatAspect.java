@@ -40,24 +40,11 @@ public class RepeatAspect extends CommandAspect {
     } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
   }
   
-  @Step
   @OverrideAspectMethod
   public static void createMessage(final Repeat _self) {
     final ozobot.k3dsa.RepeatAspectRepeatAspectProperties _self_ = ozobot.k3dsa.RepeatAspectRepeatAspectContext.getSelf(_self);
      if (_self instanceof ozobot.model.Repeat){
-    					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
-    						@Override
-    						public void execute() {
-    							ozobot.k3dsa.RepeatAspect._privk3_createMessage(_self_, (ozobot.model.Repeat)_self);
-    						}
-    					};
-    					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
-    					if (stepManager != null) {
-    						stepManager.executeStep(_self,command,"Repeat","createMessage");
-    					} else {
-    						command.execute();
-    					}
-    					;
+    					ozobot.k3dsa.RepeatAspect._privk3_createMessage(_self_, (ozobot.model.Repeat)_self);
     } else  if (_self instanceof ozobot.model.Command){
     					ozobot.k3dsa.CommandAspect.createMessage((ozobot.model.Command)_self);
     } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
@@ -149,7 +136,7 @@ public class RepeatAspect extends CommandAspect {
             CommandAspect.executeCommand(OzobotProgramAspect.currentCommand(RepeatAspect.program(_self)));
             RepeatAspect.startTime(_self, System.currentTimeMillis());
             RepeatAspect.elapsedTime(_self, 0L);
-            while ((RepeatAspect.elapsedTime(_self) < 10000)) {
+            while ((RepeatAspect.elapsedTime(_self) < 5000)) {
               long _time = new Date().getTime();
               long _startTime = RepeatAspect.startTime(_self);
               long _minus = (_time - _startTime);
@@ -193,6 +180,7 @@ public class RepeatAspect extends CommandAspect {
     String _plus = ("Command " + _name);
     String _plus_1 = (_plus + " initialized.");
     InputOutput.<String>println(_plus_1);
+    RepeatAspect.createMessage(_self);
     RepeatAspect.runtimeCounter(_self, _self.getCount());
     EObject _eContainer = _self.eContainer().eContainer();
     RepeatAspect.program(_self, ((OzobotProgram) _eContainer));
